@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import "./Header.css";
-import "./index.css";
-import v1 from "./videos/t2.mp4";
-import v2 from "./videos/t11.mp4";
-import v3 from "./videos/t5.mp4";
-import v4 from "./videos/t9.mp4";
-import v5 from "./videos/t7.mp4";
+import "../styles/Header.css";
+import "../index.css";
+import v1 from "../videos/t2.mp4";
+import v2 from "../videos/t11.mp4";
+import v3 from "../videos/t5.mp4";
+import v4 from "../videos/t9.mp4";
+import v5 from "../videos/t7.mp4";
 
 const Header = () => {
   const slideRef = useRef(null);
@@ -16,21 +16,22 @@ const Header = () => {
 
   useEffect(() => {
     const items = slideRef.current.querySelectorAll(".item");
-    items.forEach((item, index) => {
-      if (index === 1) {
+    items.forEach((item, index) => 
+    {
         const videoElements = item.querySelectorAll("video");
-        videoElements.forEach((video) => video.play());
-      }
-      else 
-      {
-        const videoElements = item.querySelectorAll("video");
-        videoElements.forEach((video) => video.pause());
-      }
+        if (index === 1) {
+            videoElements.forEach((video) => video.play());
+        }
+        else 
+        {
+            videoElements.forEach((video) => video.pause());
+        }
     });
-    // console.log("videoIndex: ", videoIndex);
+
   }, [videoIndex]);
 
-  const handleClickNext = async () => {
+  const handleClickNext = () => 
+  {
     let items = slideRef.current.querySelectorAll(".item");
     slideRef.current.appendChild(items[0]);
     if (videoIndex>3) 
@@ -43,7 +44,8 @@ const Header = () => {
     }
   };
 
-  const handleClickPrev = async () => {
+  const handleClickPrev = () => 
+  {
     let items = slideRef.current.querySelectorAll(".item");
     slideRef.current.prepend(items[items.length - 1]);
     if (videoIndex<1) 
