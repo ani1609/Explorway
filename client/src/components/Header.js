@@ -15,6 +15,30 @@ const Header = () => {
   const [videoIndex, setVideoIndex] = useState(1);
 
   useEffect(() => {
+    const handleScroll = () =>
+    {
+
+      const items = slideRef.current.querySelectorAll(".item");
+      items.forEach((item, index) => 
+      {
+        const videoElements = item.querySelectorAll("video");
+        if (index === 1) 
+        {
+          const yOffset = window.scrollY * 0.5; 
+          videoElements.forEach((video) => {
+            video.style.transform = `translateY(${yOffset}px)`;
+          });
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
     const items = slideRef.current.querySelectorAll(".item");
     items.forEach((item, index) => 
     {
