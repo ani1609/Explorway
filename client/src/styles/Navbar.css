@@ -1,0 +1,150 @@
+.navbar_parent
+{
+    position: fixed;
+    z-index: 10000;
+    width: 100vw;
+    /* background-color: #26A69A; */
+    /* background-color: #F6416C; */
+    height: 60px;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+    box-sizing: border-box;
+
+}
+
+.opaque
+{
+    color: #5D6AA2;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.transparent
+{
+    color: white;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.logo_container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.logo_container img
+{
+    height: 35px;
+    width: 38px;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+}
+
+.logo_container p
+{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+.color, .color p
+{
+    color: var(--primary);
+    transition: 0.5s ease-in-out;
+}
+.color li
+{
+    transition: 0.5s ease-in-out;
+    color: #A89DA9;
+
+}
+
+.white, .white p, .white li
+{
+    color: white;
+    transition: 0.5s ease-in-out;
+}
+
+.navbar_parent ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+    font-weight: 400;
+    font-size: 15px;
+    color: #A89DA9;
+    letter-spacing: 0.2px;
+
+}
+
+.login_signup_container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* .transparent_login, .transparent_signup
+{
+    background-color: transparent;
+    color: #5D6AA2;
+    border: 2px solid white;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 5px 15px;
+    transition: 0.5s ease-in-out;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+.opaque_login, .opaque_signup
+{
+    background-color: white;
+    color: #5D6AA2;
+    border: 2px solid #5D6AA2;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 5px 15px;
+    transition: 0.5s ease-in-out;
+    border-radius: 5px;
+    cursor: pointer
+} */
+
+.login_button
+{
+    background-color: transparent;
+    /* border: 2px solid white; */
+    border: none;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 9px 15px;
+    border-radius: 5px;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+}
+
+.signup_button
+{
+    color: white;
+    background-color: var(--primary);
+    /* border: 2px solid white; */
+    border: none;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 9px 15px;
+    border-radius: 2px;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+}
