@@ -2,6 +2,7 @@
 
 body 
 {
+  --primary: #3267B9;
   height: 1800px;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
