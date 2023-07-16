@@ -6,6 +6,8 @@ import Logo from "../images/logo1.png";
 function Navbar()
 {
   const [navbarScrolled, setNavbarScrolled] = useState(false);
+  const [login, setLogin] = useState(false);
+  const [signup, setSignup] = useState(true);
 
   useEffect(() => 
   {
@@ -26,21 +28,43 @@ function Navbar()
     }
   }, []);
 
+  const handleLoginMouseEnter = () =>
+  {
+    setSignup(false);
+    setLogin(true);
+  };
+
+  const handleLoginMouseLeave = () =>
+  {
+    setLogin(false);
+    setSignup(true);
+  };
+
+  const handleSignupMouseEnter = () =>
+  {
+    // setSignup(true);
+  };
+
+  const handleSignupMouseLeave = () =>
+  {
+    // setSignup(false);
+  };
+
   return (
     <div className={navbarScrolled?"navbar_parent opaque":"navbar_parent transparent"}>
-        <a href="" className={navbarScrolled ? "logo_container color":"logo_container white"}>
+        <a href="" className="logo_container">
           <img src={Logo} alt="logo" className="logo"/>
-          <p>Trekwise</p>
+          <p className={navbarScrolled ? "color":"white"}>Trekwise</p>
         </a>
-        <ul className={navbarScrolled ? "color":"white"}>
-          <li>Home</li>
-          <li>Places</li>
-          <li>Hotels</li>
-          <li>About Us</li>
-          <li>Contact</li>
+        <ul>
+          <li className={navbarScrolled ? "color":"white"}>Home</li>
+          <li className={navbarScrolled ? "color":"white"}>Places</li>
+          <li className={navbarScrolled ? "color":"white"}>Hotels</li>
+          <li className={navbarScrolled ? "color":"white"}>About Us</li>
+          <li className={navbarScrolled ? "color":"white"}>Contact</li>
           <li className="login_signup_container">
-            <button className={navbarScrolled ? "login_button color":"login_button white"}>Login</button>
-            <button className="signup_button">Sign Up</button>
+            <button onMouseEnter={handleLoginMouseEnter} onMouseLeave={handleLoginMouseLeave} className={login ? navbarScrolled ? "login_button login_entered white" : "login_button login_entered white" : navbarScrolled ? "login_button login_left color" : "login_button login_left white"}>Login</button>
+            <button onMouseEnter={handleSignupMouseEnter} onMouseLeave={handleSignupMouseLeave} className={signup ? "signup_button signup_entered" : "signup_button signup_left"}>Sign Up</button>
           </li>
         </ul>
         
