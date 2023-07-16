@@ -18,14 +18,12 @@
 
 .opaque
 {
-    color: #5D6AA2;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .transparent
 {
-    color: white;
     background-color: transparent;
     box-shadow: none;
 }
@@ -54,22 +52,48 @@
     letter-spacing: 1px;
 }
 
-.color, .color p
+.color
 {
-    color: var(--primary);
-    transition: 0.5s ease-in-out;
-}
-.color li
-{
-    transition: 0.5s ease-in-out;
-    color: #A89DA9;
-
+    /* color: var(--primary); */
+    /* transition: 0.5s ease-in-out; */
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    box-shadow: none;
 }
 
-.white, .white p, .white li
+@keyframes fadeIn
 {
-    color: white;
-    transition: 0.5s ease-in-out;
+    from
+    {
+        color: white;
+    }
+    to
+    {
+        color: var(--primary);
+    }
+}
+
+.white
+{
+    /* color: white; */
+    /* transition: 0.5s ease-in-out; */
+    animation-name: fadeOut;
+    animation-duration: 0.5s;
+    filter: drop-shadow(0.1px 0.1px 3px rgba(0, 0, 0, 0.5));
+    animation-fill-mode: both;
+}
+
+@keyframes fadeOut
+{
+    from
+    {
+        color: var(--primary);
+    }
+    to
+    {
+        color: white;
+    }
 }
 
 .navbar_parent ul
@@ -79,13 +103,11 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     align-items: center;
     font-weight: 400;
     font-size: 15px;
-    color: #A89DA9;
     letter-spacing: 0.2px;
-
 }
 
 .login_signup_container
@@ -124,22 +146,52 @@
 
 .login_button
 {
-    background-color: transparent;
-    /* border: 2px solid white; */
     border: none;
     font-weight: 400;
     font-size: 15px;
     padding: 9px 15px;
-    border-radius: 5px;
+    border-radius: 2px;
     letter-spacing: 0.3px;
     cursor: pointer;
 }
 
-.signup_button
+.login_entered
+{
+    background-color: var(--primary);
+    /* color: white; */
+}
+
+.login_left
+{
+    /* color: var(--primary); */
+    background-color: transparent;
+}
+
+.login_color
+{
+    color: var(--primary);
+}
+
+.login_white
 {
     color: white;
+    /* transition: 0.5s ease-in-out; */
+}
+
+.signup_entered
+{
     background-color: var(--primary);
-    /* border: 2px solid white; */
+    color: white;
+}
+
+.signup_left
+{
+    color: var(--primary);
+    background-color: transparent;
+}
+
+.signup_button
+{
     border: none;
     font-weight: 400;
     font-size: 15px;
