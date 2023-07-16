@@ -88,35 +88,35 @@ const Header = () => {
       id: 1,
       videoUrl: v1,
       desc: "Indulge in Ultimate Luxury and Unforgettable Experiences: Discover a Haven of Tranquility at Our Exquisite Resorts. Unwind in Serene Ambiance, Savor World-Class Amenities, and Create Memories that Last a Lifetime.",
-      name: "Experience Dreamy Resorts",
+      name: "Retreat to Paradise: Experience Pure Bliss at Our Exclusive Resorts!",
       url:"",
     },
     {
       id: 2,
       videoUrl: v2,
       desc: "Embark on a Coastal Adventure: Discover Tranquility, Embrace Nature's Beauty, and Immerse Yourself in the Blissful Rhythms of the Ocean at Our Breathtaking Beach Getaways!",
-      name: "Uncover Sun-Kissed Shores",
+      name: "Sunkissed Serenity: Embrace the Beauty of Beach Adventures!",
       url:"amazon.in",
     },
     {
       id: 3,
       videoUrl: v3,
       desc: "Embrace the Vibrant Rhythm of Urban Living: Unveil the Energetic Charms, Endless Possibilities, and Diverse Delights of City Life. Immerse Yourself in the Heartbeat of a Thriving Metropolis.",
-      name: "Immerse in Vibrant Cities",
+      name: "Unveil Urban Wonders: Explore Vibrant Cities, Yours to Conquer!",
       url:"",
     },
     {
       id: 4,
       videoUrl: v4,
       desc: "Revel in the Majestic Beauty of Mountain Escapes: Discover Serenity Amidst Towering Peaks, Pristine Wilderness, and Fresh Mountain Air. Embrace Adventure and Find Tranquility in Nature's Grandeur.",
-      name: "Explore Enchanting Peaks",
+      name: "Reach New Heights: Embrace the Majesty of the Mountains!",
       url:"",
     },
     {
       id: 5,
       videoUrl: v5,
       desc: "Embark on an Enchanting Journey Amidst the Mountains: Where Adventure Beckons and Serenity Awaits. Immerse Yourself in Breathtaking Vistas and Unearth the Magic of Nature's Marvels.",
-      name: "Embrace Majestic Mountains",
+      name: "Discover the Magic of Mountains: Where Adventure Awaits!",
       url:"",
     },
   ];
@@ -133,25 +133,32 @@ const Header = () => {
               autoPlay
               muted
               loop
-              className="bg_video"
             >
             <source src={item.videoUrl} type="video/mp4"/>
             </video>    
             <div className="content">
-              <div className="name">{item.name}</div>
-              <div className="des">{item.desc}</div>
-              <a href={item.url}>See more</a>
+              <button onClick={handleClickPrev}>
+                <FontAwesomeIcon icon={faAngleLeft} />
+              </button>
+        
+              {/* <div> */}
+                <h1>{item.name}</h1>
+                {/* <p>{item.desc}</p> */}
+                {/* <a href={item.url}>See more</a> */}
+              {/* </div> */}
+
+              <button onClick={handleClickNext}>
+                <FontAwesomeIcon icon={faAngleRight} />
+              </button>
             </div>
           </div>
         ))}
       </div>
+
+      <div className=""></div>
+
       <div className="buttons">
-        <button id="prev" onClick={handleClickPrev}>
-          <FontAwesomeIcon icon={faAngleLeft} />
-        </button>
-        <button id="next" onClick={handleClickNext}>
-          <FontAwesomeIcon icon={faAngleRight} />
-        </button>
+        
       </div>
     </div>
   );
