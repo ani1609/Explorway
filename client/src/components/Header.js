@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import "../styles/Header.css";
 import "../index.css";
 import v1 from "../videos/t2.mp4";
@@ -123,42 +125,95 @@ const Header = () => {
 
   return (
     <div className="header_parent">
-      <div id="slide" ref={slideRef}>
-        {data.map((item, index) => (
-          <div
-            key={item.id}
-            className="item"
-          >
-            <video
-              autoPlay
-              muted
-              loop
+      <div className="header_main">
+        <div id="slide" ref={slideRef}>
+          {data.map((item, index) => (
+            <div
+              key={item.id}
+              className="item"
             >
-            <source src={item.videoUrl} type="video/mp4"/>
-            </video>    
-            <div className="content">
-              <button onClick={handleClickPrev}>
-                <FontAwesomeIcon icon={faAngleLeft} />
-              </button>
-        
-              {/* <div> */}
-                <h1>{item.name}</h1>
-                {/* <p>{item.desc}</p> */}
-                {/* <a href={item.url}>See more</a> */}
-              {/* </div> */}
+              <video
+                autoPlay
+                muted
+                loop
+              >
+              <source src={item.videoUrl} type="video/mp4"/>
+              </video>    
+              <div className="content">
+                <button onClick={handleClickPrev}>
+                  <FontAwesomeIcon icon={faAngleLeft} />
+                </button>
+          
+                {/* <div> */}
+                  <h1>{item.name}</h1>
+                  {/* <p>{item.desc}</p> */}
+                  {/* <a href={item.url}>See more</a> */}
+                {/* </div> */}
 
-              <button onClick={handleClickNext}>
-                <FontAwesomeIcon icon={faAngleRight} />
-              </button>
+                <button onClick={handleClickNext}>
+                  <FontAwesomeIcon icon={faAngleRight} />
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className=""></div>
-
-      <div className="buttons">
         
+      </div>
+      <div className="booking_form">
+        <div className="desti">
+          <form>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" list="destinationList" name="destination" autocomplete="off" placeholder="Where do you want to go?"/> 
+            <datalist id="destinationList">
+              <option value="Delhi" />
+              <option value="Mumbai" />
+              <option value="Kolkata" />
+              <option value="Chennai" />
+              <option value="Bangalore" />
+              <option value="Hyderabad" />
+              <option value="Ahmedabad" />
+              <option value="Pune" />
+              <option value="Surat" />
+              <option value="Jaipur" />
+              <option value="Kanpur" />
+              <option value="Lucknow" />
+              <option value="Nagpur" />
+              <option value="Patna" />
+              <option value="Indore" />
+              <option value="Vadodara" />
+              <option value="Bhopal" />
+              <option value="Coimbatore" />
+              <option value="Ludhiana" />
+              <option value="Kochi" />
+              <option value="Visakhapatnam" />
+              <option value="Agra" />
+              <option value="Varanasi" />
+              </datalist>
+          </form>
+        </div>
+
+        <div className="in">
+          <form>
+            <label for="checkin">Check-In:</label>
+            <input type="date" className="checkin" name="checkin" autocomplete="off" placeholder="Check-In"/>
+          </form>
+
+        </div>
+
+        <div className="out">
+          <form>
+            <label for="checkout">Check-Out:</label>
+            <input type="date" className="checkout" name="checkout" autocomplete="off" placeholder="Check-Out"/>
+          </form>
+
+        </div>
+        <div className="book">
+          <form>
+            <button>Book Now</button>
+          </form>
+        </div>
+
       </div>
     </div>
   );
