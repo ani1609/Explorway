@@ -224,12 +224,12 @@ opacity: 0;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 50px 30px 76px 30px;
+    padding: 35px 30px 55px 30px;
     width: 70%;
-    height: 200px;
+    height: 160px;
     background-color: white;
     position: relative;
-    top: -125px;
+    top: -107px;
     z-index: 4;
     /* top: calc(100vh - 100px); */
     border-radius: 5px;
@@ -238,8 +238,9 @@ opacity: 0;
 
 .desti
 {
-    width: 35%;
+    width: 30%;
     text-align: left;
+    position: relative;
 }
 
 .desti form
@@ -247,7 +248,7 @@ opacity: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: 15px;
+    gap: 10px;
 }
 
 .desti form label
@@ -262,7 +263,7 @@ opacity: 0;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 90%;
+    width: 100%;
     outline: none;
     color: #848484;
     border: 1px solid #eee;
@@ -271,6 +272,18 @@ opacity: 0;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    position: relative;
+}
+
+.desti form i
+{
+    position: absolute;
+    right: 5px;
+    top: 72%;
+    transform: translateY(-50%);
+    color: #bdbdbd; 
+    padding: 10px;
+    background-color: white;
 }
 
 .desti form input::placeholder
@@ -278,6 +291,8 @@ opacity: 0;
     color: #848484;
     font-family: 'Roboto', sans-serif;
 }
+
+
 
 .desti form input:focus
 {
@@ -294,7 +309,7 @@ opacity: 0;
 {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     margin: 0 auto;
 }
 
@@ -330,6 +345,9 @@ input[type="date"]::-webkit-calendar-picker-indicator
     /* display: none; */
     opacity: 0;
     font-size: 20px;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
 }
   
 input[type="date"]::-moz-calendar-picker-indicator 
@@ -337,6 +355,9 @@ input[type="date"]::-moz-calendar-picker-indicator
     /* display: none; */
     opacity: 0;
     font-size: 20px;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
 }
 
 
@@ -350,7 +371,6 @@ input[type="date"]::after
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-    pointer-events: none;
 }
   
 input[type="date"]:focus 

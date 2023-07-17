@@ -165,6 +165,7 @@ const Header = () => {
           <form>
             <label for="destination">Destination:</label>
             <input type="text" id="destination" list="destinationList" name="destination" autocomplete="off" placeholder="Where do you want to go?"/> 
+              <i className="fas fa-map-marker-alt"></i>
             <datalist id="destinationList">
               <option value="Delhi" />
               <option value="Mumbai" />
