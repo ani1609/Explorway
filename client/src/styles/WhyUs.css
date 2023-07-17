@@ -30,7 +30,7 @@
 {
     color: var(--primary);
     font-size: 25px;
-    background-color: #ffe3ea;
+    background-color: #ffecf0;
     width: 60px;
     height: 60px;
     display: flex;
@@ -138,7 +138,7 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
     text-align: left;
-    color: var(--para);
+    color: var(--primary);
     letter-spacing: 0.5px;
     font-size: 13px;
 }
