@@ -225,7 +225,7 @@ opacity: 0;
     justify-content: space-between;
     align-items: baseline;
     padding: 35px 30px 55px 30px;
-    width: 70%;
+    width: calc(75% + 50px);
     height: 160px;
     background-color: white;
     position: relative;
@@ -253,8 +253,9 @@ opacity: 0;
 
 .desti form label
 {
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     font-size: 15px;
+    color: var(--heading);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -265,7 +266,7 @@ opacity: 0;
     -moz-appearance: none;
     width: 100%;
     outline: none;
-    color: #848484;
+    color: var(--para);
     border: 1px solid #eee;
     font-size: 15px;
     border-radius: 4px;
@@ -288,7 +289,7 @@ opacity: 0;
 
 .desti form input::placeholder
 {
-    color: #848484;
+    color: var(--para);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -315,7 +316,8 @@ opacity: 0;
 
 .in form label, .out form label
 {
-    letter-spacing: 1px;
+    color: var(--heading);
+    letter-spacing: 0.5px;
     font-size: 15px;
     font-family: 'Roboto', sans-serif;
 }
@@ -330,7 +332,7 @@ opacity: 0;
 input[type="date"] 
 {
     box-sizing: border-box;
-    color: #848484;
+    color: var(--para);
     padding: 7px;
     border: 1px solid #eee;
     border-radius: 4px;
