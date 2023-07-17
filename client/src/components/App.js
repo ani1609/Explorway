@@ -3,6 +3,7 @@ import '../styles/App.css';
 import Navbar from './Navbar';
 import Header from './Header';
 import WhyUs from './WhyUs';
+import Footer from './Footer';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -13,7 +14,8 @@ function App() {
     <div className="App">
         <Navbar/>
         <Header/>
-        <WhyUs/>
+        {/* <WhyUs/> */}
+        {/* <Footer/> */}
     </div>
   );
 }
