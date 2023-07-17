@@ -1,0 +1,148 @@
+.whyus_parent
+{
+    height: 100vh;
+    width: 100vw;
+    min-height: 789px;
+    min-width: 1440px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+}
+
+.why_topics 
+{
+    width: 37.5%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 35px;
+    align-items: center;
+}
+  
+
+.why_topics div 
+{
+    padding: 20px 30px;
+    height: 70%;
+    width: 100%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: white;
+    /* border-radius: 5px; */
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.why_topics div i
+{
+    color: var(--primary);
+    font-size: 40px;
+
+}
+
+
+.why_topics p
+{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: var(--para);
+    letter-spacing: 0.5px;
+    font-size: 13px;
+
+}
+
+.why_topics h4
+{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    color: var(--heading);
+    text-align: center;
+}
+
+.why_topic_1
+{
+    position: relative;
+    bottom: -90px;
+}
+
+.why_topic_2
+{
+    position: relative;
+    bottom: -20px;
+}
+
+.why_topic_2 i
+{
+    transform: rotate(37deg);
+
+}
+
+
+.why_topic_3
+{
+    position: relative;
+    top: -20px;
+}
+
+.why_topic_4
+{
+    position: relative;
+    top: -90px;
+}
+
+
+
+.why_desc
+{
+    padding: 40px;
+    width: 37.5%;
+    height: 100%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.why_desc h2
+{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--heading);
+    letter-spacing: 0.5px;
+}
+
+.why_desc p
+{
+    color: var(--para);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+}
+
+.why_desc a
+{
+    text-decoration: none;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}

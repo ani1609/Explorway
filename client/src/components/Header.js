@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import "../styles/Header.css";
 import "../index.css";
@@ -165,6 +164,7 @@ const Header = () => {
           <form>
             <label for="destination">Destination:</label>
             <input type="text" id="destination" list="destinationList" name="destination" autocomplete="off" placeholder="Where do you want to go?"/> 
+              <i className="fas fa-map-marker-alt"></i>
             <datalist id="destinationList">
               <option value="Delhi" />
               <option value="Mumbai" />
