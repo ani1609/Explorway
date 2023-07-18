@@ -1,6 +1,7 @@
 require('dotenv').config();
 const connectDb = require('./configDb/db');
 const signupCotroller = require('./controllers/signup');
+const loginCotroller = require('./controllers/login');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -25,6 +26,7 @@ connectDb();
 // });
 
 app.post('/api/users/signup', signupCotroller);
+app.post('/api/users/login', loginCotroller);
 
 app.listen(port, () => 
 {

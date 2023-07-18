@@ -3,10 +3,10 @@ import "../styles/Navbar.css";
 import "../index.css";
 import Logo from "../images/logo1.png";
 import axios from "axios";
-import { set } from "mongoose";
 
 function Navbar()
 {
+  const user = JSON.parse(localStorage.getItem('user'));
   const [navbarScrolled, setNavbarScrolled] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(true);
@@ -28,13 +28,32 @@ function Navbar()
     c_password: "",
   });
 
+  const decodeToken = (token) => {
+    const decodedToken = JSON.parse(atob(token.split('.')[1]));
+    return decodedToken;
+  };
+
+
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    try {
+    try
+    {
       const response = await axios.post("http://localhost:3000/api/users/login", loginData);
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error during login:", error);
+      // console.log("user ",response.data);
+      localStorage.setItem('user', JSON.stringify(response.data));
+      console.log("user in local storage",user);
+      console.log("user in local storage",user.data.name);
+      console.log("user in local storage",user.data.email);
+      setInvalidEmail(false);
+    } catch (error) 
+    {
+      if (error.response.status === 401)
+      {
+        setInvalidEmail(true);
+        console.error(error.response.data.message);
+        return;
+      }
+      console.error(error.response.data.message);
     }
   };
 
@@ -47,10 +66,15 @@ function Navbar()
       console.log("Passwords do not match");
       return;
     }
-    try {
+    try 
+    {
       const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
       setUserExists(false);
-      console.log(response.data.message);
+      // console.log(response.data);
+      localStorage.setItem('user', JSON.stringify(response.data));
+      console.log("user in local storageeee",user);
+      console.log("user in local storageeeee",user.data.name);
+      console.log("user in local storageeee",user.data.email);
     } catch (error) 
     {
       if (error.response.status === 409)
@@ -150,11 +174,12 @@ function Navbar()
             <h1>Welcome Back</h1>
             <form onSubmit={handleLoginSubmit}>
               <input 
-                type="text" 
+                type="email" 
                 placeholder="Email" 
                 className="email"
                 value={loginData.email}
                 onChange={(e) => setLoginData({...loginData, email: e.target.value})}
+                required
               />
               <input 
                 type="password" 
@@ -162,6 +187,7 @@ function Navbar()
                 className="password"
                 value={loginData.password}
                 onChange={(e) => setLoginData({...loginData, password: e.target.value})}
+                required
               />
               <p>
                 Don't have an acoount?&nbsp;
