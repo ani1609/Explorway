@@ -162,8 +162,8 @@ const Header = () => {
       <div className="booking_form">
         <div className="desti">
           <form>
-            <label for="destination">Destination:</label>
-            <input type="text" id="destination" list="destinationList" name="destination" autocomplete="off" placeholder="Where do you want to go?"/> 
+            <label htmlFor="destination">Destination:</label>
+            <input type="text" id="destination" list="destinationList" name="destination" autoComplete="off" placeholder="Where do you want to go?"/> 
               <i className="fas fa-map-marker-alt"></i>
             <datalist id="destinationList">
               <option value="Delhi" />
@@ -195,16 +195,16 @@ const Header = () => {
 
         <div className="in">
           <form>
-            <label for="checkin">Check-In:</label>
-            <input type="date" className="checkin" name="checkin" autocomplete="off" placeholder="Check-In"/>
+            <label htmlFor="checkin">Check-In:</label>
+            <input type="date" className="checkin" name="checkin" autoComplete="off" placeholder="Check-In"/>
           </form>
 
         </div>
 
         <div className="out">
           <form>
-            <label for="checkout">Check-Out:</label>
-            <input type="date" className="checkout" name="checkout" autocomplete="off" placeholder="Check-Out"/>
+            <label htmlFor="checkout">Check-Out:</label>
+            <input type="date" className="checkout" name="checkout" autoComplete="off" placeholder="Check-Out"/>
           </form>
 
         </div>

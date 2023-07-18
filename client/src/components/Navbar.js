@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import "../index.css";
 import Logo from "../images/logo1.png";
+import axios from "axios";
+import { set } from "mongoose";
 
 function Navbar()
 {
@@ -10,6 +12,56 @@ function Navbar()
   const [signup, setSignup] = useState(true);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showSignupForm, setShowSignupForm] = useState(false);
+  const [userExists, setUserExists] = useState(false);
+  const [passwordUnmatched, setPasswordUnmatched] = useState(false);
+  const [invalidEmail, setInvalidEmail] = useState(false);
+
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [signupData, setSignupData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    c_password: "",
+  });
+
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3000/api/users/login", loginData);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
+
+  const handleSignupSubmit = async (e) => 
+  {
+    e.preventDefault();
+    if (signupData.password !== signupData.c_password)
+    {
+      setPasswordUnmatched(true);
+      console.log("Passwords do not match");
+      return;
+    }
+    try {
+      const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
+      setUserExists(false);
+      console.log(response.data.message);
+    } catch (error) 
+    {
+      if (error.response.status === 409)
+      {
+        setUserExists(true);
+        console.error(error.response.data.message);
+        return;
+      }
+      console.error(error.response.data.message);
+    }
+  };
 
   useEffect(() => 
   {
@@ -96,9 +148,21 @@ function Navbar()
               <p>Trekwise</p>
             </a>
             <h1>Welcome Back</h1>
-            <form>
-              <input type="text" placeholder="Email" className="email"/>
-              <input type="password" placeholder="Password" className="password"/>
+            <form onSubmit={handleLoginSubmit}>
+              <input 
+                type="text" 
+                placeholder="Email" 
+                className="email"
+                value={loginData.email}
+                onChange={(e) => setLoginData({...loginData, email: e.target.value})}
+              />
+              <input 
+                type="password" 
+                placeholder="Password" 
+                className="password"
+                value={loginData.password}
+                onChange={(e) => setLoginData({...loginData, password: e.target.value})}
+              />
               <p>
                 Don't have an acoount?&nbsp;
                 <a href="" 
@@ -116,12 +180,39 @@ function Navbar()
               <p>Trekwise</p>
             </a>
             <h1>Join Us</h1>
-            <form>
-              <input type="text" placeholder="Name" className="name"/>
-              <input type="text" placeholder="Email" className="email"/>
-              <input type="password" placeholder="Password" className="password"/>
-              <input type="password" placeholder="Confirm Password" className="c_password"/>
-              <input type="password" placeholder="Password" className="password"/>
+            <form onSubmit={handleSignupSubmit}>
+              <input 
+                type="text" 
+                placeholder="Name" 
+                className="name"
+                value={signupData.name}
+                onChange={(e) => setSignupData({...signupData, name: e.target.value})}
+                required
+              />
+              <input 
+                type="email" 
+                placeholder="Email" 
+                className="email"
+                value={signupData.email}
+                onChange={(e) => setSignupData({...signupData, email: e.target.value})}
+                required
+              />
+              <input 
+                type="password" 
+                placeholder="Password" 
+                className="password"
+                value={signupData.password}
+                onChange={(e) => setSignupData({...signupData, password: e.target.value})}
+                required
+              />
+              <input 
+                type="password" 
+                placeholder="Confirm Password" 
+                className="c_password"
+                value={signupData.c_password}
+                onChange={(e) => setSignupData({...signupData, c_password: e.target.value})}
+                required
+              />
               <p>
                 Already have an account?&nbsp;
                 <a href="" 
