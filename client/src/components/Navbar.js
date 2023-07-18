@@ -47,21 +47,15 @@ function Navbar()
   };
 
   useEffect(() => {
-    // Function to toggle the body's scrollability
     const toggleBodyScroll = (scrollable) => {
       document.body.style.overflow = scrollable ? "auto" : "hidden";
     };
 
-    // ... (existing useEffect code)
-
-    // Call the function to disable scrolling when either form is visible
     if (showLoginForm || showSignupForm) {
       toggleBodyScroll(false);
     } else {
       toggleBodyScroll(true);
     }
-
-    // ... (existing useEffect code)
 
   }, [showLoginForm, showSignupForm]);
   
@@ -70,7 +64,7 @@ function Navbar()
     <div className={navbarScrolled?"navbar_parent opaque":"navbar_parent transparent"}>
         <a href="" className="logo_container">
           <img src={Logo} alt="logo" className="logo"/>
-          <p className={navbarScrolled ? "color":"white"}>Trekwise</p>
+          <p className={navbarScrolled ? "color":"color"}>Trekwise</p>
         </a>
         <ul>
           <li className={navbarScrolled ? "color":"white"}>Home</li>
@@ -97,6 +91,10 @@ function Navbar()
 
         {showLoginForm || showSignupForm ? (<div className="login_form_container" onClick={() => {setShowLoginForm(false);setShowSignupForm(false)}}>
           {showLoginForm && <div className="login_form" onClick={handleFormClick}>
+            <a href="" className="logo_container_form">
+              <img src={Logo} alt="logo"/>
+              <p>Trekwise</p>
+            </a>
             <h1>Welcome Back</h1>
             <form>
               <input type="text" placeholder="Email" className="email"/>
@@ -113,6 +111,10 @@ function Navbar()
             </form>
           </div>}
           {showSignupForm && <div className="signup_form" onClick={handleFormClick}>
+            <a href="" className="logo_container_form">
+              <img src={Logo} alt="logo"/>
+              <p>Trekwise</p>
+            </a>
             <h1>Join Us</h1>
             <form>
               <input type="text" placeholder="Name" className="name"/>
@@ -127,7 +129,7 @@ function Navbar()
                 >
                   Log in
                 </a></p>
-              <button className="form_login_button">Login</button>
+              <button className="form_login_button">Sign Up</button>
             </form>
           </div>}
         </div>):null}
