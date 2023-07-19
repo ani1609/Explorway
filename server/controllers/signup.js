@@ -18,7 +18,7 @@ const signup = async (req, res) =>
     const newUser = await new User({ ...req.body, password: hashedPassword }).save();
 
     const token = jwt.sign({ email: newUser.email }, SECRET_KEY, { expiresIn: '1h' });
-
+    console.log("new user", newUser);
     res.status(201).send({data:newUser});
 
   } catch (error) {

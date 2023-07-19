@@ -6,7 +6,6 @@ import axios from "axios";
 
 function Navbar()
 {
-  const user = JSON.parse(localStorage.getItem('user'));
   const [navbarScrolled, setNavbarScrolled] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(true);
@@ -33,11 +32,14 @@ function Navbar()
     try
     {
       const response = await axios.post("http://localhost:3000/api/users/login", loginData);
-      // console.log("user ",response.data);
-      localStorage.setItem('user', JSON.stringify(response.data));
-      console.log("user in local storage",user);
-      console.log("user in local storage",user.data.name);
-      console.log("user in local storage",user.data.email);
+      localStorage.clear();
+      localStorage.setItem('user', JSON.stringify(response.data.data));
+      const storedUserData = localStorage.getItem('user');
+      const user = JSON.parse(storedUserData);
+      
+      console.log("User data stored in localStorage:", user);
+      console.log("User name stored in localStorage:", user.name);
+      console.log("User email stored in localStorage:", user.email);
       setInvalidEmail(false);
     } catch (error) 
     {
@@ -63,12 +65,18 @@ function Navbar()
     try 
     {
       const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
+
+      localStorage.setItem('user', JSON.stringify(response.data.data));
+      const storedUserData = localStorage.getItem('user');
+      const user = JSON.parse(storedUserData);
+      
+      console.log("User data stored in localStorage:", user);
+      console.log("User name stored in localStorage:", user.name);
+      console.log("User email stored in localStorage:", user.email);
+
+      localStorage.clear();
+
       setUserExists(false);
-      // console.log(response.data);
-      localStorage.setItem('user', JSON.stringify(response.data));
-      console.log("user in local storageeee",user);
-      console.log("user in local storageeeee",user.data.name);
-      console.log("user in local storageeee",user.data.email);
     } catch (error) 
     {
       if (error.response.status === 409)
