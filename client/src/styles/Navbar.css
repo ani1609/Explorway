@@ -445,3 +445,61 @@
     letter-spacing: 1px;
     color: var(--primary);
 }
+
+.profile
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.profile h4
+{
+    margin: 0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--bg1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--heading);
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.profile i
+{
+    color: var(--heading);
+}
+
+.profile_dropdown
+{
+    position: absolute;
+    top: 52px;
+    right: 48px;
+    border-radius: 4px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.profile_dropdown p
+{
+    margin: 0;
+    padding: 10px 17px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--para);
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: white;
+}
+
+.profile_dropdown p:hover
+{
+    background-color: #dadada;
+}

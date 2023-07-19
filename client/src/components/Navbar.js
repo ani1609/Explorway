@@ -14,6 +14,7 @@ function Navbar()
   const [userExists, setUserExists] = useState(false);
   const [passwordUnmatched, setPasswordUnmatched] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   const [loginData, setLoginData] = useState({
     email: "",
@@ -34,12 +35,7 @@ function Navbar()
       const response = await axios.post("http://localhost:3000/api/users/login", loginData);
       localStorage.clear();
       localStorage.setItem('user', JSON.stringify(response.data.data));
-      const storedUserData = localStorage.getItem('user');
-      const user = JSON.parse(storedUserData);
-      
-      console.log("User data stored in localStorage:", user);
-      console.log("User name stored in localStorage:", user.name);
-      console.log("User email stored in localStorage:", user.email);
+      window.location.reload();
       setInvalidEmail(false);
     } catch (error) 
     {
@@ -65,17 +61,8 @@ function Navbar()
     try 
     {
       const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
-
       localStorage.setItem('user', JSON.stringify(response.data.data));
-      const storedUserData = localStorage.getItem('user');
-      const user = JSON.parse(storedUserData);
-      
-      console.log("User data stored in localStorage:", user);
-      console.log("User name stored in localStorage:", user.name);
-      console.log("User email stored in localStorage:", user.email);
-
-      localStorage.clear();
-
+      window.location.reload();
       setUserExists(false);
     } catch (error) 
     {
@@ -136,7 +123,16 @@ function Navbar()
     }
 
   }, [showLoginForm, showSignupForm]);
-  
+
+
+  const storedUserData = localStorage.getItem('user');
+  const user = JSON.parse(storedUserData);
+  console.log("user", user);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setShowProfile(false);
+  };
 
   return (
     <div className={navbarScrolled?"navbar_parent opaque":"navbar_parent transparent"}>
@@ -150,7 +146,7 @@ function Navbar()
           <li className={navbarScrolled ? "color":"white"}>Hotels</li>
           <li className={navbarScrolled ? "color":"white"}>About Us</li>
           <li className={navbarScrolled ? "color":"white"}>Contact</li>
-          <li className="login_signup_container">
+          {!user && <li className="login_signup_container">
             <button
               onClick={() => setShowLoginForm(true)}
               onMouseEnter={handleLoginMouseEnter}
@@ -164,7 +160,16 @@ function Navbar()
               className={signup ? "signup_button signup_entered" : "signup_button signup_left"}
               >Sign Up
             </button>
-          </li>
+          </li>}
+          {user &&  <li className="profile" onClick={() => setShowProfile(!showProfile)}>
+                {user.profilePic && <img src={user.profilePic} alt="profile" className="profile_pic"/>}
+                {!user.profilePic && <h4>{user.name.charAt(0)}</h4>}
+                <i class="fa-solid fa-angle-down"></i>
+                {showProfile && <div className="profile_dropdown">
+                  <p>Profile</p>
+                  <p onClick={handleLogout}>Log Out</p>
+                </div>}
+            </li>}
         </ul>
 
         {showLoginForm || showSignupForm ? (<div className="login_form_container" onClick={() => {setShowLoginForm(false);setShowSignupForm(false)}}>
