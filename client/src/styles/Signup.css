@@ -1,4 +1,4 @@
-.login_parent
+.signup_parent
 {
     height: 100vh;
     width: 100vw;
@@ -9,11 +9,11 @@
     min-height: 789px;
 }
 
-.login_content
+.signup_content
 {
     border-radius: 10px;
     overflow: hidden;
-    height: 70vh;
+    height: 80vh;
     width: 65vw;
     background-color: white;
     display: flex;
@@ -21,7 +21,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
 
-.l_left
+.s_left
 {
     height: 100%;
     width: 50%;
@@ -64,7 +64,7 @@
     color: var(--primary);
 }
 
-.l_left form
+.s_left form
 {
     display: flex;
     flex-direction: column;
@@ -75,7 +75,7 @@
     gap: 20px;
 }
 
-.l_left h1
+.s_left h1
 {
     font-size: 35px;
     margin: 0;
@@ -85,7 +85,7 @@
     color: var(--primary);
 }
 
-.l_left form input 
+.s_left form input 
 {
     width: 100%;
     outline: none;
@@ -98,7 +98,7 @@
     box-sizing: border-box;
 }
 
-.l_left form input::placeholder
+.s_left form input::placeholder
 {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -106,13 +106,13 @@
     letter-spacing: 0.5px;
 }
 
-.l_left form input:focus
+.s_left form input:focus
 {
     box-shadow: 0 0 3px #55a0f0;
 
 }
 
-.l_left form p
+.s_left form p
 {
     width: 70%;
     text-align: left;
@@ -123,7 +123,7 @@
     width: 100%;
 }
 
-.l_left form p a
+.s_left form p a
 {
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
@@ -132,15 +132,15 @@
     color: var(--primary);
 }
 
-.l_left form p a:hover
+.s_left form p a:hover
 {
     text-decoration: underline;
 }
 
-.l_left form button
+.s_left form button
 {
     margin-top: 15px;
-    width: 100px;
+    width: 120px;
     height: 40px;
     border: none;
     outline: none;
@@ -155,12 +155,12 @@
     transition: 0.3s;
 }
 
-.l_left form button:hover
+.s_left form button:hover
 {
     background-color: #c94a68;
 }
 
-.l_right
+.s_right
 {
     height: 100%;
     width: 50%;
@@ -169,7 +169,7 @@
     align-items: center;
 }
 
-.l_right img
+.s_right img
 {
     height: 80%;
     width: 100%;
