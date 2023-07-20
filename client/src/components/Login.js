@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css';
 import '../styles/Login.css';
 import Logo from "../images/logof.png";
-import Bg from '../images/loginbg2.png';
+import Bg from '../images/boy2.png';
 
 function Login()
 {
@@ -16,7 +16,7 @@ function Login()
                     </a>
                     <h1>Welcome Back</h1>
                     <form>
-                        <input type='text' placeholder='Email'/>
+                        <input type='email' placeholder='Email'/>
                         <input type='password' placeholder='Password'/>
                         <p>Don't have an account?<a href=''>Get one</a></p>
                         <button type='submit'>Login</button>
