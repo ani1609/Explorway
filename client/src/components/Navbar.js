@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import "../index.css";
-import Logo from "../images/logo1.png";
+import Logo from "../images/logof.png";
 import axios from "axios";
 
 function Navbar()
