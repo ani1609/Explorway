@@ -14,11 +14,11 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 function App() {
   return (
     <div className="App">
-        <Navbar/>
-        {/* <Login/> */}
+        {/* <Navbar/> */}
+        <Login/>
         {/* <Signup/> */}
-        <Header/>
-        <WhyUs/>
+        {/* <Header/> */}
+        {/* <WhyUs/> */}
         {/* <Footer/> */}
     </div>
   );
