@@ -1,0 +1,157 @@
+.carditem_parent 
+{
+    height: 320px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 8px #F4F3F6;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.place
+{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.high-w
+{
+    padding: 10px;
+    animation-name: height100;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes height100
+{
+    from
+    {
+        height: calc(85% + 10px);
+    }
+    to
+    {
+        height: 100%;
+    }
+}
+
+.low-w
+{
+    padding: 10px 10px 0px 10px;
+    animation-name: height85;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes height85
+{
+    from
+    {
+        height: calc(100% - 10px);
+    }
+    to
+    {
+        height: 85%;
+    }
+}
+
+
+.carditem_parent img
+{
+    width: 100%;
+    border-radius: 5px;
+    height: 150px;
+}
+
+.carditem_parent h3
+{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    letter-spacing: 0.5px;
+    color: var(--heading);
+}
+
+.carditem_parent p
+{
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: var(--para);
+}
+
+.location_price
+{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    align-items: center;
+}
+
+.location
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.location i, .price i
+{
+    color: var(--primary);
+}
+
+.location span, .price span
+{
+    font-size: 13px;
+    color: var(--para);
+}
+
+.price
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.carditem_parent button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 15.5px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    width: 100%;
+    border: 0;
+    color: white;
+    background-color: var(--primary);
+    animation-name: buttonWidth;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+
+@keyframes buttonWidth
+{
+    from
+    {
+        height: 0px;
+    }
+    to
+    {
+        height: 35px;
+    }
+}
+
