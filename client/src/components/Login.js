@@ -9,18 +9,45 @@ import Bg from '../images/boy2.png';
 function Login()
 {
     const [invalidEmail, setInvalidEmail] = useState(false);
+    const [token, setToken] = useState("");
 
     const [loginData, setLoginData] = useState({
         email: "",
         password: "",
     });
-    const handleLoginSubmit = async (e) => {
+
+    const fetchDataFromProtectedAPI = async (userToken) => 
+    {
+        console.log("user token is ",userToken);
+        try 
+        {
+            const config = {
+                headers: {
+                  Authorization: `Bearer ${userToken}`,
+                },
+            };
+      
+            const response = await axios.get("http://localhost:3000/api/user", config);
+      
+            console.log("Data from protected API:", response.data);
+        } 
+        catch (error) 
+        {
+          console.error("Error fetching data:", error);
+        }
+    };
+
+      
+    const handleLoginSubmit = async (e) => 
+    {
         e.preventDefault();
         try
         {
             const response = await axios.post("http://localhost:3000/api/users/login", loginData);
+            console.log("Front----",response.data.user);
+            setToken(response.data.token);
+            await fetchDataFromProtectedAPI(response.data.token);
             setInvalidEmail(false);
-            console.log("Login successful!", response.data.user);
         }
         catch(error)
         {

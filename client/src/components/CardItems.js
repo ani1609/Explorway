@@ -7,7 +7,7 @@ function CardItems(props)
 {
     const [showPlantrip, setShowPlanTrip] = useState(false);
 
-    const {img, place, description, location, price}=props.destination;
+    const {img, place, description, location, price, url}=props.destination;
     return(
         <div className='carditem_parent'
             onMouseEnter={() => setShowPlanTrip(true)}

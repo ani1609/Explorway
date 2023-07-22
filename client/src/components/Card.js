@@ -22,6 +22,7 @@ function Card()
             description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
             location: "Singapore",
             price: 79999,
+            url: "",
             id: 1
         },
         {
@@ -30,6 +31,7 @@ function Card()
             description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
             location: "New Zealand",
             price: 69999,
+            url: "",
             id: 2
         },
         {
@@ -38,6 +40,7 @@ function Card()
             description: "Lorem ipsum may be used as a placeholder before final copy is availble to be put in.",
             location: "Arazona, USA",
             price: 49999,
+            url: "",
             id: 3
         },
         {
@@ -46,6 +49,7 @@ function Card()
             description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
             location: "Switzerland",
             price: 89999,
+            url: "",
             id: 4
         },
         {
@@ -54,6 +58,7 @@ function Card()
             description: "Lorem ipsum may be used as a placeholder before final copy is availble to be put in.",
             location: "Paris, France",
             price: 29999,
+            url: "",
             id: 5
         },
         {
@@ -62,6 +67,7 @@ function Card()
             description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
             location: "Rome, Italy",
             price:39999,
+            url: "",
             id: 6
         },
         {
@@ -70,6 +76,7 @@ function Card()
             description: "Lorem ipsum may be used as a placeholder before final copy is availble to be put in.",
             location: "London, UK",
             price: 59999,
+            url: "",
             id: 7
         },
         {
@@ -78,6 +85,7 @@ function Card()
             description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
             location: "Dubai, UAE",
             price: 99999,
+            url: "",
             id: 8
         }
     ];

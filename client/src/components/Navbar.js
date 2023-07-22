@@ -33,9 +33,6 @@ function Navbar()
     try
     {
       const response = await axios.post("http://localhost:3000/api/users/login", loginData);
-      localStorage.clear();
-      localStorage.setItem('user', JSON.stringify(response.data.data));
-      window.location.reload();
       setInvalidEmail(false);
     } catch (error) 
     {
@@ -61,8 +58,6 @@ function Navbar()
     try 
     {
       const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
-      localStorage.setItem('user', JSON.stringify(response.data.data));
-      window.location.reload();
       setUserExists(false);
     } catch (error) 
     {
@@ -125,9 +120,11 @@ function Navbar()
   }, [showLoginForm, showSignupForm]);
 
 
-  const storedUserData = localStorage.getItem('user');
-  const user = JSON.parse(storedUserData);
-  console.log("user", user);
+  const user ={
+    name: "Siddharth",
+    profilePic: "",
+    email: "ankit@gmail.com"
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('user');
