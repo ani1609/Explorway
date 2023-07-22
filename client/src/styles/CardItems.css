@@ -1,17 +1,16 @@
 .carditem_parent 
 {
-    height: 320px;
+    height: 330px;
     width: 100%;
     overflow: hidden;
     border-radius: 5px;
-    box-shadow: 0px 0px 7px 8px #F4F3F6;
+    box-shadow: 0px 0px 5px 5px #F4F3F6;
     box-sizing: border-box;
     background-color: white;
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
 }
 
 .place
@@ -139,6 +138,7 @@
     background-color: var(--primary);
     animation-name: buttonWidth;
     animation-duration: 0.5s;
+    cursor: pointer;
     animation-fill-mode: both;
 }
 
@@ -151,7 +151,7 @@
     }
     to
     {
-        height: 35px;
+        height: 40px;
     }
 }
 

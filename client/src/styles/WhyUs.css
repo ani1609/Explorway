@@ -2,6 +2,8 @@
 {
     width: calc(75% + 50px);
     margin: auto;
+    margin-top: 50px;
+
     box-sizing: border-box;
     background-color: #FFFFFF;
 
@@ -23,7 +25,8 @@
     justify-content: flex-start;
     gap: 15px;
     background-color: white;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: 0px 0px 5px 5px #F4F3F6;
+
 }
 
 .why_topic_1 i, .why_topic_2 i, .why_topic_3 i, .why_topic_4 i
@@ -70,7 +73,7 @@
     justify-content: flex-start;
     gap: 20px;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 0px 10px 10px 10px;
 }
 
 
