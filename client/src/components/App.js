@@ -5,7 +5,9 @@ import Login from './Login';
 import Signup from './Signup';
 import Header from './Header';
 import WhyUs from './WhyUs';
+import Card from './Card';
 import Footer from './Footer';
+
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -19,6 +21,7 @@ function App() {
         {/* <Signup/> */}
         <Header/>
         <WhyUs/>
+        <Card/>
         {/* <Footer/> */}
     </div>
   );

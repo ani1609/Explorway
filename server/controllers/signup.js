@@ -19,7 +19,7 @@ const signup = async (req, res) =>
 
     const token = jwt.sign({ email: newUser.email }, SECRET_KEY, { expiresIn: '1h' });
     console.log("new user", newUser);
-    res.status(201).send({data:newUser});
+    res.status(201).send({user:newUser});
 
   } catch (error) {
     console.error("Error creating user:", error);

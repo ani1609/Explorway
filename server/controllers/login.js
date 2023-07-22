@@ -22,7 +22,7 @@ const login=async(req,res)=>
             return res.status(401).send({message:"invalid email or password"});
         }
         const token=jwt.sign({id:user._id},SECRET_KEY);
-        res.status(200).send({data:user});
+        res.status(200).send({user:user});
     }
     catch(error)
     {

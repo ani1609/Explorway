@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import { useState } from 'react';
 import '../index.css';
 import '../styles/Signup.css';
 import Logo from "../images/logof.png";
@@ -6,6 +8,41 @@ import Bg from '../images/boy2.png';
 
 function Signup()
 {
+    const [userExists, setUserExists] = useState(false);
+    const [passwordUnmatched, setPasswordUnmatched] = useState(false);
+
+    const [signupData, setSignupData] = useState({
+        name: "",
+        email: "",
+        password: "",
+        c_password: "",
+    });
+    const handleSignupSubmit = async (e) =>
+    {
+        e.preventDefault();
+        if (signupData.password !== signupData.c_password)
+        {
+            setPasswordUnmatched(true);
+            console.log("Passwords do not match");
+            return;
+        }
+        try
+        {
+            const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
+            console.log("Signup successful!", response.data.user);
+            setUserExists(false);
+        }
+        catch(error)
+        {
+            if (error.response.status === 409)
+            {
+                setUserExists(true);
+                console.error(error.response.data.message);
+                return;
+            }
+            console.error(error.response.data.message);
+        }
+    };
     return(
         <div className='signup_parent'>
             <div className='signup_content'>
@@ -15,11 +52,32 @@ function Signup()
                         <p>Trekwise</p>
                     </a>
                     <h1>Join Us</h1>
-                    <form>
-                        <input type='text' placeholder='Name'/>
-                        <input type='email' placeholder='Email'/>
-                        <input type='password' placeholder='Password'/>
-                        <input type='password' placeholder='Confirm Password'/>
+                    <form onSubmit={handleSignupSubmit}>
+                        <input
+                        type='text'
+                        placeholder='Name'
+                        value={signupData.name}
+                        onChange={(e) => setSignupData({ ...signupData, name: e.target.value })}
+                        />
+                        <input
+                        type='email'
+                        placeholder='Email'
+                        value={signupData.email}
+                        onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
+                        />
+                        <input
+                        type='password'
+                        placeholder='Password'
+                        value={signupData.password}
+                        onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
+                        />
+                        <input
+                        type='password'
+                        placeholder='Confirm Password'
+                        value={signupData.c_password}
+                        onChange={(e) => setSignupData({ ...signupData, c_password: e.target.value })}
+                        />
+
                         <p>Already have an account?&nbsp; <a href=''>Log in</a></p>
                         <button type='submit'>Sign Up</button>
                     </form>

@@ -1,0 +1,48 @@
+
+.cards
+{
+    width: calc(75% + 50px);
+    margin: auto;
+    text-align: center;
+}
+
+.cards h1
+{
+    color: #403C45;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 400px;
+}
+
+.destinations-container
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns with equal width */
+    grid-template-rows: repeat(2, 1fr);    /* Two rows with equal height */
+    row-gap: 50px;
+    column-gap: 30px; 
+    /* box-sizing: border-box;      */
+}
+
+.grid_item
+{
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+}
+
+.cards>button
+{
+    border: none;
+    font-weight: 500;
+    margin-top: 50px;
+    font-size: 15px;
+    padding: 15px 40px;
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: white;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
