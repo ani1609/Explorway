@@ -1,3 +1,4 @@
+const {User}=require('../models/user');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const { SECRET_KEY } = process.env;
@@ -18,9 +19,16 @@ function authenticateJWT(req, res, next)
         {
         return res.status(403).json({ message: 'Authentication failed: Invalid token.' });
         }
-
-        req.user = decoded;Z
-        next();
+        User.findOne({ _id: decoded.id })
+            .then(user => 
+            {
+                req.user = user;
+                next();
+            })
+            .catch(error => 
+                {
+                return res.status(500).json({ message: 'Internal Server Error' });
+            });
     });
 }
 

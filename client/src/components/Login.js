@@ -9,33 +9,38 @@ import Bg from '../images/boy2.png';
 function Login()
 {
     const [invalidEmail, setInvalidEmail] = useState(false);
-    const [token, setToken] = useState("");
+    // let user={
+    //     name:"",
+    //     email:"",
+    //     profilePic:"",
+    // }
 
     const [loginData, setLoginData] = useState({
         email: "",
         password: "",
     });
 
-    const fetchDataFromProtectedAPI = async (userToken) => 
-    {
-        console.log("user token is ",userToken);
-        try 
-        {
-            const config = {
-                headers: {
-                  Authorization: `Bearer ${userToken}`,
-                },
-            };
+    // const fetchDataFromProtectedAPI = async (userToken) => 
+    // {
+    //     try 
+    //     {
+    //         const config = {
+    //             headers: {
+    //               Authorization: `Bearer ${userToken}`,
+    //             },
+    //         };
       
-            const response = await axios.get("http://localhost:3000/api/user", config);
-      
-            console.log("Data from protected API:", response.data);
-        } 
-        catch (error) 
-        {
-          console.error("Error fetching data:", error);
-        }
-    };
+    //         const response = await axios.get("http://localhost:3000/api/user", config);
+    //         user.name=response.data.user.name;
+    //         user.email=response.data.user.email;
+    //         user.profilePic=response.data.user.profilePic;
+    //         console.log("User is ",user);
+    //     } 
+    //     catch (error) 
+    //     {
+    //       console.error("Error fetching data:", error);
+    //     }
+    // };
 
       
     const handleLoginSubmit = async (e) => 
@@ -44,9 +49,10 @@ function Login()
         try
         {
             const response = await axios.post("http://localhost:3000/api/users/login", loginData);
-            console.log("Front----",response.data.user);
-            setToken(response.data.token);
-            await fetchDataFromProtectedAPI(response.data.token);
+            localStorage.clear();
+            localStorage.setItem('token', JSON.stringify(response.data.token));
+            // const userToken = JSON.parse(localStorage.getItem('token'));
+            // console.log(userToken);
             setInvalidEmail(false);
         }
         catch(error)

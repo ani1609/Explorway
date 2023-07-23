@@ -6,10 +6,11 @@ const { SECRET_KEY, SALT } = process.env;
 
 const signup = async (req, res) => 
 {
-  try {
+  try 
+  {
     const user = await User.findOne({ email: req.body.email });
-    if (user) {
-      console.log("User already exists");
+    if (user) 
+    {
       return res.status(409).send({ message: "User already exists" });
     }
 
@@ -18,8 +19,7 @@ const signup = async (req, res) =>
     const newUser = await new User({ ...req.body, password: hashedPassword }).save();
 
     const token = jwt.sign({ email: newUser.email }, SECRET_KEY, { expiresIn: '1h' });
-    console.log("new user", newUser);
-    res.status(201).send({user:newUser});
+    res.status(201).send({user:newUser, token: token});
 
   } catch (error) {
     console.error("Error creating user:", error);

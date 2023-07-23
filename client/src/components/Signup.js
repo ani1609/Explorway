@@ -29,7 +29,8 @@ function Signup()
         try
         {
             const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
-            console.log("Signup successful!", response.data.user);
+            localStorage.clear();
+            localStorage.setItem('token', JSON.stringify(response.data.token));
             setUserExists(false);
         }
         catch(error)
