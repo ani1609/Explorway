@@ -1,4 +1,4 @@
-.whyus_parent
+/* .whyus_parent
 {
     width: calc(75% + 50px);
     margin: auto;
@@ -146,4 +146,218 @@
     color: var(--primary);
     letter-spacing: 0.5px;
     font-size: 13px;
+} */
+
+
+.whyus_parent
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 60px;
 }
+
+.why_heading
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+}
+
+.why_heading h1
+{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--heading);
+    letter-spacing: 1px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.why_heading h2
+{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--heading);
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 33px;
+}
+
+
+.whyus_blocks
+{
+    width: calc(70% + 50px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.whytopic_1, .whytopic_2, .whytopic_3, .whytopic_4
+{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 0px 0px 5px 5px #F4F3F6; */
+    gap: 15px;
+}
+
+.whytopic_1 i, .whytopic_2 i, .whytopic_3 i, .whytopic_4 i
+{
+    color: var(--primary);
+    font-size: 20px;
+    background-color: var(--bg1);
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.whytopic_1 h4, .whytopic_2 h4, .whytopic_3 h4, .whytopic_4 h4
+{
+    margin: 0;
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    color: var(--heading);
+    text-align: left;
+}
+
+.whytopic_1 p, .whytopic_2 p, .whytopic_3 p, .whytopic_4 p
+{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: var(--para);
+    letter-spacing: 0.5px;
+    font-size: 12.5px;
+}
+
+.whyus_images
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: calc(70% + 50px);
+    box-sizing: border-box;
+}
+
+.whyus_images>div
+{
+    display: flex;
+    gap: 15px;
+}
+
+.whyimage_1, .whyimage_2, .whyimage_3, .whyimage_4
+{
+    height: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.whyimage_1
+{
+    position: relative;
+    width: 60%;
+    background-image: url("../images/whyus_destinations.jpg");
+    background-size: cover;
+    background-position: 0px -145px;
+
+}
+
+.whyimage_2
+{
+    position: relative;
+    width: 40%;
+    background-image: url("../images/why_clients.jpg");
+    background-size: cover;
+    /* background-position: 0px 100px; */
+}
+
+.whyimage_3
+{
+    position: relative;
+    width: 40%;
+    background-image: url("../images/why_teams.jpg");
+    background-size: cover;
+}
+
+.whyimage_4
+{
+    position: relative;
+    width: 60%;
+    background-image: url("../images/why_hotels.jpg");
+    background-size: cover;
+    background-position: 0px -80px;
+}
+
+.whyimage_1 div, .whyimage_2 div, .whyimage_3 div, .whyimage_4 div
+{
+    position: absolute;
+    background-color: var(--bg2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 9vw;
+    height: 6vw;
+}
+
+.whyimage_1 div
+{
+    left: 0px;
+    top: 0px;
+    border-bottom-right-radius: 5px;
+}
+
+.whyimage_2 div
+{
+    right: 0px;
+    top: 0px;
+    border-bottom-left-radius: 5px;
+}
+
+
+.whyimage_3 div
+{
+    left: 0px;
+    bottom: 0px;
+    border-top-right-radius: 5px;
+}
+
+.whyimage_4 div
+{
+    right: 0px;
+    bottom: 0px;
+    border-top-left-radius: 5px;
+}
+
+
+.whyimage_1 div h1, .whyimage_2 div h1, .whyimage_3 div h1, .whyimage_4 div h1
+{
+    font-family: 'Roboto', sans-serif;
+    color: var(--heading);
+    margin: 0;
+    letter-spacing: 1px;
+    font-size: 30px;
+}
+
+.whyimage_1 div p, .whyimage_2 div p, .whyimage_3 div p, .whyimage_4 div p
+{
+    font-family: 'Roboto', sans-serif;
+    color: var(--para);
+    margin: 0;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+}
+
