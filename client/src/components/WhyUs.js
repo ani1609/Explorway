@@ -2,6 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "../styles/WhyUs.css";
 import "../index.css";
+import Destinations from "../images/whyus_destinations_c.jpg";
+import Clients from "../images/why_clients_c.jpg";
+import Teams from "../images/why_teams_c.jpg";
+import Hotels from "../images/why_hotels_c.jpg";
 
 
 function WhyUs()
@@ -77,7 +81,7 @@ function WhyUs()
                     <div className="whytopic_3">
                         <i class="fa-solid fa-bed"></i>
                         <h4>Luxurious Comfort</h4>
-                        <p>Relish in a haven of tranquility, making your journey truly exceptional.</p>
+                        <p>Relish in a heaven of tranquility, making your journey truly exceptional.</p>
                     </div>
                     <div className="whytopic_4">
                         <i class="fa-solid fa-user-shield"></i>
@@ -89,12 +93,14 @@ function WhyUs()
                 <div className="whyus_images">
                     <div>
                         <div className="whyimage_1">
+                            <img src={Destinations}/>
                             <div>
                                 <h1>850+</h1>
                                 <p>destinations</p>
                             </div>
                         </div>
                         <div className="whyimage_2">
+                            <img src={Clients}/>
                             <div>
                                 <h1>25K+</h1>
                                 <p>clients</p>
@@ -103,12 +109,14 @@ function WhyUs()
                     </div>
                     <div>
                         <div className="whyimage_3">
+                            <img src={Teams}/>
                             <div>
                                 <h1>55+</h1>
                                 <p>teams</p>
                             </div>
                         </div>
                         <div className="whyimage_4">
+                            <img src={Hotels}/>
                             <div>
                                 <h1>4K+</h1>
                                 <p>hotels</p>

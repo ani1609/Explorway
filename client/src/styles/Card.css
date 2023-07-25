@@ -1,43 +1,39 @@
 
 .cards
 {
-    width: calc(75% + 50px);
+    width: 100%;
     margin: auto;
     margin-top: 100px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
 }
 
 .cards h1
 {
     color: #403C45;
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
     width: 400px;
 }
 
 .destinations-container
 {
+    width: 75%;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Four columns with equal width */
     grid-template-rows: repeat(2, 1fr);    /* Two rows with equal height */
-    row-gap: 40px;
-    column-gap: 40px; 
+    row-gap: 30px;
+    column-gap: 30px; 
     /* box-sizing: border-box;      */
-}
-
-.grid_item
-{
-    height: 100%;
-    width: 100%;
-    background-color: grey;
 }
 
 .cards>button
 {
     border: none;
     font-weight: 500;
-    margin-top: 50px;
     font-size: 15px;
     padding: 15px 40px;
     border-radius: 10px;
