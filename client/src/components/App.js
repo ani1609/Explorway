@@ -22,7 +22,7 @@ function App() {
         <Header/>
         <WhyUs/>
         <Card/>
-        {/* <Footer/> */}
+        <Footer/>
     </div>
   );
 }
