@@ -6,7 +6,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top: 1px solid var(--para);
+    /* border-top: 1px solid var(--para); */
+    background-color: var(--primary);
 }
 
 .footer_content
@@ -22,7 +23,7 @@
 {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .footer_content div h4
@@ -30,9 +31,10 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     margin: 0;
-    color: var(--heading);
+    /* color: var(--heading); */
+    color: white;
     letter-spacing: 1px;
-    font-size: 15px;
+    font-size: 15.5px;
 }
 
 .footer_content div ul
@@ -42,18 +44,20 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 13px;
 }
 
 .footer_content div ul li
 {
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.5px;
-    color: var(--para);
+    /* color: var(--para); */
     transition: 0.2s ease-in-out;
-    cursor: pointer
+    cursor: pointer;
+    color: white;
+
 }
 
 .footer_content div ul li:hover
@@ -72,19 +76,18 @@
 
 .footer_content div ol li
 {
-    font-weight: 400;
-    font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    letter-spacing: 0.5px;
-    color: var(--primary);
+    /* color: var(--primary); */
     padding: 3px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    color: white;
+
 }
 
 .footer_content div ol li:hover
 {
-    color: #c94a68;
+    /* color: #c94a68; */
 
 }
 
@@ -93,8 +96,9 @@
     bottom: 0;
     width: 95%;
     box-sizing: border-box;
-    height: 1.5px;
-    background-color: var(--para);
+    height: 0.5px;
+    /* background-color: var(--para); */
+    background-color: white;
 }
 
 .footer_below
@@ -114,5 +118,6 @@
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     letter-spacing: 0.5px;
-    color: var(--para);
+    /* color: var(--para); */
+    color: white;
 }
