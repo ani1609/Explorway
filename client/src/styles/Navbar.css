@@ -1,7 +1,7 @@
 .navbar_parent
 {
     position: fixed;
-    z-index: 10000;
+    z-index: 100;
     width: 100vw;
     /* background-color: #26A69A; */
     /* background-color: #F6416C; */

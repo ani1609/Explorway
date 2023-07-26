@@ -94,7 +94,11 @@ function Card()
             <div className="bg_ele7"></div>
             <div className="bg_ele8"></div>
 
-            <h1>Top Destinations For You</h1>
+            <div className="cards_heading">
+                    <h1>Top</h1>
+                    <h2>Destinations</h2>
+                    <h1>for you</h1>
+            </div>
             <div className='destinations-container'>
                 {destinations.map((destination) =>{
                     return (
