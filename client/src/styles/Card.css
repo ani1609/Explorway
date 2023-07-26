@@ -1,14 +1,18 @@
 
 .cards
 {
+
+    position: relative;
     width: 100%;
     margin: auto;
-    margin-top: 100px;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .cards h1
@@ -43,3 +47,46 @@
     cursor: pointer;
 }
 
+.bg_ele7
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    top: -45px;
+    left: -100px;
+}
+
+.bg_ele8
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    top: -45px;
+    right: -100px;
+}
+
+.bg_ele9
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    bottom: -90px;
+    left: -100px;
+}
+
+.bg_ele10
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    bottom: -90px;
+    right: -100px;
+}

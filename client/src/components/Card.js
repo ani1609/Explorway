@@ -2,22 +2,21 @@ import React from 'react';
 import '../styles/Card.css';
 import "../index.css";
 import CardItems from './CardItems';
-import p1 from '../images/place1.jpg';
-import p2 from '../images/place2.jpg';
-import p3 from '../images/place3.jpg';
-import p4 from '../images/place4.jpg';
-import p5 from '../images/place5.jpg';
-import p6 from '../images/place6.jpg';
-import p7 from '../images/place7.jpg';
-import p8 from '../images/place8.jpg';
-import p9 from '../images/place9.jpg';
-import p10 from '../images/place10.jpg';
+import p1 from '../images/place1_c.jpg';
+import p2 from '../images/place2_c.jpg';
+import p3 from '../images/place3_c.jpg';
+import p4 from '../images/place4_c.jpg';
+import p5 from '../images/place5_c.jpg';
+import p6 from '../images/place6_c.jpg';
+import p7 from '../images/place7_c.jpg';
+import p8 from '../images/place8_c.jpg';
+import p9 from '../images/place9_c.jpg';
 
 function Card()
 {
     const destinations= [
         {
-            img: p6,
+            img: p1,
             place: "Gardens by the Bay",
             description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
             location: "Singapore",
@@ -26,7 +25,7 @@ function Card()
             id: 1
         },
         {
-            img: p5,
+            img: p2,
             place: "South Island",
             description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
             location: "New Zealand",
@@ -44,7 +43,7 @@ function Card()
             id: 3
         },
         {
-            img: p7,
+            img: p4,
             place: "Jungfraujoch",
             description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
             location: "Switzerland",
@@ -53,7 +52,7 @@ function Card()
             id: 4
         },
         {
-            img: p1,
+            img: p5,
             place: "Eiffel Tower",
             description: "Lorem ipsum may be used as a placeholder before final copy is availble to be put in.",
             location: "Paris, France",
@@ -62,7 +61,7 @@ function Card()
             id: 5
         },
         {
-            img: p2,
+            img: p6,
             place: "Closseum",
             description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
             location: "Rome, Italy",
@@ -71,7 +70,7 @@ function Card()
             id: 6
         },
         {
-            img: p4,
+            img: p7,
             place: "Tower Bridge",
             description: "Lorem ipsum may be used as a placeholder before final copy is availble to be put in.",
             location: "London, UK",
@@ -92,6 +91,9 @@ function Card()
 
     return(
         <div className='cards'>
+            <div className="bg_ele7"></div>
+            <div className="bg_ele8"></div>
+
             <h1>Top Destinations For You</h1>
             <div className='destinations-container'>
                 {destinations.map((destination) =>{
@@ -104,17 +106,10 @@ function Card()
                         </div>
                     )
                 })}
-                {/* <div className='grid_item'></div>
-                <div className='grid_item'></div>
-                <div className='grid_item'></div>
-                <div className='grid_item'></div>
-                <div className='grid_item'></div>
-                <div className='grid_item'></div>
-                <div className='grid_item'></div>
-                <div className='grid_item'></div>
-                <div className='grid_item'></div> */}
             </div>
             <button type='submit'>View All Destinations</button>
+            <div className="bg_ele9"></div>
+            <div className="bg_ele10"></div>
         </div>
     );
 }

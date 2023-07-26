@@ -1,0 +1,132 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+
+
+.sub_parent
+{
+    padding-top: 100px;
+    width: 100%;
+    position: relative;
+}
+
+.sub_content
+{
+    width: 75%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+
+.sub_parent img
+{
+    width: 47%;
+    height: 60%;
+}
+
+.sub_right
+{
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.sub_right h1
+{
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--heading);
+    letter-spacing: 0.5px;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.sub_right p
+{
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    color: var(--para);
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.sub_right form
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sub_right form input
+{
+    width: 70%;
+    font-size: 14px;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    padding: 11px 10px;
+    color: var(--para);
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: 1px solid #dddddd;
+    border-right: none;
+}
+
+.sub_right form input::placeholder
+{
+    font-size: 14px;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    color: var(--para);
+}
+
+.sub_right form input:focus
+{
+    outline: none;
+    box-shadow: 0 0 3px #55a0f0;
+}
+.sub_right form button
+{
+    width: 30%;
+    font-size: 16px;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    padding: 11px 10px;
+    color: white;
+    background-color: var(--primary);
+    border: none;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    cursor: pointer;
+}
+
+.bg_ele11
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    top: -110px;
+    left: -100px;
+}
+
+.bg_ele12
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    top: -110px;
+    right: -100px;
+}

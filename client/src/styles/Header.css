@@ -1,11 +1,12 @@
 .header_parent
 {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    overflow-y: visible;
+    overflow: hidden;
 }
 
 .header_main
@@ -408,4 +409,26 @@ input[type="date"]:focus
     color: white;
     cursor: pointer;
     transition: 0.5s;
+}
+
+.bg_ele1
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    bottom: -125px;
+    left: -100px;
+}
+
+.bg_ele2
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    bottom: -125px;
+    right: -100px;
 }

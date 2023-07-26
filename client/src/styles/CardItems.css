@@ -67,6 +67,7 @@
     width: 100%;
     border-radius: 5px;
     height: 150px;
+    object-fit: cover;
 }
 
 .carditem_parent h3

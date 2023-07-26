@@ -6,6 +6,7 @@ import Signup from './Signup';
 import Header from './Header';
 import WhyUs from './WhyUs';
 import Card from './Card';
+import Subscription from './Subscription';
 import Footer from './Footer';
 
 
@@ -22,6 +23,7 @@ function App() {
         <Header/>
         <WhyUs/>
         <Card/>
+        <Subscription/>
         <Footer/>
     </div>
   );

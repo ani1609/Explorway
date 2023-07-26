@@ -61,6 +61,9 @@ function WhyUs()
                     </div>
                 </div> */}
 
+                <div className="bg_ele3"></div>
+                <div className="bg_ele4"></div>
+
                 <div className="why_heading">
                     <h1>Why choose</h1>
                     <h2>us</h2>
@@ -124,7 +127,8 @@ function WhyUs()
                         </div>
                     </div>
                 </div>
-
+                <div className="bg_ele5"></div>
+                <div className="bg_ele6"></div>
         </div>
     );
 }
