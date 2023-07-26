@@ -1,6 +1,5 @@
 .footer_parent
 {
-    margin-top: 200px;
     width: 100vw;
     box-sizing: border-box;
     display: flex;
@@ -88,6 +87,7 @@
 .footer_content div ol li:hover
 {
     /* color: #c94a68; */
+    color: rgb(215, 215, 215);
 
 }
 

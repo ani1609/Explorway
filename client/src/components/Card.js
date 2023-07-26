@@ -91,7 +91,8 @@ function Card()
 
     return(
         <div className='cards'>
-            <div className="bg_ele4"></div>
+            <div className="bg_ele7"></div>
+            <div className="bg_ele8"></div>
 
             <h1>Top Destinations For You</h1>
             <div className='destinations-container'>
@@ -107,6 +108,8 @@ function Card()
                 })}
             </div>
             <button type='submit'>View All Destinations</button>
+            <div className="bg_ele9"></div>
+            <div className="bg_ele10"></div>
         </div>
     );
 }

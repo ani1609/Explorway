@@ -159,6 +159,7 @@
     gap: 60px;
     position: relative;
     overflow: hidden;
+    padding-bottom: 50px;
 }
 
 .why_heading
@@ -380,17 +381,6 @@
     font-size: 14px;
 }
 
-.bg_ele2
-{
-    position: absolute;
-    height: 200px;
-    width: 200px;
-    background-image: url("../images/absbg4.png");
-    background-size: cover;
-    top: -80px;
-    left: -100px;
-}
-
 .bg_ele3
 {
     position: absolute;
@@ -398,6 +388,39 @@
     width: 200px;
     background-image: url("../images/absbg4.png");
     background-size: cover;
-    bottom: -190px;
+    top: -75px;
+    left: -100px;
+}
+
+.bg_ele4
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    top: -75px;
+    right: -100px;
+}
+
+.bg_ele5
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    bottom: -155px;
+    left: -100px;
+}
+
+.bg_ele6
+{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url("../images/absbg4.png");
+    background-size: cover;
+    bottom: -155px;
     right: -100px;
 }

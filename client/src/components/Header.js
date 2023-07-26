@@ -125,6 +125,7 @@ const Header = () => {
   return (
     <div className="header_parent">
       <div className="bg_ele1"></div>
+      <div className="bg_ele2"></div>
       <div className="header_main">
         <div id="slide" ref={slideRef}>
           {data.map((item, index) => (
