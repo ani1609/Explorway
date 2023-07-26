@@ -15,12 +15,35 @@
     overflow: hidden;
 }
 
-.cards h1
+.cards_heading
 {
     color: #403C45;
-    margin: auto;
-    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
 }
+
+.cards_heading h1
+{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--heading);
+    letter-spacing: 1px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.cards_heading h2
+{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--heading);
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 33px;
+}
+
 
 .destinations-container
 {

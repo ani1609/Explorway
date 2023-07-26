@@ -13,122 +13,74 @@ function WhyUs()
     
     return(
         <div className="whyus_parent">
-                {/* <div className="why_topic_1">
+            <div className="bg_ele3"></div>
+            <div className="bg_ele4"></div>
+
+            <div className="why_heading">
+                <h1>Why choose</h1>
+                <h2>us</h2>
+                <h1>?</h1>
+            </div>
+
+            <div className="whyus_blocks">
+                <div className="whytopic_1">
                     <i class="fa-solid fa-map-location-dot"></i>
-                    <h4>Diverse Destinations</h4>
+                        <h4>Diverse Destinations</h4>
                     <p>Discover a world of possibilities with our wide range of handpicked travel destinations.</p>
                 </div>
-                <div className="why_topic_2">
+                <div className="whytopic_2">
                     <i class="fa-solid fa-handshake-angle"></i>
                     <h4>Expert Travel Guides</h4>
                     <p>Journey with confidence using our expertly curated travel guides and insider tips.</p>
                 </div>
-                <div className="why_desc">
-                    <h2>Why Choose Us?</h2>
-                    <p>Welcome to a travel experience like no other. With personalized service and expertly crafted adventures, we redefine exceptional journeys. With personalized service and expertly crafted adventures, we redefine exceptional journeys. Trust us to make your travel dreams a reality and embrace the extraordinary difference. Discover the world in a whole new way, tailored to your unique preferences. Join us for unforgettable moments that will leave you inspired and amazed.</p>
-                    <a href="">
-                        Read More
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-                <div className="why_topic_3">
+                <div className="whytopic_3">
                     <i class="fa-solid fa-bed"></i>
                     <h4>Luxurious Comfort</h4>
-                    <p>Relish in a haven of tranquility, making your journey truly exceptional.</p>
+                    <p>Relish in a heaven of tranquility, making your journey truly exceptional.</p>
                 </div>
-                <div className="why_topic_4">
+                <div className="whytopic_4">
                     <i class="fa-solid fa-user-shield"></i>
                     <h4>Assured Safety & Security</h4>
                     <p>Travel with peace of mind, knowing we prioritize your safety at every step.</p>
                 </div>
+            </div>
 
-                <div className="statistics">
-                    <div className="customers">
-                        <h1>25K+</h1>
-                        <p>Clients</p>
-                    </div>
-                    <div className="teams">
-                        <h1>55+</h1>
-                        <p>Teams</p>
-                    </div>
-                    <div className="destinations">
-                        <h1>850+</h1>
-                        <p>Destinations</p>
-                    </div>
-                    <div className="hotels">
-                        <h1>4K+</h1>
-                        <p>Hotels</p>
-                    </div>
-                </div> */}
-
-                <div className="bg_ele3"></div>
-                <div className="bg_ele4"></div>
-
-                <div className="why_heading">
-                    <h1>Why choose</h1>
-                    <h2>us</h2>
-                    <h1>?</h1>
-                </div>
-
-                <div className="whyus_blocks">
-                    <div className="whytopic_1">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                         <h4>Diverse Destinations</h4>
-                        <p>Discover a world of possibilities with our wide range of handpicked travel destinations.</p>
-                    </div>
-                    <div className="whytopic_2">
-                        <i class="fa-solid fa-handshake-angle"></i>
-                        <h4>Expert Travel Guides</h4>
-                        <p>Journey with confidence using our expertly curated travel guides and insider tips.</p>
-                    </div>
-                    <div className="whytopic_3">
-                        <i class="fa-solid fa-bed"></i>
-                        <h4>Luxurious Comfort</h4>
-                        <p>Relish in a heaven of tranquility, making your journey truly exceptional.</p>
-                    </div>
-                    <div className="whytopic_4">
-                        <i class="fa-solid fa-user-shield"></i>
-                        <h4>Assured Safety & Security</h4>
-                        <p>Travel with peace of mind, knowing we prioritize your safety at every step.</p>
-                    </div>
-                </div>
-
-                <div className="whyus_images">
-                    <div>
-                        <div className="whyimage_1">
-                            <img src={Destinations}/>
-                            <div>
-                                <h1>850+</h1>
-                                <p>destinations</p>
-                            </div>
-                        </div>
-                        <div className="whyimage_2">
-                            <img src={Clients}/>
-                            <div>
-                                <h1>25K+</h1>
-                                <p>clients</p>
-                            </div>
+            <div className="whyus_images">
+                <div>
+                    <div className="whyimage_1">
+                        <img src={Destinations}/>
+                        <div>
+                            <h1>850+</h1>
+                            <p>destinations</p>
                         </div>
                     </div>
-                    <div>
-                        <div className="whyimage_3">
-                            <img src={Teams}/>
-                            <div>
-                                <h1>55+</h1>
-                                <p>teams</p>
-                            </div>
-                        </div>
-                        <div className="whyimage_4">
-                            <img src={Hotels}/>
-                            <div>
-                                <h1>4K+</h1>
-                                <p>hotels</p>
-                            </div>
+                    <div className="whyimage_2">
+                        <img src={Clients}/>
+                        <div>
+                            <h1>25K+</h1>
+                            <p>clients</p>
                         </div>
                     </div>
                 </div>
-                <div className="bg_ele5"></div>
-                <div className="bg_ele6"></div>
+                <div>
+                    <div className="whyimage_3">
+                        <img src={Teams}/>
+                        <div>
+                            <h1>55+</h1>
+                            <p>teams</p>
+                        </div>
+                    </div>
+                    <div className="whyimage_4">
+                        <img src={Hotels}/>
+                        <div>
+                            <h1>4K+</h1>
+                            <p>hotels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="bg_ele5"></div>
+            <div className="bg_ele6"></div>
         </div>
     );
 }
