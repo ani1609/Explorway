@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useRef, useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import "../index.css";
@@ -9,71 +10,11 @@ function Navbar()
   const [navbarScrolled, setNavbarScrolled] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(true);
-  const [showLoginForm, setShowLoginForm] = useState(false);
-  const [showSignupForm, setShowSignupForm] = useState(false);
-  const [userExists, setUserExists] = useState(false);
-  const [passwordUnmatched, setPasswordUnmatched] = useState(false);
-  const [invalidEmail, setInvalidEmail] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [signupData, setSignupData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    c_password: "",
-  });
-
-  const handleLoginSubmit = async (e) => {
-    e.preventDefault();
-    try
-    {
-      const response = await axios.post("http://localhost:3000/api/users/login", loginData);
-      setInvalidEmail(false);
-    } catch (error) 
-    {
-      if (error.response.status === 401)
-      {
-        setInvalidEmail(true);
-        console.error(error.response.data.message);
-        return;
-      }
-      console.error(error.response.data.message);
-    }
-  };
-
-  const handleSignupSubmit = async (e) => 
-  {
-    e.preventDefault();
-    if (signupData.password !== signupData.c_password)
-    {
-      setPasswordUnmatched(true);
-      console.log("Passwords do not match");
-      return;
-    }
-    try 
-    {
-      const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
-      setUserExists(false);
-    } catch (error) 
-    {
-      if (error.response.status === 409)
-      {
-        setUserExists(true);
-        console.error(error.response.data.message);
-        return;
-      }
-      console.error(error.response.data.message);
-    }
-  };
 
   useEffect(() => 
   {
-    const transparentNav = () =>
+    const handleScroll = () =>
     {
       if (window.scrollY > 50) 
       {
@@ -84,9 +25,9 @@ function Navbar()
         setNavbarScrolled(false);
       }
     }
-    window.addEventListener("scroll", transparentNav);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", transparentNav);
+      window.removeEventListener("scroll", handleScroll);
     }
   }, []);
 
@@ -102,27 +43,11 @@ function Navbar()
     setSignup(true);
   };
 
-  const handleFormClick = (e) => {
-    e.stopPropagation();
-  };
-
-  useEffect(() => {
-    const toggleBodyScroll = (scrollable) => {
-      document.body.style.overflow = scrollable ? "auto" : "hidden";
-    };
-
-    if (showLoginForm || showSignupForm) {
-      toggleBodyScroll(false);
-    } else {
-      toggleBodyScroll(true);
-    }
-
-  }, [showLoginForm, showSignupForm]);
-
 
   const user =null;
 
-  const handleLogout = () => {
+  const handleLogout = () => 
+  {
     localStorage.removeItem('user');
     setShowProfile(false);
   };
@@ -140,19 +65,21 @@ function Navbar()
           <li className={navbarScrolled ? "color":"white"}>About Us</li>
           <li className={navbarScrolled ? "color":"white"}>Contact</li>
           {!user && <li className="login_signup_container">
-            <button
-              onClick={() => setShowLoginForm(true)}
-              onMouseEnter={handleLoginMouseEnter}
-              onMouseLeave={handleLoginMouseLeave}
-              className={login ? navbarScrolled ? "login_button login_entered white" : "login_button login_entered white" : navbarScrolled ? "login_button login_left color" : "login_button login_left white"}
-            >
-              Login
-            </button>
-            <button
-              onClick={() => setShowSignupForm(true)}
-              className={signup ? "signup_button signup_entered" : "signup_button signup_left"}
-              >Sign Up
-            </button>
+            <Link to="/login">
+              <button
+                onMouseEnter={handleLoginMouseEnter}
+                onMouseLeave={handleLoginMouseLeave}
+                className={login ? navbarScrolled ? "login_button login_entered white" : "login_button login_entered white" : navbarScrolled ? "login_button login_left color" : "login_button login_left white"}
+              >
+                Login
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button
+                className={signup ? "signup_button signup_entered" : "signup_button signup_left"}
+                >Sign Up
+              </button>
+            </Link>
           </li>}
           {user &&  <li className="profile" onClick={() => setShowProfile(!showProfile)}>
                 {user.profilePic && <img src={user.profilePic} alt="profile" className="profile_pic"/>}
@@ -164,94 +91,6 @@ function Navbar()
                 </div>}
             </li>}
         </ul>
-
-        {showLoginForm || showSignupForm ? (<div className="login_form_container" onClick={() => {setShowLoginForm(false);setShowSignupForm(false)}}>
-          {showLoginForm && <div className="login_form" onClick={handleFormClick}>
-            <a href="" className="logo_container_form">
-              <img src={Logo} alt="logo"/>
-              <p>Trekwise</p>
-            </a>
-            <h1>Welcome Back</h1>
-            <form onSubmit={handleLoginSubmit}>
-              <input 
-                type="email" 
-                placeholder="Email" 
-                className="email"
-                value={loginData.email}
-                onChange={(e) => setLoginData({...loginData, email: e.target.value})}
-                required
-              />
-              <input 
-                type="password" 
-                placeholder="Password" 
-                className="password"
-                value={loginData.password}
-                onChange={(e) => setLoginData({...loginData, password: e.target.value})}
-                required
-              />
-              <p>
-                Don't have an acoount?&nbsp;
-                <a href="" 
-                onClick={(e) => {e.preventDefault(); setShowSignupForm(true);setShowLoginForm(false)}}
-                >
-                  Get one
-                </a>
-              </p>
-              <button className="form_login_button">Login</button>
-            </form>
-          </div>}
-          {showSignupForm && <div className="signup_form" onClick={handleFormClick}>
-            <a href="" className="logo_container_form">
-              <img src={Logo} alt="logo"/>
-              <p>Trekwise</p>
-            </a>
-            <h1>Join Us</h1>
-            <form onSubmit={handleSignupSubmit}>
-              <input 
-                type="text" 
-                placeholder="Name" 
-                className="name"
-                value={signupData.name}
-                onChange={(e) => setSignupData({...signupData, name: e.target.value})}
-                required
-              />
-              <input 
-                type="email" 
-                placeholder="Email" 
-                className="email"
-                value={signupData.email}
-                onChange={(e) => setSignupData({...signupData, email: e.target.value})}
-                required
-              />
-              <input 
-                type="password" 
-                placeholder="Password" 
-                className="password"
-                value={signupData.password}
-                onChange={(e) => setSignupData({...signupData, password: e.target.value})}
-                required
-              />
-              <input 
-                type="password" 
-                placeholder="Confirm Password" 
-                className="c_password"
-                value={signupData.c_password}
-                onChange={(e) => setSignupData({...signupData, c_password: e.target.value})}
-                required
-              />
-              <p>
-                Already have an account?&nbsp;
-                <a href="" 
-                  onClick={(e) => {e.preventDefault(); setShowSignupForm(false);setShowLoginForm(true)}}
-                >
-                  Log in
-                </a></p>
-              <button className="form_login_button">Sign Up</button>
-            </form>
-          </div>}
-        </div>):null}
-
-        
     </div>
   );
 };

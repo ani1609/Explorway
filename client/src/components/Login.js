@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useState } from 'react';
 import '../index.css';
@@ -9,11 +9,6 @@ import Bg from '../images/boy2.png';
 function Login()
 {
     const [invalidEmail, setInvalidEmail] = useState(false);
-    // let user={
-    //     name:"",
-    //     email:"",
-    //     profilePic:"",
-    // }
 
     const [loginData, setLoginData] = useState({
         email: "",
@@ -51,8 +46,8 @@ function Login()
             const response = await axios.post("http://localhost:3000/api/users/login", loginData);
             localStorage.clear();
             localStorage.setItem('token', JSON.stringify(response.data.token));
-            // const userToken = JSON.parse(localStorage.getItem('token'));
-            // console.log(userToken);
+            const userToken = JSON.parse(localStorage.getItem('token'));
+            console.log(userToken);
             setInvalidEmail(false);
         }
         catch(error)
@@ -83,6 +78,7 @@ function Login()
                         value={loginData.email}
                         placeholder='Email'
                         onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
+                        required
                         />
 
                         <input 
@@ -91,10 +87,11 @@ function Login()
                         value={loginData.password}
                         placeholder='Password'
                         onChange={(e) => setLoginData({...loginData, password: e.target.value})}
+                        required
                         />
 
                         <p>Don't
-                             have an account?&nbsp;<a href=''>Get one</a></p>
+                             have an account?&nbsp;<Link to="/signup"><a href=''>Get one</a></Link></p>
                         <button type='submit'>Login</button>
                     </form>
                     
