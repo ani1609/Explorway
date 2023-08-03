@@ -120,11 +120,7 @@ function Navbar()
   }, [showLoginForm, showSignupForm]);
 
 
-  const user ={
-    name: "Siddharth",
-    profilePic: "",
-    email: "ankit@gmail.com"
-  };
+  const user =null;
 
   const handleLogout = () => {
     localStorage.removeItem('user');
