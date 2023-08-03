@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '../styles/App.css';
 import Navbar from './Navbar';
 import Login from './Login';
@@ -9,22 +10,31 @@ import Card from './Card';
 import Subscription from './Subscription';
 import Footer from './Footer';
 
-
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
-
 
 function App() {
   return (
-    <div className="App">
-        <Navbar/>
-        {/* <Login/> */}
-        {/* <Signup/>  */}
-        <Header/>
-        <WhyUs/>
-        <Card/>
-        <Subscription/>
-        <Footer/>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+function HomePage() {
+  return (
+    <div>
+      <Navbar/>
+      <Header />
+      <WhyUs />
+      <Card />
+      <Subscription />
+      <Footer />
     </div>
   );
 }

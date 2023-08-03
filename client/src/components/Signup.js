@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 import '../index.css';
@@ -31,6 +31,7 @@ function Signup()
             const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
             localStorage.clear();
             localStorage.setItem('token', JSON.stringify(response.data.token));
+            console.log(response.data.token);
             setUserExists(false);
         }
         catch(error)
@@ -59,27 +60,31 @@ function Signup()
                         placeholder='Name'
                         value={signupData.name}
                         onChange={(e) => setSignupData({ ...signupData, name: e.target.value })}
+                        required
                         />
                         <input
                         type='email'
                         placeholder='Email'
                         value={signupData.email}
                         onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
+                        required
                         />
                         <input
                         type='password'
                         placeholder='Password'
                         value={signupData.password}
                         onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
+                        required
                         />
                         <input
                         type='password'
                         placeholder='Confirm Password'
                         value={signupData.c_password}
                         onChange={(e) => setSignupData({ ...signupData, c_password: e.target.value })}
+                        required
                         />
 
-                        <p>Already have an account?&nbsp; <a href=''>Log in</a></p>
+                        <p>Already have an account?&nbsp; <Link to="/login"><a href=''>Log in</a></Link></p>
                         <button type='submit'>Sign Up</button>
                     </form>
                     
