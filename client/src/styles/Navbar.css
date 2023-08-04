@@ -490,6 +490,7 @@
 
 .profile_dropdown p
 {
+    text-decoration: none;
     margin: 0;
     padding: 10px 17px;
     font-size: 14px;
