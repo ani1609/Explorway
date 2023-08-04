@@ -78,7 +78,17 @@
     text-align: left;
     letter-spacing: 0.5px;
     color: var(--heading);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+/* 
+.carditem_parent h3::after
+{
+    font-family: 'Material Icons';
+    content: '\e87e';
+    color: var(--primary);
+} */
 
 .carditem_parent p
 {

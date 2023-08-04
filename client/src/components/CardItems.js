@@ -2,22 +2,34 @@ import React from 'react';
 import { useState } from 'react';
 import '../styles/CardItems.css';
 import "../index.css";
+import {ReactComponent as Heart} from '../images/heart.svg';
+import {ReactComponent as HeartSolid} from '../images/heart_solid.svg';
 
 function CardItems(props)
 {
     const [showPlantrip, setShowPlanTrip] = useState(false);
-
-    const {img, place, description, location, price, url}=props.destination;
+    const {img, place, description, location, price}=props.destination;
+    const heartStyle = {
+        fill: '#F25278',
+        width: '22px',
+        height: '22px',
+        cursor: 'pointer'
+    };
 
 
     return(
         <div className='carditem_parent'
-            onMouseEnter={() => setShowPlanTrip(true)}
+            onMouseEnter={() => setShowPlanTrip(false)}
             onMouseLeave={() => setShowPlanTrip(false)}
         >
             <div className={showPlantrip ? 'place low-w':'place high-w'}>
                 <img src={img} alt="destination"/>
-                <h3>{place}</h3>
+                <h3>
+                    {place}
+                    <Heart style={heartStyle}/>
+                </h3>
+                
+                {/* <Heart/> */}
                 <p>{description}</p>
                 <div className='location_price'>
                     <div className='location'>
