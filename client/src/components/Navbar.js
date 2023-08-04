@@ -12,6 +12,38 @@ function Navbar()
   const [signup, setSignup] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
 
+  const userToken = JSON.parse(localStorage.getItem('token'));
+  const [user, setUser] = useState({name:"",email:"",profilePic:""});
+
+  const fetchDataFromProtectedAPI = async (userToken) => 
+  {
+      try 
+      {
+        const config = {
+            headers: {
+              Authorization: `Bearer ${userToken}`,
+            },
+        };
+        const response = await axios.get("http://localhost:3000/api/user", config);
+        setUser(response.data.user);
+        console.log("user",response.data.user.profilePic);
+
+      }
+      catch (error)
+      {
+        console.error("Error fetching data:", error);
+      }
+  };
+
+  useEffect(() =>
+  {
+    if (userToken)
+    {
+      fetchDataFromProtectedAPI(userToken);
+    }
+    // console.log(userToken);
+  }, []);
+
   useEffect(() => 
   {
     const handleScroll = () =>
@@ -44,11 +76,9 @@ function Navbar()
   };
 
 
-  const user =null;
-
   const handleLogout = () => 
   {
-    localStorage.removeItem('user');
+    localStorage.clear();
     setShowProfile(false);
   };
 
@@ -64,7 +94,7 @@ function Navbar()
           <li className={navbarScrolled ? "color":"white"}>Hotels</li>
           <li className={navbarScrolled ? "color":"white"}>About Us</li>
           <li className={navbarScrolled ? "color":"white"}>Contact</li>
-          {!user && <li className="login_signup_container">
+          {!userToken && <li className="login_signup_container">
             <Link to="/login">
               <button
                 onMouseEnter={handleLoginMouseEnter}
@@ -81,9 +111,12 @@ function Navbar()
               </button>
             </Link>
           </li>}
-          {user &&  <li className="profile" onClick={() => setShowProfile(!showProfile)}>
-                {user.profilePic && <img src={user.profilePic} alt="profile" className="profile_pic"/>}
-                {!user.profilePic && <h4>{user.name.charAt(0)}</h4>}
+          {userToken &&  <li className="profile" onClick={() => setShowProfile(!showProfile)}>
+                {user.profilePic === undefined ? (
+                  <h4>{user.name.charAt(0)}</h4>
+                )
+                : 
+                <img src={user.profilePic} alt="profile" className="profile_pic"/>}
                 <i class="fa-solid fa-angle-down"></i>
                 {showProfile && <div className="profile_dropdown">
                   <p>Profile</p>
@@ -94,5 +127,7 @@ function Navbar()
     </div>
   );
 };
+
+
 
 export default Navbar;
