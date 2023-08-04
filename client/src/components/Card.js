@@ -96,7 +96,6 @@ function Card()
         try {
           const response = await axios.get('http://localhost:3000/api/getDestinations');
           setDestinations(response.data);
-          console.log(response.data);
         } catch (error) {
           console.error('Error fetching destinations:', error);
         }
@@ -104,7 +103,6 @@ function Card()
 
     useEffect(() => {
         fetchDestinations();
-        // console.log(destinations);
     }, []);
 
     return(

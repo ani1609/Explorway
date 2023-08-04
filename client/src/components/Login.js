@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { useState } from 'react';
 import '../index.css';
@@ -8,6 +8,7 @@ import Bg from '../images/boy2.png';
 
 function Login()
 {
+    const navigate = useNavigate();
     const [invalidEmail, setInvalidEmail] = useState(false);
 
     const [loginData, setLoginData] = useState({
@@ -46,9 +47,10 @@ function Login()
             const response = await axios.post("http://localhost:3000/api/users/login", loginData);
             localStorage.clear();
             localStorage.setItem('token', JSON.stringify(response.data.token));
-            const userToken = JSON.parse(localStorage.getItem('token'));
-            console.log(userToken);
+            // const userToken = JSON.parse(localStorage.getItem('token'));
+            // console.log("user token is login",userToken);
             setInvalidEmail(false);
+            navigate('/');
         }
         catch(error)
         {

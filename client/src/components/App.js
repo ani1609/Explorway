@@ -30,11 +30,11 @@ function HomePage() {
   return (
     <div>
       <Navbar/>
-      <Header />
-      <WhyUs />
-      <Card />
-      <Subscription />
-      <Footer />
+      {/* <Header /> */}
+      {/* <WhyUs /> */}
+      {/* <Card /> */}
+      {/* <Subscription /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

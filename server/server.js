@@ -3,7 +3,7 @@ const connectDb = require('./configDb/db');
 const signupCotroller = require('./controllers/signup');
 const loginCotroller = require('./controllers/login');
 const { authenticateJWT } = require('./controllers/authenticate');
-const { seedDatabase } = require('./controllers/databaseSeeding');
+const { seedDatabase, clearDatabase } = require('./controllers/databaseSeeding');
 const getDestinations = require('./controllers/getDestinations');
 const express = require('express');
 const path = require('path');
@@ -16,6 +16,7 @@ app.use(express.json());
 
 connectDb();
 
+// clearDatabase();
 seedDatabase();
 
 app.get('/api/getDestinations', getDestinations);

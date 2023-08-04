@@ -11,8 +11,8 @@ const destinations = [
         id: 1
     },
     {
-        img: "/place1_2.jpg",
-        place: "Gardens by the Bay",
+        img: "/place2_c.jpg",
+        place: "South Island",
         description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
         location: "Singapore",
         price: 79999,
@@ -20,8 +20,8 @@ const destinations = [
         id: 2
     },
     {
-        img: "/place1_3.jpg",
-        place: "Gardens by the Bay",
+        img: "/place3_c.jpg",
+        place: "Grand Canyon",
         description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
         location: "Singapore",
         price: 79999,
@@ -29,8 +29,8 @@ const destinations = [
         id: 3
     },
     {
-        img: "/place1_4.jpg",
-        place: "Gardens by the Bay",
+        img: "/place4_c.jpg",
+        place: "Jungfraujoch",
         description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
         location: "Singapore",
         price: 79999,
@@ -38,8 +38,8 @@ const destinations = [
         id: 4
     },
     {
-        img: "/place1_5.jpg",
-        place: "Gardens by the Bay",
+        img: "/place5_c.jpg",
+        place: "Eiffel Tower",
         description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
         location: "Singapore",
         price: 79999,
@@ -47,8 +47,8 @@ const destinations = [
         id: 5
     },
     {
-        img: "/place1_6.jpg",
-        place: "Gardens by the Bay",
+        img: "/place6_c.jpg",
+        place: "Closseum",
         description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
         location: "Singapore",
         price: 79999,
@@ -57,7 +57,7 @@ const destinations = [
     },
     {
         img: "/place7_c.jpg",
-        place: "Gardens by the Bay",
+        place: "Tower Bridge",
         description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
         location: "Singapore",
         price: 79999,
@@ -66,7 +66,7 @@ const destinations = [
     },
     {
         img: "/place8_c.jpg",
-        place: "Gardens by the Bay",
+        place: "Burj Khalifa",
         description: "Lorem ipsum may be used as a placeholder before final copy is availble.",
         location: "Singapore",
         price: 79999,
@@ -74,6 +74,17 @@ const destinations = [
         id: 8
     }
 ];
+
+const clearDatabase = async () => {
+  try {
+    // Remove all records from the 'destinations' collection
+    await Destination.deleteMany({});
+
+    console.log('Database cleared successfully.');
+  } catch (err) {
+    console.error('Error clearing the database:', err);
+  }
+};
 
 const seedDatabase = async () => 
 {
@@ -100,4 +111,5 @@ const seedDatabase = async () =>
 
 module.exports = {
   seedDatabase,
+  clearDatabase
 };
