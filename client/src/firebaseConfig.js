@@ -14,6 +14,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const userDataCollection= collection(db, "userData");
+const userWishlistCollection= collection(db, "userWishlist");
 
-export {db, userDataCollection};
+export {db, userWishlistCollection};

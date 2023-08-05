@@ -5,7 +5,7 @@ import '../styles/CardItems.css';
 import "../index.css";
 import {ReactComponent as Heart} from '../images/heart.svg';
 import {ReactComponent as HeartSolid} from '../images/heart_solid.svg';
-import { db, userDataCollection } from '../firebaseConfig';
+import { db, userWishlistCollection } from '../firebaseConfig';
 import { collection, addDoc, getDocs, deleteDoc, doc, getDoc, setDoc} from 'firebase/firestore';
 
 function CardItems(props)
@@ -21,6 +21,7 @@ function CardItems(props)
 
     const userToken = JSON.parse(localStorage.getItem('token'));
     const [user, setUser] = useState({name:"",email:"",profilePic:""});
+    
     const fetchDataFromProtectedAPI = async (userToken) => 
     {
       try 
@@ -79,27 +80,38 @@ function CardItems(props)
 
     const handleHeartClick = async () => 
     {
-        // console.log("User:", user);
-        // console.log("User email:", user.email);
         try 
         {
             const userObject = {
                 email: user.email,
                 itemId: id,
             };
-        
-            // console.log("Adding user object:", userObject);
-        
-            const newDocRef = await addDoc(userDataCollection, userObject);
-            // console.log("Document added with ID:", newDocRef.id);
-        } 
+    
+            // Check if a document with the same email and itemId exists
+            const querySnapshot = await getDocs(userWishlistCollection);
+            const matchingDoc = querySnapshot.docs.find(doc => 
+                {
+                const data = doc.data();
+                return data.email === userObject.email && data.itemId === userObject.itemId;
+            });
+    
+            if (matchingDoc) 
+            {
+                await deleteDoc(matchingDoc.ref);
+                console.log("Preexisting document deleted:", matchingDoc.id);
+            }
+            else
+            {
+                const newDocRef = await addDoc(userWishlistCollection, userObject);
+                console.log("New document added with ID:", newDocRef.id);
+            }
+        }
         catch (error) 
         {
-            console.error("Error adding document:", error);
+            console.error("Error:", error);
         }
-        // printAllDocuments('wishlist');
-        // deleteAllDocuments('userData');
     };
+    
     
 
     return(
