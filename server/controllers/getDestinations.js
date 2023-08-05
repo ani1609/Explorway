@@ -1,6 +1,6 @@
 const Destinations = require('../models/destinations');
 
-const getDestinations = async (req, res) =>
+const getAllDestinations = async (req, res) =>
 {
     try
     {
@@ -12,4 +12,4 @@ const getDestinations = async (req, res) =>
     }
 }
 
-module.exports = getDestinations;
+module.exports = {getAllDestinations};
