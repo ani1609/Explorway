@@ -99,7 +99,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    padding: 5px 0px 5px 40px;
+    padding: 5px 0px 5px 30px;
     letter-spacing: 1px;
     cursor: pointer;
     transition: 0.1s ease-in-out;
@@ -122,14 +122,38 @@
     left: 0;
     position: absolute;
     height: 100%;
-    width: 0px;
     background-color: var(--bg2);
     transition: 0.1s ease-in-out;
 }
 
-.profile_list ul li:hover span
+
+.span_width_5
+{
+    color: var(--primary);
+}
+
+.span_width_5>span
 {
     width: 5px;
+}
+
+.profile_list ul li:hover span
+{
+    animation-name: span_animation;
+    animation-duration: 0.1s;
+    animation-fill-mode: both;
+}
+
+@keyframes span_animation
+{
+    from
+    {
+        width: 0px;
+    }
+    to
+    {
+        width: 5px;
+    }
 }
 
 .profile_list ul li:nth-child(1)::before
@@ -179,5 +203,8 @@
 {
     width: calc(100% - 350px);
     height: 100%;
-    background-color: grey;
+    box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
+    min-width: 890px;
+    min-height: 689px;
 }
+

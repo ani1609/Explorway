@@ -48,9 +48,9 @@ function ProfilePage()
 {
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar/> */}
       <Profile />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

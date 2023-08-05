@@ -26,8 +26,6 @@ function Navbar()
         };
         const response = await axios.get("http://localhost:3000/api/user", config);
         setUser(response.data.user);
-        console.log("user",response.data.user.profilePic);
-
       }
       catch (error)
       {
