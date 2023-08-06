@@ -82,8 +82,14 @@ function CardItems(props)
     {
         try 
         {
-            const userObject = {
+            const userObject = 
+            {
                 email: user.email,
+                img: img,
+                place: place,
+                description: description,
+                location: location,
+                price: price,
                 itemId: id,
             };
     
@@ -105,6 +111,7 @@ function CardItems(props)
                 const newDocRef = await addDoc(userWishlistCollection, userObject);
                 console.log("New document added with ID:", newDocRef.id);
             }
+            // deleteAllDocuments('userWishlist');
         }
         catch (error) 
         {
