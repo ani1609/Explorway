@@ -5,5 +5,33 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    height: 500px;
+    overflow: scroll;
+    position: relative;
     /* gap: 10px; */
+}
+
+.wishlist_parent h3
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--para);
+}
+
+.wishlist_parent h3 a
+{
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.wishlist_parent h3 a:hover
+{
+    text-decoration: underline;
 }

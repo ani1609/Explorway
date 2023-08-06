@@ -8,6 +8,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 0.6px solid #c0c0c0;
+    text-decoration: none;
 }
 
 .wishlistitem_parent img

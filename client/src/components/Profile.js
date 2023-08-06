@@ -14,7 +14,7 @@ function Profile()
 {
     const userToken = JSON.parse(localStorage.getItem('token'));
     const [user, setUser] = useState({name:"",email:"",profilePic:""});
-    const [showMyProfile, setShowMyProfile] = useState(false);
+    const [showMyProfile, setShowMyProfile] = useState(true);
     const [showAddress, setShowAddress] = useState(false);
     const [showWishlist, setShowWishlist] = useState(false);
     const [showChangePassword, setShowChangePassword] = useState(false);
