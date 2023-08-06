@@ -48,9 +48,11 @@ function ProfilePage()
 {
   return (
     <div>
-      {/* <Navbar/> */}
+      <Navbar
+        shadow={true}
+      />
       <Profile />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

@@ -5,13 +5,21 @@ import "../index.css";
 import Logo from "../images/logof.png";
 import axios from "axios";
 
-function Navbar()
+function Navbar(props)
 {
   const [navbarScrolled, setNavbarScrolled] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
   const navigate = useNavigate();
+  
+  useEffect(() =>
+  {
+    if (props.shadow)
+    { 
+      setNavbarScrolled(true);
+    }
+  }, [props.shadow]);
 
 
   const userToken = JSON.parse(localStorage.getItem('token'));
@@ -48,13 +56,13 @@ function Navbar()
   {
     const handleScroll = () =>
     {
-      if (window.scrollY > 50) 
+      if (window.scrollY < 50 && !props.shadow) 
       {
-        setNavbarScrolled(true);
+        setNavbarScrolled(false);
       } 
       else 
       {
-        setNavbarScrolled(false);
+        setNavbarScrolled(true);
       }
     }
     window.addEventListener("scroll", handleScroll);
