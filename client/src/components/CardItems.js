@@ -53,6 +53,12 @@ function CardItems(props)
 
     const handleHeartClick = async () => 
     {
+        if (!userToken)
+        {
+            alert("Please login to add to wishlist");
+            return;
+        }
+
         try 
         {
             const userObject = 

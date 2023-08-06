@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useRef, useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import "../index.css";
@@ -11,6 +11,8 @@ function Navbar()
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
+  const navigate = useNavigate();
+
 
   const userToken = JSON.parse(localStorage.getItem('token'));
   const [user, setUser] = useState({name:"",email:"",profilePic:""});
@@ -78,6 +80,8 @@ function Navbar()
   {
     localStorage.clear();
     setShowProfile(false);
+    navigate("/");
+    window.location.reload();
   };
 
   return (
