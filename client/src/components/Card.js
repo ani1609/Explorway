@@ -33,12 +33,11 @@ function Card()
                     <h1>for you</h1>
             </div>
             <div className='destinations-container'>
-                {destinations.map((destination) =>{
+                {destinations.map((destination, index) =>{
                     return (
-                        <div>
+                        <div key={index}>
                             <CardItems
                             destination={destination}
-                            key={destination.id}
                             />
                         </div>
                     )

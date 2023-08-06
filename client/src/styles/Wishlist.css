@@ -1,4 +1,9 @@
 .wishlist_parent
 {
+    width: 100%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* gap: 10px; */
 }

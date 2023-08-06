@@ -202,9 +202,10 @@
 .profile_left_block
 {
     width: calc(100% - 350px);
-    height: 100%;
     box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
     min-width: 890px;
     min-height: 689px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
