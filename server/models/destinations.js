@@ -6,7 +6,7 @@ const destinationSchema = new mongoose.Schema(
     place: { type: String, required: true },
     description: { type: String, required: true },
     location: { type: String, required: true },
-    price: { type: Number, required: true },
+    price: { type: String, required: true },
     id: { type: Number, required: true }
 });
 

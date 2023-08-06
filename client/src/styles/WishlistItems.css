@@ -44,8 +44,9 @@
 .details p
 {
     margin: 0;
-    font-size: 15px;
-    letter-spacing: 0.5px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    word-spacing: 5px;
     text-align: left;
     color: var(--para);
 }

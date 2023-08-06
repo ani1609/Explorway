@@ -114,7 +114,7 @@
 .profile_list ul li:hover 
 {
     color: var(--primary);
-    font-size: 14.8px;
+    font-size: 15px;
 }
 
 .profile_list ul li span
@@ -130,11 +130,12 @@
 .span_width_5
 {
     color: var(--primary);
+    font-size: 15px !important;
 }
 
 .span_width_5>span
 {
-    width: 5px;
+    width: 5px !important;
 }
 
 .profile_list ul li:hover span
