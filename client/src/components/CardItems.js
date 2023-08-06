@@ -6,7 +6,7 @@ import "../index.css";
 import {ReactComponent as Heart} from '../icons/heart.svg';
 import {ReactComponent as HeartSolid} from '../icons/heart_solid.svg';
 import { db, userWishlistCollection } from '../firebaseConfig';
-import { collection, addDoc, getDocs, deleteDoc, doc, getDoc, setDoc} from 'firebase/firestore';
+import { collection, addDoc, getDocs, deleteDoc, doc, getDoc, setDoc, onSnapshot} from 'firebase/firestore';
 import { set } from 'mongoose';
 
 function CardItems(props)
@@ -84,7 +84,6 @@ function CardItems(props)
                 const newDocRef = await addDoc(userWishlistCollection, userObject);
                 console.log("New document added with ID:", newDocRef.id);
             }
-            setWishlisted(!wishlisted);
         }
         catch (error) 
         {
@@ -92,26 +91,39 @@ function CardItems(props)
         }
     };
 
-    useEffect(() =>
-    {
-        if (user.email)
-        {
-            const setHeartStyle = async () =>
-            {
+    useEffect(() => {
+        if (user.email) {
+            const setHeartStyle = async () => {
                 const querySnapshot = await getDocs(userWishlistCollection);
-                const matchingDoc = querySnapshot.docs.find(doc => 
-                    {
+                const matchingDoc = querySnapshot.docs.find(doc => {
                     const data = doc.data();
                     return data.email === user.email && data.id === id;
                 });
-                if (matchingDoc) 
-                {
-                    setWishlisted(true);
-                }
-            }
+    
+                setWishlisted(!!matchingDoc); // Set initial status
+    
+                // Listen for real-time changes to the wishlist collection
+                const unsubscribe = onSnapshot(userWishlistCollection, (snapshot) => {
+                    let isWishlisted = false;
+                    snapshot.forEach((doc) => {
+                        const data = doc.data();
+                        if (data.email === user.email && data.id === id) {
+                            isWishlisted = true;
+                        }
+                    });
+                    setWishlisted(isWishlisted);
+                });
+    
+                return () => {
+                    // Unsubscribe the real-time listener when component unmounts
+                    unsubscribe();
+                };
+            };
+    
             setHeartStyle();
         }
-    }, [user.email]);
+    }, [user.email, id]);
+    
     
     
 
