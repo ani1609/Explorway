@@ -12,4 +12,10 @@ const getAllDestinations = async (req, res) =>
     }
 }
 
-module.exports = {getAllDestinations};
+const getDestinationsById = async (req, res) =>
+{
+    const destination=await Destinations.findOne({id:req.query.id});
+    res.status(200).json(destination);
+}
+
+module.exports = {getAllDestinations, getDestinationsById};

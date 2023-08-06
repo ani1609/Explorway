@@ -4,7 +4,7 @@ const signupCotroller = require('./controllers/signup');
 const loginCotroller = require('./controllers/login');
 const { authenticateJWT } = require('./controllers/authenticate');
 const { seedDatabase, clearDatabase } = require('./controllers/databaseSeeding');
-const {getAllDestinations} = require('./controllers/getDestinations');
+const {getAllDestinations, getDestinationsById} = require('./controllers/getDestinations');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -20,11 +20,7 @@ connectDb();
 seedDatabase();
 
 app.get('/api/getDestinations', getAllDestinations);
-app.get('/api/getDestinations/byId', (req, res) => {
-    const id = req.query.id;
-    console.log("Received request for id:", id);
-    res.send('getDestinations by id');
-});
+app.get('/api/getDestinations/byId', getDestinationsById);
 
 app.post('/api/users/signup', signupCotroller);
 app.post('/api/users/login', loginCotroller);
