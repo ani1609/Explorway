@@ -62,8 +62,9 @@ function WishlistItems(props)
         }
     }, [userToken]);
 
-    const handleHeartClick = async () => 
+    const handleHeartClick = async (e) => 
     {
+        e.preventDefault();
         try 
         {
             // Check if a document with the same email and itemId exists
@@ -83,7 +84,7 @@ function WishlistItems(props)
 
 
     return (
-        <div className="wishlistitem_parent">
+        <a href="" className="wishlistitem_parent">
             <img src={img}/>
             <div className="details">
                 <h2>
@@ -102,7 +103,7 @@ function WishlistItems(props)
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     );
 
 }

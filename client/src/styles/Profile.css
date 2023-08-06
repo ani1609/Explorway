@@ -31,7 +31,7 @@
 
 .profile_list
 {
-    height: 500px;
+    height: 400px;
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -117,7 +117,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    padding: 5px 0px 5px 30px;
+    padding: 5px 10px 5px 30px;
     letter-spacing: 1px;
     cursor: pointer;
     transition: 0.1s ease-in-out;
@@ -203,19 +203,21 @@
 
 .profile_list ul li:nth-child(4)::before
 {
-    font-family: 'Font Awesome 5 Free';
-    content: '\f070';
-    margin-left: -2px;
-    margin-right: 12px;
-    font-size: 17px;
+    font-family: 'Material Icons';
+    content: '\e897';
+    margin-right: 15px;
+    margin-left: -1.8px;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .profile_list ul li:nth-child(5)::before
 {
-    font-family: 'Font Awesome 5 Free';
-    content: '\f08b';
+    font-family: 'Material Icons';
+    content: '\e9ba';
+    font-weight: 500;
     margin-right: 15px;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 
@@ -226,6 +228,5 @@
     box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
     min-width: 890px;
     border-radius: 5px;
-    overflow: hidden;
 }
 
