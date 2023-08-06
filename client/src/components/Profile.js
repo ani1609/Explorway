@@ -9,6 +9,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Wishlist from './Wishlist.js';
 
 
+
 function Profile() 
 {
     const userToken = JSON.parse(localStorage.getItem('token'));
@@ -115,31 +116,37 @@ function Profile()
 
     return(
         <div className='profile_parent'>
-            <div className='profile_list'>
-                <div className='profile_list_header'>
-                    <label>
-                        <FontAwesomeIcon icon={faUser} className='profile_icon'/>
-                        <input type='file' className='file-input' />
-                    </label>
-                    <div>
-                        <h4>{user.name}</h4>
-                        <p>{formattedHours}:{formattedMinutes}:{formattedSeconds} {amOrPm}</p>
+            {showMyProfile && <h1>My Profile</h1>}
+            {showAddress && <h1>Address Book</h1>}
+            {showWishlist && <h1>My Wishlist</h1>}
+            {showChangePassword && <h1>Change Password</h1>}
+            <div className='profile_contents'>
+                <div className='profile_list'>
+                    <div className='profile_list_header'>
+                        <label>
+                            <FontAwesomeIcon icon={faUser} className='profile_icon'/>
+                            <input type='file' className='file-input' />
+                        </label>
+                        <div>
+                            <h4>{user.name}</h4>
+                            <p>{formattedHours}:{formattedMinutes}:{formattedSeconds} {amOrPm}</p>
+                        </div>
                     </div>
+
+                    <ul>
+                        <li onClick={handlemyProfileClick} className={showMyProfile? 'span_width_5':'span_width_0'}><span></span>My Profile</li>
+                        <li onClick={handleAddressClick} className={showAddress? 'span_width_5':'span_width_0'}><span></span>Address</li>
+                        <li onClick={handleWishlistClick} className={showWishlist? 'span_width_5':'span_width_0'}><span></span>Wishlist</li>
+                        <li onClick={handleChangePasswordClick} className={showChangePassword? 'span_width_5':'span_width_0'}><span></span>Change Password</li>
+                        <li onClick={handleLogOutClick} className={showLogOut? 'span_width_5':'span_width_0'}><span></span>Log Out</li>
+                    </ul>
                 </div>
 
-                <ul>
-                    <li onClick={handlemyProfileClick} className={showMyProfile? 'span_width_5':'span_width_0'}><span></span>My Profile</li>
-                    <li onClick={handleAddressClick} className={showAddress? 'span_width_5':'span_width_0'}><span></span>Address</li>
-                    <li onClick={handleWishlistClick} className={showWishlist? 'span_width_5':'span_width_0'}><span></span>Wishlist</li>
-                    <li onClick={handleChangePasswordClick} className={showChangePassword? 'span_width_5':'span_width_0'}><span></span>Change Password</li>
-                    <li onClick={handleLogOutClick} className={showLogOut? 'span_width_5':'span_width_0'}><span></span>Log Out</li>
-                </ul>
-            </div>
-
-            <div className='profile_left_block'>
-                {showWishlist && <div>
-                    <Wishlist />
-                </div>}
+                <div className='profile_left_block'>
+                    {showWishlist && <div>
+                        <Wishlist />
+                    </div>}
+                </div>
             </div>
         </div>
     );
