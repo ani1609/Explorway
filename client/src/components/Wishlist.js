@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import WishlistItems from './WishlistItems';
 import axios from 'axios';
+import '../index.css';
+import '../styles/Wishlist.css';
 import { userWishlistCollection } from '../firebaseConfig';
 import {
     getDocs,
@@ -72,7 +75,7 @@ function Wishlist() {
         <div className="wishlist_parent">
             {destinations.map(destination => (
                 <div key={destination.id}>
-                    <CardItems destination={destination} />
+                    <WishlistItems destination={destination} />
                 </div>
             ))}
         </div>
