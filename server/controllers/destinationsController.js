@@ -75,18 +75,7 @@ const destinations = [
     }
 ];
 
-const clearDatabase = async () => {
-  try {
-    // Remove all records from the 'destinations' collection
-    await Destination.deleteMany({});
-
-    console.log('Database cleared successfully.');
-  } catch (err) {
-    console.error('Error clearing the database:', err);
-  }
-};
-
-const seedDatabase = async () => 
+const seedDestinationsDatabase = async () => 
 {
     try 
     {
@@ -109,7 +98,41 @@ const seedDatabase = async () =>
     }
 };
 
+const getAllDestinations = async (req, res) =>
+{
+    try
+    {
+        const destinations = await Destination.find();
+        res.status(200).json(destinations);
+    } 
+    catch (error)
+    {
+        res.status(404).json({ message: error.message });
+    }
+}
+
+const getDestinationById = async (req, res) =>
+{
+    const destination=await Destination.findOne({id:req.query.id});
+    res.status(200).json(destination);
+}
+
+const clearDestinationsDatabase = async () => {
+  try 
+  {
+
+    await Destination.deleteMany({});
+
+    console.log('Database cleared successfully.');
+  } 
+  catch (err) 
+  {
+    console.error('Error clearing the database:', err);
+  }
+};
 module.exports = {
-  seedDatabase,
-  clearDatabase
+    seedDestinationsDatabase,
+    getAllDestinations,
+    getDestinationById,
+    clearDestinationsDatabase
 };
