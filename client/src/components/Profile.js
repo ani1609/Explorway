@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Wishlist from './Wishlist.js';
+import MyProfileSubComponent from './MyProfileSubComponent.js';
 
 
 
@@ -120,6 +121,7 @@ function Profile()
             {showAddress && <h1>Address Book</h1>}
             {showWishlist && <h1>My Wishlist</h1>}
             {showChangePassword && <h1>Change Password</h1>}
+            {showLogOut && <h1>&nbsp;</h1>}
             <div className='profile_contents'>
                 <div className='profile_list'>
                     <div className='profile_list_header'>
@@ -143,9 +145,18 @@ function Profile()
                 </div>
 
                 <div className='profile_left_block'>
-                    {showWishlist && <div>
-                        <Wishlist />
-                    </div>}
+                    {
+                        showMyProfile && <div>
+                            <MyProfileSubComponent />
+                        </div>
+                    }
+                    
+                    {
+                        showWishlist && <div>
+                            <Wishlist />
+                        </div>
+                    }
+                    
                 </div>
             </div>
         </div>
