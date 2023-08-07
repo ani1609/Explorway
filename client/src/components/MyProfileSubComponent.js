@@ -80,7 +80,7 @@ function MyProfileSubComponent()
                 };
                 const response = await axios.post("http://localhost:3000/api/editUserInfo", formData, config);
                 console.log(response.data.user);
-                alert("Profile updated successfully");
+                window.location.reload();
             }
             catch (error)
             {

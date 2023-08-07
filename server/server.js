@@ -3,9 +3,10 @@ const connectDb = require('./configDb/db');
 const signupCotroller = require('./controllers/signup');
 const loginCotroller = require('./controllers/login');
 const { authenticateJWT } = require('./controllers/authenticate');
-const {editUserInfo} = require('./controllers/editUserInfo');
 const { seedDatabase, clearDatabase } = require('./controllers/databaseSeeding');
 const {getAllDestinations, getDestinationsById} = require('./controllers/getDestinations');
+const {editUserInfo} = require('./controllers/editUserInfo');
+const {addAddress} = require('./controllers/addressController');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -21,6 +22,7 @@ connectDb();
 seedDatabase();
 
 app.post('/api/editUserInfo', editUserInfo);
+app.post('/api/addAddress', addAddress);
 
 app.get('/api/getDestinations', getAllDestinations);
 app.get('/api/getDestinations/byId', getDestinationsById);
