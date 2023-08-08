@@ -1,11 +1,8 @@
 require('dotenv').config();
 const connectDb = require('./configDb/db');
-const signupCotroller = require('./controllers/signup');
-const loginCotroller = require('./controllers/login');
-const { authenticateJWT } = require('./controllers/authenticate');
-const {editUserInfo} = require('./controllers/editUserInfo');
-const { seedDatabase, clearDatabase } = require('./controllers/databaseSeeding');
-const {getAllDestinations, getDestinationsById} = require('./controllers/getDestinations');
+const { login, signup, authenticateJWT, editUserInfo } = require('./controllers/userController');
+const { seedDestinationsDatabase, getAllDestinations, getDestinationById, clearDestinationsDatabase } = require('./controllers/destinationsController');
+const {addAddress} = require('./controllers/addressController');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -17,21 +14,25 @@ app.use(express.json());
 
 connectDb();
 
-// clearDatabase();
-seedDatabase();
+// -------address controllers-------
+app.post('/api/addAddress', addAddress);
 
-app.post('/api/editUserInfo', editUserInfo);
 
-app.get('/api/getDestinations', getAllDestinations);
-app.get('/api/getDestinations/byId', getDestinationsById);
+// ------destinations controllers------
+seedDestinationsDatabase();
+// clearDestinationsDatabase();
+app.get('/api/getAllDestinations', getAllDestinations);
+app.get('/api/getDestinations/byId', getDestinationById);
 
-app.post('/api/users/signup', signupCotroller);
-app.post('/api/users/login', loginCotroller);
 
+// ------user controllers------
+app.post('/api/users/login', login);
+app.post('/api/users/signup', signup);
 app.get('/api/user', authenticateJWT, (req, res) => 
 {
     res.json({ message: 'Protected route accessed successfully!', user: req.user });
 });
+app.post('/api/editUserInfo', editUserInfo);
 
 
 

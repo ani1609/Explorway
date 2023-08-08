@@ -6,9 +6,9 @@ import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Wishlist from './Wishlist.js';
 import MyProfileSubComponent from './MyProfileSubComponent.js';
-
+import Wishlist from './Wishlist.js';
+import Address from './Address';
 
 
 function Profile() 
@@ -155,6 +155,12 @@ function Profile()
                         showWishlist && <div>
                             <Wishlist />
                         </div>
+                    }
+
+                    {
+                        showAddress && <div>
+                            <Address />
+                            </div>
                     }
                     
                 </div>

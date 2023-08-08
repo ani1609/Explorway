@@ -11,7 +11,7 @@ function Card()
 
     const fetchDestinations = async () => {
         try {
-          const response = await axios.get('http://localhost:3000/api/getDestinations');
+          const response = await axios.get('http://localhost:3000/api/getAllDestinations');
           setDestinations(response.data);
         } catch (error) {
           console.error('Error fetching destinations:', error);
