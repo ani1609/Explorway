@@ -2,10 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "../styles/WhyUs.css";
 import "../index.css";
-import Destinations from "../images/whyus_destinations_c.jpg";
-import Clients from "../images/why_clients_c.jpg";
-import Teams from "../images/why_teams_c.jpg";
-import Hotels from "../images/why_hotels_c.jpg";
+import Destinations from "../images/whyus_destinations3.webp";
+import Clients from "../images/whyus_clients.webp";
+import Teams from "../images/whyus_teams.webp";
+import Hotels from "../images/whyus_hotels.webp";
 
 
 function WhyUs()
