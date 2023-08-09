@@ -13,9 +13,6 @@ import {
 } from 'firebase/firestore';
 import '../index.css';
 import '../styles/Wishlist.css';
-import CardItems from './CardItems';
-import { use } from 'bcrypt/promises';
-import { set } from 'mongoose';
 
 function Wishlist() {
     const [destinations, setDestinations] = useState([]);
