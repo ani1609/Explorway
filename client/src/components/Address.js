@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "../index.css";
 import "../styles/Address.css";
+import { and } from "firebase/firestore";
 
 function Address()
 {
@@ -32,6 +33,29 @@ function Address()
             console.error("Error fetching data:", error);
         }
     }
+
+    const fetchAddress = async (email) =>
+    {
+        console.log(email);
+        try
+        {
+            const response = await axios.get(`http://localhost:3000/api/fetchAddress?email=${email}`);
+            console.log(response.data.address);
+        }
+        catch (error)
+        {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    useEffect(() =>
+    {
+        if (user?.email)
+        {
+            fetchAddress(user.email);
+        }
+    }
+    , [user]);
 
     useEffect(() =>
     {
