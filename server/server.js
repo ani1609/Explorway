@@ -1,6 +1,6 @@
 require('dotenv').config();
 const connectDb = require('./configDb/db');
-const { login, signup, authenticateJWT, editUserInfo } = require('./controllers/userController');
+const { login, signup, authenticateJWT, editUserInfo, changePassword } = require('./controllers/userController');
 const { seedDestinationsDatabase, getAllDestinations, getDestinationById, clearDestinationsDatabase } = require('./controllers/destinationsController');
 const {addAddress} = require('./controllers/addressController');
 const express = require('express');
@@ -33,6 +33,7 @@ app.get('/api/user', authenticateJWT, (req, res) =>
     res.json({ message: 'Protected route accessed successfully!', user: req.user });
 });
 app.post('/api/editUserInfo', editUserInfo);
+app.post('/api/changePassword', changePassword);
 
 
 

@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import MyProfileSubComponent from './MyProfileSubComponent.js';
-import Wishlist from './Wishlist.js';
 import Address from './Address';
-
+import Wishlist from './Wishlist.js';
+import ChangePassword from './ChangePassword';
 
 function Profile() 
 {
@@ -160,6 +160,12 @@ function Profile()
                     {
                         showAddress && <div>
                             <Address />
+                            </div>
+                    }
+
+                    {
+                        showChangePassword && <div>
+                            <ChangePassword />
                             </div>
                     }
                     
