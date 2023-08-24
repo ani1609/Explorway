@@ -32,23 +32,25 @@ const signup = async (req, res) =>
 {
   try 
   {
-    const user = await User.findOne({ email: req.body.email });
-    if (user) 
+        const user = await User.findOne({ email: req.body.email });
+        if (user) 
+        {
+        return res.status(409).send({ message: "User already exists" });
+        }
+
+        const salt = await bcrypt.genSalt(Number(SALT));
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+        const newUser = await new User({ ...req.body, password: hashedPassword }).save();
+
+        const token = jwt.sign({ id: newUser._id }, SECRET_KEY, { expiresIn: '5d' });
+        res.status(201).send({user:newUser, token: token});
+
+    } 
+    catch (error) 
     {
-      return res.status(409).send({ message: "User already exists" });
+        console.error("Error creating user:", error);
+        return res.status(500).send({ message: "Internal Server Error" });
     }
-
-    const salt = await bcrypt.genSalt(Number(SALT));
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    const newUser = await new User({ ...req.body, password: hashedPassword }).save();
-
-    const token = jwt.sign({ id: newUser._id }, SECRET_KEY, { expiresIn: '5d' });
-    res.status(201).send({user:newUser, token: token});
-
-  } catch (error) {
-    console.error("Error creating user:", error);
-    return res.status(500).send({ message: "Internal Server Error" });
-  }
 };
 
 function authenticateJWT(req, res, next) 
@@ -81,7 +83,8 @@ function authenticateJWT(req, res, next)
 }
 
 const editUserInfo = async (req, res) => {
-    try {
+    try 
+    {
         const { firstName, lastName, email, contact, dob, profilePic } = req.body;
         const token = req.headers.authorization.split(' ')[1];
         const decoded = jwt.verify(token, SECRET_KEY);
@@ -114,9 +117,35 @@ const editUserInfo = async (req, res) => {
     }
 };
 
+const changePassword = async (req, res) => 
+{
+    const { email, password, newPassword } = req.body;
+    try
+    {
+        const user = await User.findOne({ email });
+        const isMatch=await bcrypt.compare(password,user.password);
+        if (!user || !isMatch)
+        {
+            console.log("Invalid email or password");
+            return res.status(401).json({ error: 'Invalid email or password' });
+        }
+        const salt = await bcrypt.genSalt(Number(SALT));
+        const hashedPassword = await bcrypt.hash(newPassword, salt);
+        user.password = hashedPassword;
+        await user.save();
+    }
+    catch (error)
+    {
+        console.error('Error changing password:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+
+}
+
 module.exports = {
     login,
     signup,
     authenticateJWT,
-    editUserInfo
+    editUserInfo,
+    changePassword
 };
