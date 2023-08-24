@@ -13,6 +13,8 @@ function ChangePassword()
         confirmNewPassword: ""
     });
     const [passwordMatch, setPasswordMatch] = useState(true);
+    const [wrongPassword, setWrongPassword] = useState(false);
+    const [newPasswordOldPasswordMatch, setNewPasswordOldPasswordMatch] = useState(true);
 
     const fetchDataFromProtectedAPI = async (userToken) => 
     {
@@ -48,15 +50,26 @@ function ChangePassword()
             console.log("Passwords do not match");
             return;
         }
-        console.log(userData);
         setPasswordMatch(true);
         try 
         {
             const response = await axios.post('http://localhost:3000/api/changePassword', userData);
-            // console.log(response);
+            console.log(response);
         } 
         catch (error) 
         {
+            if (error.response.status === 401) 
+            {
+                setWrongPassword(true);
+                console.log("Invalid email or password");
+                return;
+            }
+            if (error.response.status === 409) 
+            {
+                setNewPasswordOldPasswordMatch(false);
+                console.log("New password cannot be the same as old password");
+                return;
+            }
             console.error('Error changing password:', error);
         }
     }
@@ -65,8 +78,8 @@ function ChangePassword()
         <div className="change-password-container">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="password">Password</label>
-                <input 
-                    type="password"
+                <input
+                    type="text"
                     name="password"
                     placeholder="Password"
                     value={userData.password}
@@ -75,7 +88,7 @@ function ChangePassword()
                 />
                 <label htmlFor="newPassword">New Password</label>
                 <input
-                    type="password"
+                    type="text"
                     name="newPassword"
                     placeholder="Confirm New Password"
                     value={userData.newPassword}
@@ -84,7 +97,7 @@ function ChangePassword()
                 />
                 <label htmlFor="confirmNewPassword">Confirm Password</label>
                 <input
-                    type="password"
+                    type="text"
                     id="confirmNewPassword"
                     name="confirmNewPassword"
                     placeholder="Confirm New Password"

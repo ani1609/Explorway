@@ -126,17 +126,20 @@ const changePassword = async (req, res) =>
         const isMatch=await bcrypt.compare(password,user.password);
         if (!user || !isMatch)
         {
-            console.log("Invalid email or password");
             return res.status(401).json({ error: 'Invalid email or password' });
         }
         const salt = await bcrypt.genSalt(Number(SALT));
+        if (await bcrypt.compare(newPassword, user.password))
+        {
+            return res.status(409).json({ error: 'New password cannot be the same as old password' });
+        }
         const hashedPassword = await bcrypt.hash(newPassword, salt);
         user.password = hashedPassword;
         await user.save();
+        res.status(200).json({ message: 'Password changed successfully' });
     }
     catch (error)
     {
-        console.error('Error changing password:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 
