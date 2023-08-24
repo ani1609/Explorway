@@ -24,8 +24,25 @@ const addAddress = async (req, res) =>
     }
 }
 
+const fetchAddress = async (req, res) =>
+{
+    const email=req.query.email;
+    try
+    {
+        const address = await Address.find({email:email});
+        res.status(200).json({ address });
+    }
+    catch (error)
+    {
+        console.error("Error fetching data:", error);
+    }
+}
 
-module.exports = { addAddress };
+
+module.exports = { 
+    addAddress, 
+    fetchAddress 
+};
 
 
 
