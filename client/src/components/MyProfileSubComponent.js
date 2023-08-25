@@ -163,7 +163,7 @@ function MyProfileSubComponent()
                         value={formData.gender}
                         onChange={handleInputChange}
                         style={!enableEdit ? { cursor: "not-allowed" } : { cursor: "pointer" }}
-                        readOnly={!enableEdit}
+                        disabled={!enableEdit}
                     >
                         <option value="Choose one">Choose one</option>
                         <option value="Male">Male</option>
