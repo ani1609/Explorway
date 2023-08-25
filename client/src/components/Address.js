@@ -3,6 +3,8 @@ import axios from "axios";
 import "../index.css";
 import "../styles/Address.css";
 import {ReactComponent as Edit} from '../icons/edit.svg';
+import {ReactComponent as AddAddress} from '../icons/addAddress.svg';
+import {ReactComponent as Cross} from '../icons/cross.svg';
 
 function Address()
 {
@@ -18,6 +20,7 @@ function Address()
         country: '',
         contact: '',
     });
+    const [showForm, setShowForm] = useState(false);
 
     const fetchDataFromProtectedAPI = async (userToken) =>
     {
@@ -105,7 +108,7 @@ function Address()
 
     return (
         <div className="address_parent">
-            <div className="address_container">
+            {!showForm && <div className="address_container">
                 {addressObject.map((address, index) => (
                     <div key={index} className="address">
                         {index === 0 && <h4>Default</h4>}
@@ -119,8 +122,14 @@ function Address()
                         <p>{address.contact}</p>
                     </div>
                 ))}
-            </div>
-            <form onSubmit={handleSubmit}>
+                <div className="add_address" onClick={()=>setShowForm(true)}>
+                    <AddAddress className="add_address_icon" />
+                    <p>Add Address</p>
+                </div>
+            </div>}
+            
+            {showForm && <form onSubmit={handleSubmit}>
+                <Cross className="cross_icon" onClick={()=>setShowForm(false)} />
                 <div>
                 <label htmlFor="name">Name:</label>
                 <input
@@ -199,7 +208,7 @@ function Address()
                 />
                 </div>
                 <button type="submit">Submit</button>
-            </form>
+            </form>}
         </div>
     );
 }

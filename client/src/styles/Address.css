@@ -27,7 +27,7 @@
 {
     margin: 0;
     padding: 0;
-    font-size: 11px;
+    font-size: 10px;
     font-family: 'Roboto', sans-serif;
     color: var(--heading);
     letter-spacing: 0.5px;
@@ -48,6 +48,7 @@
 
 .edit_icon
 {
+    fill: var(--primary);
     width: 20px;
     margin-left: auto;
     margin-bottom: 10px;
@@ -56,6 +57,37 @@
 }
 
 .address p
+{
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--para);
+    letter-spacing: 0.5px;
+}
+
+.add_address
+{
+    height: 210px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: 2px dashed var(--bg2);
+    cursor: pointer;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add_address_icon
+{
+    fill: var(--primary);
+    width: 40px;
+}
+
+.add_address p
 {
     margin: 0;
     padding: 0;
