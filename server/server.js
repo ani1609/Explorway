@@ -15,14 +15,14 @@ app.use(express.json());
 connectDb();
 
 // -------address controllers-------
-clearAddressDatabase();
+// clearAddressDatabase();
 app.post('/api/addAddress', addAddress);
 app.get('/api/fetchAddress', fetchAddress);
 
 
 // ------destinations controllers------
-seedDestinationsDatabase();
-clearDestinationsDatabase();
+// seedDestinationsDatabase();
+// clearDestinationsDatabase();
 app.get('/api/getAllDestinations', getAllDestinations);
 app.get('/api/getDestinations/byId', getDestinationById);
 

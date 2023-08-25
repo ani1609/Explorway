@@ -6,6 +6,11 @@ const addressSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    name: {
+        type: String,
+        required: true,
+        trim: true
+    },
     street: {
         type: String,
         required: true,
@@ -28,6 +33,11 @@ const addressSchema = new mongoose.Schema({
     },
     country: {
         type: String,
+        required: true,
+        trim: true
+    },
+    contact: {
+        type: Number,
         required: true,
         trim: true
     }

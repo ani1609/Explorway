@@ -2,20 +2,22 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "../index.css";
 import "../styles/Address.css";
-import { and } from "firebase/firestore";
+import {ReactComponent as Edit} from '../icons/edit.svg';
 
 function Address()
 {
     const userToken = JSON.parse(localStorage.getItem('token'));
     const [user, setUser] = useState({name:"",email:"",profilePic:""});
-    const [addressObject, setAddressObject] = useState({});
+    const [addressObject, setAddressObject] = useState([]);
     const [address, setAddress] = useState({
+        name: '',
         street: '',
         city: '',
         state: '',
         postalCode: '',
-        country: ''
-      });
+        country: '',
+        contact: '',
+    });
 
     const fetchDataFromProtectedAPI = async (userToken) =>
     {
@@ -41,7 +43,6 @@ function Address()
         {
             const response = await axios.get(`http://localhost:3000/api/fetchAddress?email=${email}`);
             setAddressObject(response.data.address);
-            console.log(response.data.address);
         }
         catch (error)
         {
@@ -104,7 +105,33 @@ function Address()
 
     return (
         <div className="address_parent">
+            <div className="address_container">
+                {addressObject.map((address, index) => (
+                    <div key={index} className="address">
+                        {index === 0 && <h4>Default</h4>}
+                        <Edit className="edit_icon" />
+                        <p>{address.name}</p>
+                        <p>{address.street}</p>
+                        <p>{address.city}</p>
+                        <p>{address.state}</p>
+                        <p>{address.postalCode}</p>
+                        <p>{address.country}</p>
+                        <p>{address.contact}</p>
+                    </div>
+                ))}
+            </div>
             <form onSubmit={handleSubmit}>
+                <div>
+                <label htmlFor="name">Name:</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={address.name}
+                    onChange={handleInputChange}
+                    required
+                />
+                </div>
                 <div>
                 <label htmlFor="street">Street:</label>
                 <input
@@ -156,6 +183,17 @@ function Address()
                     id="country"
                     name="country"
                     value={address.country}
+                    onChange={handleInputChange}
+                    required
+                />
+                </div>
+                <div>
+                <label htmlFor="contact">Contact:</label>
+                <input
+                    type="text"
+                    id="contact"
+                    name="contact"
+                    value={address.contact}
                     onChange={handleInputChange}
                     required
                 />
