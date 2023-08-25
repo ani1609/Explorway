@@ -112,7 +112,7 @@ function Address()
                 {addressObject.map((address, index) => (
                     <div key={index} className="address">
                         {index === 0 && <h4>Default</h4>}
-                        <Edit className="edit_icon" />
+                        <Edit className="edit_icon_address" />
                         <p>{address.name}</p>
                         <p>{address.street}</p>
                         <p>{address.city}</p>
@@ -129,85 +129,93 @@ function Address()
             </div>}
             
             {showForm && <form onSubmit={handleSubmit}>
-                <Cross className="cross_icon" onClick={()=>setShowForm(false)} />
+                <Cross className="cross_icon_address" onClick={()=>setShowForm(false)} />
                 <div>
-                <label htmlFor="name">Name:</label>
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={address.name}
-                    onChange={handleInputChange}
-                    required
-                />
+                    <label htmlFor="name">Name:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={address.name}
+                        onChange={handleInputChange}
+                        placeholder="e.g. John Doe"
+                        required
+                    />
                 </div>
                 <div>
-                <label htmlFor="street">Street:</label>
-                <input
-                    type="text"
-                    id="street"
-                    name="street"
-                    value={address.street}
-                    onChange={handleInputChange}
-                    required
-                />
+                    <label htmlFor="street">Street:</label>
+                    <input
+                        type="text"
+                        id="street"
+                        name="street"
+                        value={address.street}
+                        onChange={handleInputChange}
+                        placeholder="e.g. 123 Main St"
+                        required
+                    />
                 </div>
                 <div>
-                <label htmlFor="city">City:</label>
-                <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    value={address.city}
-                    onChange={handleInputChange}
-                    required
-                />
+                    <label htmlFor="city">City:</label>
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        value={address.city}
+                        onChange={handleInputChange}
+                        placeholder="e.g. Los Angeles"
+                        required
+                    />
                 </div>
                 <div>
-                <label htmlFor="state">State:</label>
-                <input
-                    type="text"
-                    id="state"
-                    name="state"
-                    value={address.state}
-                    onChange={handleInputChange}
-                    required
-                />
+                    <label htmlFor="state">State:</label>
+                    <input
+                        type="text"
+                        id="state"
+                        name="state"
+                        value={address.state}
+                        onChange={handleInputChange}
+                        placeholder="e.g. California"
+                        required
+                    />
                 </div>
                 <div>
-                <label htmlFor="postalCode">Postal Code:</label>
-                <input
-                    type="text"
-                    id="postalCode"
-                    name="postalCode"
-                    value={address.postalCode}
-                    onChange={handleInputChange}
-                    required
-                />
+                    <label htmlFor="postalCode">Postal Code:</label>
+                    <input
+                        type="text"
+                        id="postalCode"
+                        name="postalCode"
+                        value={address.postalCode}
+                        onChange={handleInputChange}
+                        placeholder="e.g. 123456"
+                        required
+                    />
                 </div>
                 <div>
-                <label htmlFor="country">Country:</label>
-                <input
-                    type="text"
-                    id="country"
-                    name="country"
-                    value={address.country}
-                    onChange={handleInputChange}
-                    required
-                />
+                    <label htmlFor="country">Country:</label>
+                    <input
+                        type="text"
+                        id="country"
+                        name="country"
+                        value={address.country}
+                        onChange={handleInputChange}
+                        placeholder="e.g. United States"
+                        required
+                    />
                 </div>
                 <div>
-                <label htmlFor="contact">Contact:</label>
-                <input
-                    type="text"
-                    id="contact"
-                    name="contact"
-                    value={address.contact}
-                    onChange={handleInputChange}
-                    required
-                />
+                    <label htmlFor="contact">Contact:</label>
+                    <input
+                        type="text"
+                        id="contact"
+                        name="contact"
+                        value={address.contact}
+                        onChange={handleInputChange}
+                        placeholder="e.g. 1234567890"
+                        required
+                    />
                 </div>
-                <button type="submit">Submit</button>
+                <div></div>
+                <button type="submit">Add</button>
             </form>}
         </div>
     );
