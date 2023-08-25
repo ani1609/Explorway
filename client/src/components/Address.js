@@ -8,6 +8,7 @@ function Address()
 {
     const userToken = JSON.parse(localStorage.getItem('token'));
     const [user, setUser] = useState({name:"",email:"",profilePic:""});
+    const [addressObject, setAddressObject] = useState({});
     const [address, setAddress] = useState({
         street: '',
         city: '',
@@ -36,10 +37,10 @@ function Address()
 
     const fetchAddress = async (email) =>
     {
-        console.log(email);
         try
         {
             const response = await axios.get(`http://localhost:3000/api/fetchAddress?email=${email}`);
+            setAddressObject(response.data.address);
             console.log(response.data.address);
         }
         catch (error)
@@ -75,7 +76,7 @@ function Address()
         }));
     };
 
-    const handleSubmit = (event) => 
+    const handleSubmit = async (event) => 
     {
         event.preventDefault();
         try
@@ -85,14 +86,20 @@ function Address()
                 Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = axios.post("http://localhost:3000/api/addAddress", address, config);
+            const response = await axios.post("http://localhost:3000/api/addAddress", address, config);
             // console.log(response.data);
+            window.location.reload();
         }
         catch (error)
         {
             console.error("Error fetching data:", error);
         }
     };
+
+    useEffect(() => 
+    {
+        console.log(addressObject);
+    }, [addressObject]);
 
 
     return (

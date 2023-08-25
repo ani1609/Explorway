@@ -114,22 +114,45 @@
 
 .profile_list ul li
 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    padding: 5px 10px 5px 30px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: 0.1s ease-in-out;
     width: 100%;
+    height: 30px;
     box-sizing: border-box;
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+    color: var(--heading);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    transition: 0.1s linear;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    font-size: 14.5px;
+    cursor: pointer;
 }
 
-.profile_list ul li:hover 
+.profile_list ul li:hover
+{
+    color: var(--primary);
+}
+
+.profile_list ul li a
+{
+    width: 100%;
+    height: 100%;
+    font-size: 14.5px;
+    color: var(--heading);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    transition: 0.1s ease-in-out;
+    letter-spacing: 1px;
+    position: absolute;
+    padding: 5px 45px;
+    box-sizing: border-box;
+}
+
+.profile_list ul li a:hover 
 {
     color: var(--primary);
     font-weight: 400;
@@ -148,7 +171,7 @@
 
 .span_width_5
 {
-    color: var(--primary);
+    color: var(--primary) !important;
     font-size: 15px !important;
     font-weight: 400 !important;
 }
@@ -156,6 +179,13 @@
 .span_width_5>span
 {
     width: 5px !important;
+}
+
+.span_width_5 a
+{
+    color: var(--primary) !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
 }
 
 .profile_list ul li:hover span
@@ -181,34 +211,33 @@
 {
     font-family: 'Font Awesome 5 Free';
     content: '\f007';
-    margin-right: 15px;
     font-size: 17px;
+    margin-left: 16px;
 }
 
 .profile_list ul li:nth-child(2)::before
 {
     font-family: 'Font Awesome 5 Free';
     content: '\f2b9';
-    margin-right: 15px;
     font-size: 17px;
+    margin-left: 16px;
 }
 
 .profile_list ul li:nth-child(3)::before
 {
     font-family: 'Font Awesome 5 Free';
     content: '\f004';
-    margin-right: 15px;
     font-size: 17px;
+    margin-left: 16px;
 }
 
 .profile_list ul li:nth-child(4)::before
 {
     font-family: 'Material Icons';
     content: '\e897';
-    margin-right: 15px;
-    margin-left: -1.8px;
     font-weight: 500;
     font-size: 20px;
+    margin-left: 15px;
 }
 
 .profile_list ul li:nth-child(5)::before
@@ -218,6 +247,7 @@
     font-weight: 500;
     margin-right: 15px;
     font-size: 20px;
+    margin-left: 15px;
 }
 
 
