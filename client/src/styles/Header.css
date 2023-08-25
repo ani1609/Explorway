@@ -330,7 +330,7 @@ opacity: 0;
 }
 
   
-input[type="date"] 
+.in input[type="date"], .out input[type="date"]
 {
     box-sizing: border-box;
     color: var(--para);
@@ -343,7 +343,7 @@ input[type="date"]
     outline: none;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator 
+.in input[type="date"]::-webkit-calendar-picker-indicator , .out input[type="date"]::-webkit-calendar-picker-indicator 
 {
     /* display: none; */
     opacity: 0;
@@ -353,7 +353,7 @@ input[type="date"]::-webkit-calendar-picker-indicator
     cursor: pointer;
 }
   
-input[type="date"]::-moz-calendar-picker-indicator 
+.in input[type="date"]::-moz-calendar-picker-indicator, .out input[type="date"]::-moz-calendar-picker-indicator
 {
     /* display: none; */
     opacity: 0;
@@ -364,7 +364,7 @@ input[type="date"]::-moz-calendar-picker-indicator
 }
 
 
-input[type="date"]::after 
+.in input[type="date"]::after, .out input[type="date"]::after
 {
     content: "\f073";
     font-family: "Font Awesome 5 Free";
@@ -376,7 +376,7 @@ input[type="date"]::after
     transform: translateY(-50%);
 }
   
-input[type="date"]:focus 
+.in input[type="date"]:focus, .out input[type="date"]:focus
 {
     outline: none;
     box-shadow: 0 0 3px #55a0f0;

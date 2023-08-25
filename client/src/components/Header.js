@@ -200,7 +200,6 @@ const Header = () => {
             <label htmlFor="checkin">Check-In:</label>
             <input type="date" className="checkin" name="checkin" autoComplete="off" placeholder="Check-In"/>
           </form>
-
         </div>
 
         <div className="out">
@@ -208,8 +207,8 @@ const Header = () => {
             <label htmlFor="checkout">Check-Out:</label>
             <input type="date" className="checkout" name="checkout" autoComplete="off" placeholder="Check-Out"/>
           </form>
-
         </div>
+        
         <div className="book">
           <form>
             <button>Book Now</button>
