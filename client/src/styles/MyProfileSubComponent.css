@@ -1,0 +1,124 @@
+.myprofile_sub_parent
+{
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.edit_icon_profile
+{
+    width: 22px;
+    fill: var(--primary);
+    cursor: pointer;
+    cursor: ;
+    padding: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.cross_icon_profile
+{
+    width: 25px;
+    height: 25px;
+    fill: var(--primary);
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: 500;
+}
+
+.myprofile_sub_parent form
+{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.myprofile_sub_parent form div
+{
+    width: calc(50% - 20px);
+}
+
+.myprofile_sub_parent form div label
+{
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    color: var(--heading);
+    font-family: 'Roboto', sans-serif;
+}
+
+.myprofile_sub_parent form div input, .myprofile_sub_parent form div select
+{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    outline: none;
+    color: var(--para);
+    border: 1px solid #eee;
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+.myprofile_sub_parent form div input[type="date"]::-webkit-calendar-picker-indicator , .out input[type="date"]::-webkit-calendar-picker-indicator 
+{
+    opacity: 0;
+    font-size: 20px;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+}
+  
+.myprofile_sub_parent form div input[type="date"]::-moz-calendar-picker-indicator, .out input[type="date"]::-moz-calendar-picker-indicator
+{
+    opacity: 0;
+    font-size: 20px;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.myprofile_sub_parent form div input[type="date"], .myprofile_sub_parent form div input[type="date"]
+{
+    position: relative;
+}
+
+.myprofile_sub_parent form div input[type="date"]::after, .myprofile_sub_parent form div input[type="date"]::after
+{
+    content: "\f073";
+    font-family: "Font Awesome 5 Free";
+    font-size: 17px;
+    color: #bdbdbd;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.myprofile_sub_parent form button
+{
+    width: 200px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 14px;
+    padding-left: 10px;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: auto;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+}

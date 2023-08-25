@@ -8,12 +8,12 @@ const addAddress = async (req, res) =>
 {
     try 
     {
-        const { street, city, state, postalCode, country } = req.body;
+        const { name, street, city, state, postalCode, country, contact } = req.body;
         const token = req.headers.authorization.split(' ')[1];
         const decoded = jwt.verify(token, SECRET_KEY);
         const user=await User.findById(decoded.id);
         const email=user.email;
-        const address = new Address({ email, street, city, state, postalCode, country });
+        const address = new Address({ email, name, street, city, state, postalCode, country, contact });
         await address.save();
         res.status(201).json({ address });
     } 
