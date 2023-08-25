@@ -2,7 +2,7 @@ require('dotenv').config();
 const connectDb = require('./configDb/db');
 const { login, signup, authenticateJWT, editUserInfo, changePassword } = require('./controllers/userController');
 const { seedDestinationsDatabase, getAllDestinations, getDestinationById, clearDestinationsDatabase } = require('./controllers/destinationsController');
-const {addAddress, fetchAddress} = require('./controllers/addressController');
+const {addAddress, fetchAddress, clearAddressDatabase} = require('./controllers/addressController');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -15,13 +15,14 @@ app.use(express.json());
 connectDb();
 
 // -------address controllers-------
+clearAddressDatabase();
 app.post('/api/addAddress', addAddress);
 app.get('/api/fetchAddress', fetchAddress);
 
 
 // ------destinations controllers------
 seedDestinationsDatabase();
-// clearDestinationsDatabase();
+clearDestinationsDatabase();
 app.get('/api/getAllDestinations', getAllDestinations);
 app.get('/api/getDestinations/byId', getDestinationById);
 

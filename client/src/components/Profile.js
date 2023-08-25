@@ -11,14 +11,14 @@ import Address from './Address';
 import Wishlist from './Wishlist.js';
 import ChangePassword from './ChangePassword';
 
-function Profile() 
+function Profile(props) 
 {
     const userToken = JSON.parse(localStorage.getItem('token'));
     const [user, setUser] = useState({name:"",email:"",profilePic:""});
-    const [showMyProfile, setShowMyProfile] = useState(true);
-    const [showAddress, setShowAddress] = useState(false);
-    const [showWishlist, setShowWishlist] = useState(false);
-    const [showChangePassword, setShowChangePassword] = useState(false);
+    const [showMyProfile, setShowMyProfile] = useState(props.showMyProfile);
+    const [showAddress, setShowAddress] = useState(props.showAddress);
+    const [showWishlist, setShowWishlist] = useState(props.showWishlist);
+    const [showChangePassword, setShowChangePassword] = useState(props.showChangePassword);
     const [showLogOut, setShowLogOut] = useState(false);
 
     const fetchDataFromProtectedAPI = async (userToken) => 
@@ -136,35 +136,35 @@ function Profile()
                     </div>
 
                     <ul>
-                        <li onClick={handlemyProfileClick} className={showMyProfile? 'span_width_5':'span_width_0'}><span></span>My Profile</li>
-                        <li onClick={handleAddressClick} className={showAddress? 'span_width_5':'span_width_0'}><span></span>Address</li>
-                        <li onClick={handleWishlistClick} className={showWishlist? 'span_width_5':'span_width_0'}><span></span>Wishlist</li>
-                        <li onClick={handleChangePasswordClick} className={showChangePassword? 'span_width_5':'span_width_0'}><span></span>Change Password</li>
-                        <li onClick={handleLogOutClick} className={showLogOut? 'span_width_5':'span_width_0'}><span></span>Log Out</li>
+                        <li className={showMyProfile? 'span_width_5':'span_width_0'}> <span></span><Link to={"/profile/myProfile"} style={{ textDecoration: 'none' }}>My Profile</Link></li>
+                        <li className={showAddress? 'span_width_5':'span_width_0'}> <span></span><Link to={"/profile/address"} style={{ textDecoration: 'none' }}>Address</Link></li>
+                        <li className={showWishlist? 'span_width_5':'span_width_0'}> <span></span><Link to={"/profile/wishlist"} style={{ textDecoration: 'none' }}>Wishlist</Link></li>
+                        <li className={showChangePassword? 'span_width_5':'span_width_0'}> <span></span><Link to={"/profile/changePassword"} style={{ textDecoration: 'none' }}>Change Password</Link></li>
+                        <li className={showLogOut? 'span_width_5':'span_width_0'}><span></span>Log Out</li>
                     </ul>
                 </div>
 
                 <div className='profile_left_block'>
                     {
-                        showMyProfile && <div>
+                        props.showMyProfile && <div>
                             <MyProfileSubComponent />
                         </div>
                     }
                     
                     {
-                        showWishlist && <div>
+                        props.showWishlist && <div>
                             <Wishlist />
                         </div>
                     }
 
                     {
-                        showAddress && <div>
+                        props.showAddress && <div>
                             <Address />
                             </div>
                     }
 
                     {
-                        showChangePassword && <div>
+                        props.showChangePassword && <div>
                             <ChangePassword />
                             </div>
                     }

@@ -23,7 +23,10 @@ function App()
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/myProfile" element={<MyProfilePage />} />
+          <Route path="/profile/address" element={<Address />} />
+          <Route path="/profile/wishlist" element={<Wishlist />} />
+          <Route path="/profile/changePassword" element={<ChangePassword />} />
         </Routes>
       </div>
     </Router>
@@ -44,18 +47,80 @@ function HomePage()
   );
 }
 
-function ProfilePage() 
+function MyProfilePage() 
 {
   return (
     <div>
       <Navbar
         shadow={true}
       />
-      <Profile />
+      <Profile 
+        showMyProfile={true}
+        showAddress={false}
+        showWishlist={false}
+        showChangePassword={false}
+      />
       <Footer />
     </div>
   );
 }
+
+function Address() 
+{
+  return (
+    <div>
+      <Navbar
+        shadow={true}
+      />
+      <Profile 
+        showMyProfile={false}
+        showAddress={true}
+        showWishlist={false}
+        showChangePassword={false}
+      />
+      <Footer />
+    </div>
+  );
+}
+
+
+function Wishlist() 
+{
+  return (
+    <div>
+      <Navbar
+        shadow={true}
+      />
+      <Profile 
+        showMyProfile={false}
+        showAddress={false}
+        showWishlist={true}
+        showChangePassword={false}
+      />
+      <Footer />
+    </div>
+  );
+}
+
+
+function ChangePassword() 
+{
+  return (
+    <div>
+      <Navbar
+        shadow={true}
+      />
+      <Profile 
+        showMyProfile={false}
+        showAddress={false}
+        showWishlist={false}
+        showChangePassword={true}
+      />
+      <Footer />
+    </div>
+  );
+}
+
 
 
 export default App;

@@ -79,22 +79,22 @@ const seedDestinationsDatabase = async () =>
 {
     try 
     {
-      for (const destination of destinations) 
-      {
-        const existingDestination = await Destination.findOne({ id: destination.id });
-        
-        if (!existingDestination) 
+        for (const destination of destinations) 
         {
-          await Destination.create(destination);
-          console.log(`Destination with id ${destination.id} inserted into the database.`);
+            const existingDestination = await Destination.findOne({ id: destination.id });
+            
+            if (!existingDestination) 
+            {
+            await Destination.create(destination);
+            console.log(`Destination with id ${destination.id} inserted into the database.`);
+            }
         }
-      }
-  
-      console.log('Database seeding complete.');
+    
+        console.log('Database seeding complete.');
     } 
     catch (err) 
     {
-      console.error('Error seeding the database:', err);
+        console.error('Error seeding the database:', err);
     }
 };
 
@@ -117,18 +117,17 @@ const getDestinationById = async (req, res) =>
     res.status(200).json(destination);
 }
 
-const clearDestinationsDatabase = async () => {
-  try 
-  {
-
-    await Destination.deleteMany({});
-
-    console.log('Database cleared successfully.');
-  } 
-  catch (err) 
-  {
-    console.error('Error clearing the database:', err);
-  }
+const clearDestinationsDatabase = async () => 
+{
+    try 
+    {
+        await Destination.deleteMany({});
+        console.log('Database cleared successfully.');
+    } 
+    catch (err) 
+    {
+        console.error('Error clearing the database:', err);
+    }
 };
 module.exports = {
     seedDestinationsDatabase,

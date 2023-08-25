@@ -38,10 +38,24 @@ const fetchAddress = async (req, res) =>
     }
 }
 
+const clearAddressDatabase = async () => 
+{
+    try
+    {
+        await Address.deleteMany({});
+        console.log('Address database cleared successfully.');
+    }
+    catch (err)
+    {
+        console.error('Error clearing the database:', err);
+    }
+};
+
 
 module.exports = { 
     addAddress, 
-    fetchAddress 
+    fetchAddress,
+    clearAddressDatabase
 };
 
 
