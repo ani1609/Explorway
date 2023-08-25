@@ -75,36 +75,40 @@ function ChangePassword()
     }
 
     return (
-        <div className="change-password-container">
+        <div className="change_password_parent">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="password">Password</label>
-                <input
-                    type="text"
-                    name="password"
-                    placeholder="Password"
-                    value={userData.password}
-                    onChange={(e) => setUserData({ ...userData, password: e.target.value })}
-                    required
-                />
-                <label htmlFor="newPassword">New Password</label>
-                <input
-                    type="text"
-                    name="newPassword"
-                    placeholder="Confirm New Password"
-                    value={userData.newPassword}
-                    onChange={(e) => setUserData({ ...userData, newPassword: e.target.value })}
-                    required 
-                />
-                <label htmlFor="confirmNewPassword">Confirm Password</label>
-                <input
-                    type="text"
-                    id="confirmNewPassword"
-                    name="confirmNewPassword"
-                    placeholder="Confirm New Password"
-                    value={userData.confirmNewPassword}
-                    onChange={(e) => setUserData({ ...userData, confirmNewPassword: e.target.value })}
-                    required
-                />
+                <div>
+                    <label htmlFor="password">Old Password:</label>
+                    <input
+                        type="text"
+                        name="password"
+                        value={userData.password}
+                        onChange={(e) => setUserData({ ...userData, password: e.target.value })}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="newPassword">New Password:</label>
+                    <input
+                        type="text"
+                        name="newPassword"
+                        value={userData.newPassword}
+                        onChange={(e) => setUserData({ ...userData, newPassword: e.target.value })}
+                        required 
+                    />
+                </div>
+                <div>
+                    <label htmlFor="confirmNewPassword">Confirm New Password:</label>
+                    <input
+                        type="text"
+                        id="confirmNewPassword"
+                        name="confirmNewPassword"
+                        value={userData.confirmNewPassword}
+                        onChange={(e) => setUserData({ ...userData, confirmNewPassword: e.target.value })}
+                        required
+                    />
+                </div>
+                <div></div>
                 <button type="submit">Change Password</button>
             </form>
         </div>
