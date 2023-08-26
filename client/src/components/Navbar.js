@@ -129,7 +129,7 @@ function Navbar(props)
                 <img src={user.profilePic} alt="profile" className="profile_pic"/>}
                 <i class="fa-solid fa-angle-down"></i>
                 {showProfile && <div className="profile_dropdown">
-                  <Link to={"/profile/myProfile"} style={{ textDecoration: 'none' }}><p>Profile</p></Link>
+                  <Link to={"/account/myProfile"} style={{ textDecoration: 'none' }}><p>Profile</p></Link>
                   <p onClick={handleLogout}>Log Out</p>
                 </div>}
             </li>}

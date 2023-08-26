@@ -23,10 +23,10 @@ function App()
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile/myProfile" element={<MyProfilePage />} />
-          <Route path="/profile/address" element={<Address />} />
-          <Route path="/profile/wishlist" element={<Wishlist />} />
-          <Route path="/profile/changePassword" element={<ChangePassword />} />
+          <Route path="/account/myProfile" element={<MyProfile />} />
+          <Route path="/account/address" element={<Address />} />
+          <Route path="/account/wishlist" element={<Wishlist />} />
+          <Route path="/account/changePassword" element={<ChangePassword />} />
         </Routes>
       </div>
     </Router>
@@ -47,7 +47,7 @@ function HomePage()
   );
 }
 
-function MyProfilePage() 
+function MyProfile() 
 {
   return (
     <div>
