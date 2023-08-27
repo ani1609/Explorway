@@ -136,10 +136,10 @@ function Profile(props)
                     </div>
 
                     <ul>
-                        <li className={showMyProfile? 'span_width_5':'span_width_0'}> <span></span><Link to={"/profile/myProfile"} style={{ textDecoration: 'none' }}>My Profile</Link></li>
-                        <li className={showAddress? 'span_width_5':'span_width_0'}> <span></span><Link to={"/profile/address"} style={{ textDecoration: 'none' }}>Address</Link></li>
-                        <li className={showWishlist? 'span_width_5':'span_width_0'}> <span></span><Link to={"/profile/wishlist"} style={{ textDecoration: 'none' }}>Wishlist</Link></li>
-                        <li className={showChangePassword? 'span_width_5':'span_width_0'}> <span></span><Link to={"/profile/changePassword"} style={{ textDecoration: 'none' }}>Change Password</Link></li>
+                        <li className={showMyProfile? 'span_width_5':'span_width_0'}> <span></span><Link to={"/account/myProfile"} style={{ textDecoration: 'none' }}>My Profile</Link></li>
+                        <li className={showAddress? 'span_width_5':'span_width_0'}> <span></span><Link to={"/account/address"} style={{ textDecoration: 'none' }}>Address</Link></li>
+                        <li className={showWishlist? 'span_width_5':'span_width_0'}> <span></span><Link to={"/account/wishlist"} style={{ textDecoration: 'none' }}>Wishlist</Link></li>
+                        <li className={showChangePassword? 'span_width_5':'span_width_0'}> <span></span><Link to={"/account/changePassword"} style={{ textDecoration: 'none' }}>Change Password</Link></li>
                         <li className={showLogOut? 'span_width_5':'span_width_0'}><span></span>Log Out</li>
                     </ul>
                 </div>
