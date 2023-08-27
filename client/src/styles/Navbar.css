@@ -506,3 +506,9 @@
 {
     background-color: #dadada;
 }
+
+.profile_icon_nav 
+{     
+    width: 30px;     
+    fill: var(--primary); 
+}

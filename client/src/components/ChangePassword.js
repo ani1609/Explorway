@@ -4,6 +4,8 @@ import '../styles/ChangePassword.css';
 import axios from 'axios';
 import {ReactComponent as Visible} from '../icons/eyeVisible.svg';
 import {ReactComponent as Disabled} from '../icons/eyeDisabled.svg';
+import {ReactComponent as Tick} from '../icons/tick.svg';
+import { set } from 'mongoose';
 
 function ChangePassword() 
 {
@@ -14,12 +16,13 @@ function ChangePassword()
         newPassword: "",
         confirmNewPassword: ""
     });
-    const [passwordMatch, setPasswordMatch] = useState(true);
+    const [passwordDismatch, setPasswordDismatch] = useState(false);
     const [wrongPassword, setWrongPassword] = useState(false);
-    const [newPasswordOldPasswordMatch, setNewPasswordOldPasswordMatch] = useState(true);
+    const [newPasswordOldPasswordDismatch, setNewPasswordOldPasswordDismatch] = useState(false);
     const [eyeVisible1, setEyeVisible1] = useState(false);
     const [eyeVisible2, setEyeVisible2] = useState(false);
     const [eyeVisible3, setEyeVisible3] = useState(false);
+    const [successfullyChanged, setSuccessfullyChanged] = useState(false);
 
     const fetchDataFromProtectedAPI = async (userToken) => 
     {
@@ -51,27 +54,36 @@ function ChangePassword()
         e.preventDefault();
         if (userData.newPassword !== userData.confirmNewPassword)
         {
-            setPasswordMatch(false);
+            setWrongPassword(false);
+            setNewPasswordOldPasswordDismatch(false);
+            setPasswordDismatch(true);
             console.log("Passwords do not match");
             return;
         }
-        setPasswordMatch(true);
+        setPasswordDismatch(false);
         try 
         {
             const response = await axios.post('http://localhost:3000/api/changePassword', userData);
             console.log(response.data.message);
+            setSuccessfullyChanged(true);
+            const timer = setTimeout(() => {
+                setSuccessfullyChanged(false);
+            }, 3000);
+            return () => clearTimeout(timer);
         } 
         catch (error) 
         {
             if (error.response.status === 401) 
             {
+                setNewPasswordOldPasswordDismatch(false);
                 setWrongPassword(true);
                 console.log("Invalid email or password");
                 return;
             }
             if (error.response.status === 409) 
             {
-                setNewPasswordOldPasswordMatch(false);
+                setWrongPassword(false);
+                setNewPasswordOldPasswordDismatch(true);
                 console.log("New password cannot be the same as old password");
                 return;
             }
@@ -81,7 +93,7 @@ function ChangePassword()
 
     return (
         <div className="change_password_parent">
-            <form onSubmit={handleSubmit}>
+            {!successfullyChanged && <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="password">Old Password:</label>
                     <input
@@ -118,10 +130,18 @@ function ChangePassword()
                     />
                     {eyeVisible3 && <Visible onClick={()=>setEyeVisible3(!eyeVisible3)} className="eye_icon"/>}
                     {!eyeVisible3 && <Disabled onClick={()=>setEyeVisible3(!eyeVisible3)} className="eye_icon"/>}
+
+                    {passwordDismatch && <p>new passwords do not match</p>}
+                    {wrongPassword && <p>incorrect password</p>}
+                    {newPasswordOldPasswordDismatch && <p>new password cannot be same as old</p>}
                 </div>
                 <div></div>
                 <button type="submit">Change Password</button>
-            </form>
+            </form>}
+            {successfullyChanged && <div className="successfully_changed">
+                <Tick className="tick_icon"/>
+                <h1>Password Changed Successfully</h1>
+            </div>}
         </div>
     );
 }
