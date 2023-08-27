@@ -4,6 +4,7 @@ import "../styles/Navbar.css";
 import "../index.css";
 import Logo from "../images/logof.png";
 import axios from "axios";
+import {ReactComponent as Profile} from '../icons/profile.svg';
 
 function Navbar(props)
 {
@@ -121,7 +122,7 @@ function Navbar(props)
               </button>
             </Link>
           </li>}
-          {userToken &&  <li className="profile" onClick={() => setShowProfile(!showProfile)}>
+          {/* {userToken &&  <li className="profile" onClick={() => setShowProfile(!showProfile)}>
                 {user.profilePic === "" || user.profilePic === undefined ?(
                   <h4>{user.name.charAt(0)}</h4>
                 )
@@ -132,7 +133,11 @@ function Navbar(props)
                   <Link to={"/account/myProfile"} style={{ textDecoration: 'none' }}><p>Profile</p></Link>
                   <p onClick={handleLogout}>Log Out</p>
                 </div>}
-            </li>}
+            </li>} 
+            */}
+          {userToken &&  <li >
+                <Link to={"/account/myProfile"}><Profile className="profile_icon_nav"/></Link>
+          </li>}
         </ul>
     </div>
   );
