@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../index.css';
 import '../styles/ChangePassword.css';
 import axios from 'axios';
+import {ReactComponent as Visible} from '../icons/eyeVisible.svg';
+import {ReactComponent as Disabled} from '../icons/eyeDisabled.svg';
 
 function ChangePassword() 
 {
@@ -15,6 +17,9 @@ function ChangePassword()
     const [passwordMatch, setPasswordMatch] = useState(true);
     const [wrongPassword, setWrongPassword] = useState(false);
     const [newPasswordOldPasswordMatch, setNewPasswordOldPasswordMatch] = useState(true);
+    const [eyeVisible1, setEyeVisible1] = useState(false);
+    const [eyeVisible2, setEyeVisible2] = useState(false);
+    const [eyeVisible3, setEyeVisible3] = useState(false);
 
     const fetchDataFromProtectedAPI = async (userToken) => 
     {
@@ -80,33 +85,39 @@ function ChangePassword()
                 <div>
                     <label htmlFor="password">Old Password:</label>
                     <input
-                        type="text"
+                        type={eyeVisible1 ? "text" : "password"}
                         name="password"
                         value={userData.password}
                         onChange={(e) => setUserData({ ...userData, password: e.target.value })}
                         required
                     />
+                    {eyeVisible1 && <Visible onClick={()=>setEyeVisible1(!eyeVisible1)} className="eye_icon"/>}
+                    {!eyeVisible1 && <Disabled onClick={()=>setEyeVisible1(!eyeVisible1)} className="eye_icon"/>}
                 </div>
                 <div>
                     <label htmlFor="newPassword">New Password:</label>
                     <input
-                        type="text"
+                        type={eyeVisible2 ? "text" : "password"}
                         name="newPassword"
                         value={userData.newPassword}
                         onChange={(e) => setUserData({ ...userData, newPassword: e.target.value })}
                         required 
                     />
+                    {eyeVisible2 && <Visible onClick={()=>setEyeVisible2(!eyeVisible2)} className="eye_icon"/>}
+                    {!eyeVisible2 && <Disabled onClick={()=>setEyeVisible2(!eyeVisible2)} className="eye_icon"/>}
                 </div>
                 <div>
                     <label htmlFor="confirmNewPassword">Confirm New Password:</label>
                     <input
-                        type="text"
+                        type={eyeVisible3 ? "text" : "password"}
                         id="confirmNewPassword"
                         name="confirmNewPassword"
                         value={userData.confirmNewPassword}
                         onChange={(e) => setUserData({ ...userData, confirmNewPassword: e.target.value })}
                         required
                     />
+                    {eyeVisible3 && <Visible onClick={()=>setEyeVisible3(!eyeVisible3)} className="eye_icon"/>}
+                    {!eyeVisible3 && <Disabled onClick={()=>setEyeVisible3(!eyeVisible3)} className="eye_icon"/>}
                 </div>
                 <div></div>
                 <button type="submit">Change Password</button>
