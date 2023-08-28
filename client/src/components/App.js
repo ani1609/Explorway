@@ -4,7 +4,7 @@ import '../styles/App.css';
 import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';
-import Header from './Header';
+import Hero from './Hero';
 import WhyUs from './WhyUs';
 import Card from './Card';
 import Subscription from './Subscription';
@@ -38,7 +38,7 @@ function HomePage()
   return (
     <div>
       <Navbar/>
-      <Header />
+      <Hero />
       <WhyUs />
       <Card />
       <Subscription />
