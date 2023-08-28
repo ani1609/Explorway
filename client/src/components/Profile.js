@@ -5,6 +5,7 @@ import "../index.css";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import {ReactComponent as AddPhoto} from '../icons/addPhoto.svg';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import MyProfileSubComponent from './MyProfileSubComponent.js';
 import Address from './Address';
@@ -67,52 +68,29 @@ function Profile(props)
     const formattedMinutes = String(minutes).padStart(2, '0');
     const formattedSeconds = String(seconds).padStart(2, '0');
 
-
-    const handlemyProfileClick = () =>
+    const handleSubmit = async (e) =>
     {
-        setShowMyProfile(true);
-        setShowAddress(false);
-        setShowWishlist(false);
-        setShowChangePassword(false);
-        setShowLogOut(false);
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('profilePic', e.target.files[0]);
+        console.log(e.target.files[0]);
+        try
+        {
+            const config = {
+                headers: {
+                Authorization: `Bearer ${userToken}`,
+                },
+            };
+            const response = await axios.post('http://localhost:3000/api/uploadProfilePic', formData, config);
+            console.log(response.data.message);
+            fetchDataFromProtectedAPI(userToken);
+        }
+        catch (error)
+        {
+            console.error("Error fetching data:", error);
+        }
+        
     };
-
-    const handleWishlistClick = () =>
-    {
-        setShowWishlist(true);
-        setShowMyProfile(false);
-        setShowAddress(false);
-        setShowChangePassword(false);
-        setShowLogOut(false);
-    };
-    
-    const handleAddressClick = () =>
-    {
-        setShowAddress(true);
-        setShowMyProfile(false);
-        setShowWishlist(false);
-        setShowChangePassword(false);
-        setShowLogOut(false);
-    };
-
-    const handleChangePasswordClick = () =>
-    {
-        setShowChangePassword(true);
-        setShowMyProfile(false);
-        setShowAddress(false);
-        setShowWishlist(false);
-        setShowLogOut(false);
-    };
-
-    const handleLogOutClick = () =>
-    {
-        setShowLogOut(true);
-        setShowMyProfile(false);
-        setShowAddress(false);
-        setShowWishlist(false);
-        setShowChangePassword(false);
-    };
-
 
 
     return(
@@ -126,8 +104,8 @@ function Profile(props)
                 <div className='profile_list'>
                     <div className='profile_list_header'>
                         <label>
-                            <FontAwesomeIcon icon={faUser} className='profile_icon'/>
-                            <input type='file' className='file-input' />
+                            <AddPhoto className='add_photo_icon'/>
+                            <input type='file' className='file-input' onChange={handleSubmit}/>
                         </label>
                         <div>
                             <h4>{user.name}</h4>
