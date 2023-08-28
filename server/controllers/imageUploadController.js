@@ -9,6 +9,7 @@ const uploadProfilePic = async (req, res) =>
     const user = await User.findById(decoded.id);
     user.profilePic = req.file.path;
     await user.save();
+    res.status(201).json({ user });
 };
 
 
