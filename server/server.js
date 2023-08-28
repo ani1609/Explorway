@@ -5,6 +5,7 @@ const { seedDestinationsDatabase, getAllDestinations, getDestinationById, clearD
 const {addAddress, fetchAddress, clearAddressDatabase} = require('./controllers/addressController');
 const { uploadProfilePic } = require('./controllers/imageUploadController');
 const multer = require('multer');
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -13,6 +14,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use('/uploads', express.static('uploads'));
 
 connectDb();
 

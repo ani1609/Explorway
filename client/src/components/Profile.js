@@ -3,9 +3,12 @@ import React, { useRef, useEffect, useState } from "react";
 import "../styles/Profile.css";
 import "../index.css";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import {ReactComponent as AddPhoto} from '../icons/addPhoto.svg';
+import {ReactComponent as ProfileIcon} from '../icons/profile.svg';
+import {ReactComponent as Plus} from '../icons/plus.svg';
+
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import MyProfileSubComponent from './MyProfileSubComponent.js';
 import Address from './Address';
@@ -21,6 +24,7 @@ function Profile(props)
     const [showWishlist, setShowWishlist] = useState(props.showWishlist);
     const [showChangePassword, setShowChangePassword] = useState(props.showChangePassword);
     const [showLogOut, setShowLogOut] = useState(false);
+    const navigate = useNavigate();
 
     const fetchDataFromProtectedAPI = async (userToken) => 
     {
@@ -82,7 +86,7 @@ function Profile(props)
                 },
             };
             const response = await axios.post('http://localhost:3000/api/uploadProfilePic', formData, config);
-            console.log(response.data.message);
+            console.log(response.data.user);
             fetchDataFromProtectedAPI(userToken);
         }
         catch (error)
@@ -92,6 +96,12 @@ function Profile(props)
         
     };
 
+    const handleLogout = () => 
+    {
+        localStorage.clear();
+        navigate("/");
+        window.location.reload();
+    };
 
     return(
         <div className='profile_parent'>
@@ -103,10 +113,15 @@ function Profile(props)
             <div className='profile_contents'>
                 <div className='profile_list'>
                     <div className='profile_list_header'>
-                        <label>
-                            <AddPhoto className='add_photo_icon'/>
-                            <input type='file' className='file-input' onChange={handleSubmit}/>
-                        </label>
+                        {user?.profilePic ?
+                            <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic" />
+                            :
+                            <label>
+                                <ProfileIcon className='profile_icon'/>
+                                <input type='file' className='file-input' onChange={handleSubmit}/>
+                                <Plus className='plus_icon'/>
+                            </label>
+                        }
                         <div>
                             <h4>{user.name}</h4>
                             <p>{formattedHours}:{formattedMinutes}:{formattedSeconds} {amOrPm}</p>
@@ -118,7 +133,7 @@ function Profile(props)
                         <li className={showAddress? 'span_width_5':'span_width_0'}> <span></span><Link to={"/account/address"} style={{ textDecoration: 'none' }}>Address</Link></li>
                         <li className={showWishlist? 'span_width_5':'span_width_0'}> <span></span><Link to={"/account/wishlist"} style={{ textDecoration: 'none' }}>Wishlist</Link></li>
                         <li className={showChangePassword? 'span_width_5':'span_width_0'}> <span></span><Link to={"/account/changePassword"} style={{ textDecoration: 'none' }}>Change Password</Link></li>
-                        <li className={showLogOut? 'span_width_5':'span_width_0'}><span></span>Log Out</li>
+                        <li className={showLogOut? 'span_width_5':'span_width_0'} onClick={handleLogout}><span></span>Log Out</li>
                     </ul>
                 </div>
 
