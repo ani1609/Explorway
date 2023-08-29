@@ -52,7 +52,7 @@ function MyProfile()
   return (
     <div>
       <Navbar
-        shadow={true}
+        shadow={false}
       />
       <Profile 
         showMyProfile={true}
@@ -70,7 +70,7 @@ function Address()
   return (
     <div>
       <Navbar
-        shadow={true}
+        shadow={false}
       />
       <Profile 
         showMyProfile={false}
@@ -89,7 +89,7 @@ function Wishlist()
   return (
     <div>
       <Navbar
-        shadow={true}
+        shadow={false}
       />
       <Profile 
         showMyProfile={false}
@@ -108,7 +108,7 @@ function ChangePassword()
   return (
     <div>
       <Navbar
-        shadow={true}
+        shadow={false}
       />
       <Profile 
         showMyProfile={false}

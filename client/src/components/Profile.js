@@ -8,12 +8,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import {ReactComponent as ProfileIcon} from '../icons/profile.svg';
 import {ReactComponent as Plus} from '../icons/plus.svg';
-
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import MyProfileSubComponent from './MyProfileSubComponent.js';
 import Address from './Address';
 import Wishlist from './Wishlist.js';
 import ChangePassword from './ChangePassword';
+import MountainBG from '../images/mountain_bg.jpg';
+import BeachBG from '../images/beach_bg.jpg';
+import VillageBG from '../images/village_bg.jpg';
+import CityBG from '../images/city_bg.jpg';
 
 function Profile(props) 
 {
@@ -37,6 +40,7 @@ function Profile(props)
             };
             const response = await axios.get("http://localhost:3000/api/user", config);
             setUser(response.data.user);
+            console.log(response.data.user);
         }
         catch (error)
         {
@@ -105,15 +109,19 @@ function Profile(props)
 
     return(
         <div className='profile_parent'>
-            {showMyProfile && <h1>My Profile</h1>}
+            {user?.preferredLocationType == "Mountains" && <img src={MountainBG} alt="Mountain" className='profile_bg'/>}
+            {user?.preferredLocationType == "Beaches" && <img src={BeachBG} alt="Mountain" className='profile_bg'/>}
+            {user?.preferredLocationType == "Cities" && <img src={CityBG} alt="Mountain" className='profile_bg'/>}
+            {user?.preferredLocationType == "Villages" && <img src={VillageBG} alt="Mountain" className='profile_bg'/>}
+            {/* {showMyProfile && <h1>My Profile</h1>}
             {showAddress && <h1>Address Book</h1>}
             {showWishlist && <h1>My Wishlist</h1>}
             {showChangePassword && <h1>Change Password</h1>}
-            {showLogOut && <h1>&nbsp;</h1>}
+            {showLogOut && <h1>&nbsp;</h1>} */}
             <div className='profile_contents'>
                 <div className='profile_list'>
                     <div className='profile_list_header'>
-                        {user?.profilePic ?
+                        {/* {user?.profilePic ?
                             <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic" />
                             :
                             <label>
@@ -125,7 +133,17 @@ function Profile(props)
                         <div>
                             <h4>{user.name}</h4>
                             <p>{formattedHours}:{formattedMinutes}:{formattedSeconds} {amOrPm}</p>
-                        </div>
+                        </div> */}
+                        {user?.profilePic ?
+                            <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic" />
+                            :
+                            <label>
+                                <ProfileIcon className='profile_icon'/>
+                                <input type='file' className='file-input' onChange={handleSubmit}/>
+                                <Plus className='plus_icon'/>
+                            </label>
+                        }
+                        <h4>{user.name}</h4>
                     </div>
 
                     <ul>
@@ -137,7 +155,7 @@ function Profile(props)
                     </ul>
                 </div>
 
-                <div className='profile_left_block'>
+                <div className='profile_right_block'>
                     {
                         props.showMyProfile && <div>
                             <MyProfileSubComponent />

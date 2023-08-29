@@ -18,6 +18,8 @@ function MyProfileSubComponent()
         dob: "",
         gender: "",
         profilePic: "",
+        preferredLocationType: "",
+        preferredLanguage: "",
     });
     const [enableEdit, setEnableEdit] = useState(false);
 
@@ -59,6 +61,8 @@ function MyProfileSubComponent()
                 dob: dobFormatted || "",
                 gender: user.gender || "none",
                 profilePic: user.profilePic || "",
+                preferredLocationType: user.preferredLocationType || "",
+                preferredLanguage: user.preferredLanguage || "",
             });
         }
     }, [user]);
@@ -169,6 +173,37 @@ function MyProfileSubComponent()
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="preferredLanguage">Preferred Language:</label><br></br>
+                    <select
+                        name="preferredLanguage"
+                        value={formData.preferredLanguage}
+                        onChange={handleInputChange}
+                        style={!enableEdit ? { cursor: "not-allowed" } : { cursor: "pointer" }}
+                        disabled={!enableEdit}
+                    >
+                        <option value="Choose one">Choose one</option>
+                        <option value="Bengali">Bengali</option>
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="preferredLocationType">Preferred Location Type:</label><br></br>
+                    <select
+                        name="preferredLocationType"
+                        value={formData.preferredLocationType}
+                        onChange={handleInputChange}
+                        style={!enableEdit ? { cursor: "not-allowed" } : { cursor: "pointer" }}
+                        disabled={!enableEdit}
+                    >
+                        <option value="Choose one">Choose one</option>
+                        <option value="Beaches">Beaches</option>
+                        <option value="Cities">Cities</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Villages">Villages</option>
                     </select>
                 </div>
                 {enableEdit && <button type="submit">Submit</button>}

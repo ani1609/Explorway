@@ -85,7 +85,7 @@ function authenticateJWT(req, res, next)
 const editUserInfo = async (req, res) => {
     try 
     {
-        const { firstName, lastName, email, contact, dob, gender, profilePic } = req.body;
+        const { firstName, lastName, email, contact, dob, gender, profilePic, preferredLanguage, preferredLocationType } = req.body;
         const token = req.headers.authorization.split(' ')[1];
         const decoded = jwt.verify(token, SECRET_KEY);
         
@@ -97,7 +97,9 @@ const editUserInfo = async (req, res) => {
             contact,
             dob,
             gender,
-            profilePic
+            profilePic,
+            preferredLanguage,
+            preferredLocationType,
         }, { new: true });
 
         if (updatedUser) 
