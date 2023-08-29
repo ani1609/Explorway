@@ -3,7 +3,7 @@
     width: 100%;
     box-sizing: border-box;
     /* padding: 120px 100px 100px 100px; */
-    height: 100vh;
+    min-height: 100vh;
     min-height: 650px;
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
     box-sizing: border-box;
     border-radius: 5px;
     box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
@@ -75,10 +75,9 @@
 .profile_list_header label
 {
     border-radius: 50%;
-    padding: 10px;
+    padding: 25px;
     background-color: var(--bg2);
     cursor: pointer;
-    /* overflow: hidden; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,16 +87,19 @@
 .profile_icon
 {
     fill: var(--heading);
-    height: 25px;
-    width: 25px;
+    height: 50px;
+    width: 50px;
+    padding: 25px;
+    border-radius: 50%;
+    background-color: var(--bg2);
 }
 
 .plus_icon
 {
     background-color: var(--bg1);
     fill: var(--para);
-    height: 15px;
-    width: 15px;
+    height: 30px;
+    width: 30px;
     position: absolute;
     bottom: 0px;
     right: -4px;

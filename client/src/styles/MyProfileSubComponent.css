@@ -3,6 +3,60 @@
     padding: 20px;
     box-sizing: border-box;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.myprofile_sub_parent>label
+{
+    margin-bottom: 40px;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    padding: 25px;
+    background-color: var(--bg2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.myprofile_sub_parent>label input
+{
+    display: none;
+}
+
+.profile_icon_sub
+{
+    fill: var(--heading);
+    height: 50px;
+    width: 50px;
+}
+
+.plus_icon_sub
+{
+    background-color: var(--bg1);
+    fill: var(--para);
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: 8px;
+    right: 0px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.myprofile_sub_parent>img
+{
+    height: 140px;
+    width: 140px;
+    margin-bottom: 40px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .edit_icon_profile
@@ -65,6 +119,7 @@
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     letter-spacing: 0.5px;
+    background-color: #f8f4f4;
     margin-top: 10px;
 }
 

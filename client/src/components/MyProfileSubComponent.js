@@ -4,7 +4,8 @@ import '../styles/MyProfileSubComponent.css';
 import '../index.css';
 import {ReactComponent as Edit} from '../icons/edit.svg';
 import {ReactComponent as Cross} from '../icons/cross.svg';
-
+import {ReactComponent as ProfileIcon} from '../icons/profile.svg';
+import {ReactComponent as Plus} from '../icons/plus.svg';
 
 function MyProfileSubComponent()
 {
@@ -100,10 +101,47 @@ function MyProfileSubComponent()
         
     };
 
+    const handlePicSubmit = async (e) =>
+    {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('profilePic', e.target.files[0]);
+        console.log(e.target.files[0]);
+        try
+        {
+            const config = {
+                headers: {
+                Authorization: `Bearer ${userToken}`,
+                },
+            };
+            const response = await axios.post('http://localhost:3000/api/uploadProfilePic', formData, config);
+            // console.log(response.data.user);
+            fetchDataFromProtectedAPI(userToken);
+            window.location.reload();
+        }
+        catch (error)
+        {
+            console.error("Error fetching data:", error);
+        }
+        
+    };
+
     return (
         <div className='myprofile_sub_parent'>
             {!enableEdit && <Edit className='edit_icon_profile' onClick={()=>setEnableEdit(true)}/>}
             {enableEdit && <Cross className='cross_icon_profile' onClick={()=>setEnableEdit(false)}/>}
+            {user?.profilePic ?
+                <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic_sub" />
+                :
+                <label style={!enableEdit ? { cursor: "not-allowed" } : {}}>
+                    <ProfileIcon className='profile_icon_sub'/>
+                    <input type='file' className='file-input' 
+                        onChange={handlePicSubmit}
+                        disabled={!enableEdit}
+                    />
+                    {enableEdit && <Plus className='plus_icon_sub'/>}
+                </label>
+            }
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="firstName">First Name:</label><br></br>

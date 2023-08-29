@@ -40,7 +40,7 @@ function Profile(props)
             };
             const response = await axios.get("http://localhost:3000/api/user", config);
             setUser(response.data.user);
-            console.log(response.data.user);
+            // console.log(response.data.user);
         }
         catch (error)
         {
@@ -76,30 +76,6 @@ function Profile(props)
     const formattedMinutes = String(minutes).padStart(2, '0');
     const formattedSeconds = String(seconds).padStart(2, '0');
 
-    const handleSubmit = async (e) =>
-    {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('profilePic', e.target.files[0]);
-        console.log(e.target.files[0]);
-        try
-        {
-            const config = {
-                headers: {
-                Authorization: `Bearer ${userToken}`,
-                },
-            };
-            const response = await axios.post('http://localhost:3000/api/uploadProfilePic', formData, config);
-            console.log(response.data.user);
-            fetchDataFromProtectedAPI(userToken);
-        }
-        catch (error)
-        {
-            console.error("Error fetching data:", error);
-        }
-        
-    };
-
     const handleLogout = () => 
     {
         localStorage.clear();
@@ -121,27 +97,10 @@ function Profile(props)
             <div className='profile_contents'>
                 <div className='profile_list'>
                     <div className='profile_list_header'>
-                        {/* {user?.profilePic ?
-                            <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic" />
-                            :
-                            <label>
-                                <ProfileIcon className='profile_icon'/>
-                                <input type='file' className='file-input' onChange={handleSubmit}/>
-                                <Plus className='plus_icon'/>
-                            </label>
-                        }
-                        <div>
-                            <h4>{user.name}</h4>
-                            <p>{formattedHours}:{formattedMinutes}:{formattedSeconds} {amOrPm}</p>
-                        </div> */}
                         {user?.profilePic ?
                             <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic" />
                             :
-                            <label>
-                                <ProfileIcon className='profile_icon'/>
-                                <input type='file' className='file-input' onChange={handleSubmit}/>
-                                <Plus className='plus_icon'/>
-                            </label>
+                            <ProfileIcon className='profile_icon'/>
                         }
                         <h4>{user.name}</h4>
                     </div>
