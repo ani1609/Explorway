@@ -4,7 +4,7 @@ import '../styles/App.css';
 import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';
-import Header from './Header';
+import Hero from './Hero';
 import WhyUs from './WhyUs';
 import Card from './Card';
 import Subscription from './Subscription';
@@ -38,7 +38,7 @@ function HomePage()
   return (
     <div>
       <Navbar/>
-      <Header />
+      <Hero />
       <WhyUs />
       <Card />
       <Subscription />
@@ -52,7 +52,7 @@ function MyProfile()
   return (
     <div>
       <Navbar
-        shadow={true}
+        shadow={false}
       />
       <Profile 
         showMyProfile={true}
@@ -70,7 +70,7 @@ function Address()
   return (
     <div>
       <Navbar
-        shadow={true}
+        shadow={false}
       />
       <Profile 
         showMyProfile={false}
@@ -89,7 +89,7 @@ function Wishlist()
   return (
     <div>
       <Navbar
-        shadow={true}
+        shadow={false}
       />
       <Profile 
         showMyProfile={false}
@@ -108,7 +108,7 @@ function ChangePassword()
   return (
     <div>
       <Navbar
-        shadow={true}
+        shadow={false}
       />
       <Profile 
         showMyProfile={false}

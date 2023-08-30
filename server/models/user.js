@@ -27,6 +27,12 @@ const userSchema = new mongoose.Schema({
     profilePic: {
         type: String,
     },
+    preferredLocationType: {
+        type: String,
+    },
+    preferredLanguage: {
+        type: String,
+    },
 });
 
 const User = mongoose.model('User', userSchema);

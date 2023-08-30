@@ -3,6 +3,101 @@
     padding: 20px;
     box-sizing: border-box;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.myprofile_sub_parent>label
+{
+    margin-bottom: 40px;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    padding: 25px;
+    background-color: var(--bg2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.myprofile_sub_parent>label input
+{
+    display: none;
+}
+
+.profile_icon_sub
+{
+    fill: var(--heading);
+    height: 50px;
+    width: 50px;
+}
+
+.plus_icon_sub
+{
+    background-color: var(--bg1);
+    fill: var(--para);
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: 8px;
+    right: 0px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.myprofile_sub_parent> div img
+{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image_container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+
+.image_options
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.image_options>div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0px 5px;
+}
+
+.image_options>div span
+{
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    margin-left: 3px;
+    color: var(--heading);
+}
+
+.delete_icon, .addPhoto_icon
+{
+    fill: var(--primary);
+    width: 25px;
 }
 
 .edit_icon_profile
@@ -65,6 +160,7 @@
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     letter-spacing: 0.5px;
+    background-color: #f8f4f4;
     margin-top: 10px;
 }
 

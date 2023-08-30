@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import 'react-datepicker/dist/react-datepicker.css';
-import "../styles/Header.css";
+import "../styles/Hero.css";
 import "../index.css";
 import v1 from "../videos/t2.mp4";
 import v2 from "../videos/t11_c.mp4";
@@ -10,7 +10,7 @@ import v3 from "../videos/t5.mp4";
 import v4 from "../videos/t9.mp4";
 import v5 from "../videos/t7.mp4";
 
-const Header = () => {
+const Hero = () => {
   const slideRef = useRef(null);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [videoIndex, setVideoIndex] = useState(1);
@@ -123,10 +123,10 @@ const Header = () => {
   ];
 
   return (
-    <div className="header_parent">
+    <div className="hero_parent">
       <div className="bg_ele1"></div>
       <div className="bg_ele2"></div>
-      <div className="header_main">
+      <div className="hero_main">
         <div id="slide" ref={slideRef}>
           {data.map((item, index) => (
             <div
@@ -220,4 +220,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Hero;

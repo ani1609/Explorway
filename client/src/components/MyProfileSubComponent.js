@@ -4,7 +4,10 @@ import '../styles/MyProfileSubComponent.css';
 import '../index.css';
 import {ReactComponent as Edit} from '../icons/edit.svg';
 import {ReactComponent as Cross} from '../icons/cross.svg';
-
+import {ReactComponent as ProfileIcon} from '../icons/profile.svg';
+import {ReactComponent as Plus} from '../icons/plus.svg';
+import {ReactComponent as AddPhoto} from '../icons/addPhoto.svg';
+import {ReactComponent as Delete} from '../icons/delete.svg';
 
 function MyProfileSubComponent()
 {
@@ -18,6 +21,8 @@ function MyProfileSubComponent()
         dob: "",
         gender: "",
         profilePic: "",
+        preferredLocationType: "",
+        preferredLanguage: "",
     });
     const [enableEdit, setEnableEdit] = useState(false);
 
@@ -59,6 +64,8 @@ function MyProfileSubComponent()
                 dob: dobFormatted || "",
                 gender: user.gender || "none",
                 profilePic: user.profilePic || "",
+                preferredLocationType: user.preferredLocationType || "",
+                preferredLanguage: user.preferredLanguage || "",
             });
         }
     }, [user]);
@@ -96,10 +103,95 @@ function MyProfileSubComponent()
         
     };
 
+    const handlePicSubmit = async (e) =>
+    {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('profilePic', e.target.files[0]);
+        console.log(e.target.files[0]);
+        try
+        {
+            const config = {
+                headers: {
+                Authorization: `Bearer ${userToken}`,
+                },
+            };
+            const response = await axios.post('http://localhost:3000/api/uploadProfilePic', formData, config);
+            // console.log(response.data.user);
+            fetchDataFromProtectedAPI(userToken);
+            window.location.reload();
+        }
+        catch (error)
+        {
+            console.error("Error fetching data:", error);
+        }
+        
+    };
+
+    const handleDeletePhoto = async ()=>
+    {
+        console.log("handle delete");
+        try
+        {
+            const config = {
+                headers: {
+                Authorization: `Bearer ${userToken}`,
+                },
+            };
+            const response = await axios.post('http://localhost:3000/api/deleteProfilePic',config);
+            // console.log(response.data.user);
+            fetchDataFromProtectedAPI(userToken);
+            window.location.reload();
+        }
+        catch (error)
+        {
+            console.error("Error deleting photo:", error);
+        }
+    }
+
+    const handleAddNewPhoto = async ()=>
+    {
+        console.log("handle add new");
+        try
+        {
+            const config = {
+                headers: {
+                Authorization: `Bearer ${userToken}`,
+                },
+            };
+            const response = await axios.post('http://localhost:3000/api/addNewProfilePic',config);
+            // console.log(response.data.user);
+            fetchDataFromProtectedAPI(userToken);
+            // window.location.reload();
+        }
+        catch (error)
+        {
+            console.error("Error deleting photo:", error);
+        }
+    }
+
     return (
         <div className='myprofile_sub_parent'>
             {!enableEdit && <Edit className='edit_icon_profile' onClick={()=>setEnableEdit(true)}/>}
             {enableEdit && <Cross className='cross_icon_profile' onClick={()=>setEnableEdit(false)}/>}
+            {user?.profilePic ?
+                <div className='image_container'>
+                    <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic_sub" />
+                    <div className='image_options'>
+                        <div onClick={handleDeletePhoto}><Delete className='delete_icon'/><span>Delete photo</span></div>
+                        <div onClick={handleAddNewPhoto}><AddPhoto className='addPhoto_icon'/><span>Add new</span></div>
+                    </div>
+                </div>
+                :
+                <label style={!enableEdit ? { cursor: "not-allowed" } : {}}>
+                    <ProfileIcon className='profile_icon_sub'/>
+                    <input type='file' className='file-input' 
+                        onChange={handlePicSubmit}
+                        disabled={!enableEdit}
+                    />
+                    {enableEdit && <Plus className='plus_icon_sub'/>}
+                </label>
+            }
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="firstName">First Name:</label><br></br>
@@ -169,6 +261,37 @@ function MyProfileSubComponent()
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="preferredLanguage">Preferred Language:</label><br></br>
+                    <select
+                        name="preferredLanguage"
+                        value={formData.preferredLanguage}
+                        onChange={handleInputChange}
+                        style={!enableEdit ? { cursor: "not-allowed" } : { cursor: "pointer" }}
+                        disabled={!enableEdit}
+                    >
+                        <option value="Choose one">Choose one</option>
+                        <option value="Bengali">Bengali</option>
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="preferredLocationType">Preferred Location Type:</label><br></br>
+                    <select
+                        name="preferredLocationType"
+                        value={formData.preferredLocationType}
+                        onChange={handleInputChange}
+                        style={!enableEdit ? { cursor: "not-allowed" } : { cursor: "pointer" }}
+                        disabled={!enableEdit}
+                    >
+                        <option value="Choose one">Choose one</option>
+                        <option value="Beaches">Beaches</option>
+                        <option value="Cities">Cities</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Villages">Villages</option>
                     </select>
                 </div>
                 {enableEdit && <button type="submit">Submit</button>}

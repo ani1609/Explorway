@@ -1,4 +1,4 @@
-.header_parent
+.hero_parent
 {
     position: relative;
     display: flex;
@@ -9,7 +9,7 @@
     overflow: hidden;
 }
 
-.header_main
+.hero_main
 {
     position: relative;
     /* left: 50%;

@@ -3,7 +3,7 @@ const connectDb = require('./configDb/db');
 const { login, signup, authenticateJWT, editUserInfo, changePassword } = require('./controllers/userController');
 const { seedDestinationsDatabase, getAllDestinations, getDestinationById, clearDestinationsDatabase } = require('./controllers/destinationsController');
 const {addAddress, fetchAddress, clearAddressDatabase} = require('./controllers/addressController');
-const { uploadProfilePic } = require('./controllers/imageUploadController');
+const { uploadProfilePic, deleteProfilePic, addNewProfilePic } = require('./controllers/imageController');
 const multer = require('multer');
 const path = require('path');
 const express = require('express');
@@ -62,7 +62,8 @@ const storage=multer.diskStorage(
 });
 const upload=multer({storage: storage});
 app.post('/api/uploadProfilePic', upload.single('profilePic'), uploadProfilePic);
-
+app.post('/api/deleteProfilePic', deleteProfilePic);
+app.post('/api/addNewProfilePic', addNewProfilePic);
 
 
 
