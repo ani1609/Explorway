@@ -19,7 +19,6 @@ const deleteProfilePic = async (req, res) =>
     const decoded = jwt.verify(token,process.env.SECRET_KEY);
     const user= await User.findById(decoded.id);
     const filePath=user.profilePic;
-    console.log(filePath);
     fs.unlink(filePath, (error) => {
         if (error) {
             console.error('Error deleting file:', error);
@@ -35,6 +34,20 @@ const deleteProfilePic = async (req, res) =>
 const addNewProfilePic = async (req, res) =>
 {
     console.log("got add new request");
+    const token = req.headers.authorization.split(' ')[1];
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+    const user = await User.findById(decoded.id);
+    const filePath=user.profilePic;
+    fs.unlink(filePath, (error) => {
+        if (error) {
+            console.error('Error deleting file:', error);
+        } else {
+            console.log('File deleted successfully.');
+        }
+    });
+    user.profilePic=req.file.path;
+    await user.save();
+    res.status(201).json({ user });
 }
 
 

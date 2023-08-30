@@ -63,7 +63,9 @@ const storage=multer.diskStorage(
 const upload=multer({storage: storage});
 app.post('/api/uploadProfilePic', upload.single('profilePic'), uploadProfilePic);
 app.post('/api/deleteProfilePic', deleteProfilePic);
-app.post('/api/addNewProfilePic', addNewProfilePic);
+app.post('/api/addNewProfilePic', upload.single('profilePic'), addNewProfilePic);
+
+
 
 
 
