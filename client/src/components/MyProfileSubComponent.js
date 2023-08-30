@@ -108,7 +108,6 @@ function MyProfileSubComponent()
         e.preventDefault();
         const formData = new FormData();
         formData.append('profilePic', e.target.files[0]);
-        console.log(e.target.files[0]);
         try
         {
             const config = {
@@ -149,9 +148,11 @@ function MyProfileSubComponent()
         }
     }
 
-    const handleAddNewPhoto = async ()=>
+    const handleAddNewPhoto = async (e)=>
     {
-        console.log("handle add new");
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('profilePic', e.target.files[0]);
         try
         {
             const config = {
@@ -159,10 +160,10 @@ function MyProfileSubComponent()
                 Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.post('http://localhost:3000/api/addNewProfilePic',config);
-            // console.log(response.data.user);
+            const response = await axios.post('http://localhost:3000/api/addNewProfilePic', formData, config);
+            console.log(response.data.user);
             fetchDataFromProtectedAPI(userToken);
-            // window.location.reload();
+            window.location.reload();
         }
         catch (error)
         {
@@ -177,10 +178,14 @@ function MyProfileSubComponent()
             {user?.profilePic ?
                 <div className='image_container'>
                     <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic_sub" />
-                    <div className='image_options'>
+                    {enableEdit && <div className='image_options'>
                         <div onClick={handleDeletePhoto}><Delete className='delete_icon'/><span>Delete photo</span></div>
-                        <div onClick={handleAddNewPhoto}><AddPhoto className='addPhoto_icon'/><span>Add new</span></div>
-                    </div>
+                        <div>
+                            <AddPhoto className='addPhoto_icon' />
+                            <span >Add new</span>
+                            <input type='file' onChange={handleAddNewPhoto}/>
+                        </div>
+                    </div>}
                 </div>
                 :
                 <label style={!enableEdit ? { cursor: "not-allowed" } : {}}>
