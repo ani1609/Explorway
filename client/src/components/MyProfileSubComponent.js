@@ -6,6 +6,8 @@ import {ReactComponent as Edit} from '../icons/edit.svg';
 import {ReactComponent as Cross} from '../icons/cross.svg';
 import {ReactComponent as ProfileIcon} from '../icons/profile.svg';
 import {ReactComponent as Plus} from '../icons/plus.svg';
+import {ReactComponent as AddPhoto} from '../icons/addPhoto.svg';
+import {ReactComponent as Delete} from '../icons/delete.svg';
 
 function MyProfileSubComponent()
 {
@@ -126,12 +128,60 @@ function MyProfileSubComponent()
         
     };
 
+    const handleDeletePhoto = async ()=>
+    {
+        console.log("handle delete");
+        try
+        {
+            const config = {
+                headers: {
+                Authorization: `Bearer ${userToken}`,
+                },
+            };
+            const response = await axios.post('http://localhost:3000/api/deleteProfilePic',config);
+            // console.log(response.data.user);
+            fetchDataFromProtectedAPI(userToken);
+            window.location.reload();
+        }
+        catch (error)
+        {
+            console.error("Error deleting photo:", error);
+        }
+    }
+
+    const handleAddNewPhoto = async ()=>
+    {
+        console.log("handle add new");
+        try
+        {
+            const config = {
+                headers: {
+                Authorization: `Bearer ${userToken}`,
+                },
+            };
+            const response = await axios.post('http://localhost:3000/api/addNewProfilePic',config);
+            // console.log(response.data.user);
+            fetchDataFromProtectedAPI(userToken);
+            // window.location.reload();
+        }
+        catch (error)
+        {
+            console.error("Error deleting photo:", error);
+        }
+    }
+
     return (
         <div className='myprofile_sub_parent'>
             {!enableEdit && <Edit className='edit_icon_profile' onClick={()=>setEnableEdit(true)}/>}
             {enableEdit && <Cross className='cross_icon_profile' onClick={()=>setEnableEdit(false)}/>}
             {user?.profilePic ?
-                <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic_sub" />
+                <div className='image_container'>
+                    <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic_sub" />
+                    <div className='image_options'>
+                        <div onClick={handleDeletePhoto}><Delete className='delete_icon'/><span>Delete photo</span></div>
+                        <div onClick={handleAddNewPhoto}><AddPhoto className='addPhoto_icon'/><span>Add new</span></div>
+                    </div>
+                </div>
                 :
                 <label style={!enableEdit ? { cursor: "not-allowed" } : {}}>
                     <ProfileIcon className='profile_icon_sub'/>

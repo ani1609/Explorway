@@ -50,13 +50,54 @@
     border: 2px solid white;
 }
 
-.myprofile_sub_parent>img
+.myprofile_sub_parent> div img
 {
     height: 140px;
     width: 140px;
-    margin-bottom: 40px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.image_container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+
+.image_options
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.image_options>div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0px 5px;
+}
+
+.image_options>div span
+{
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    margin-left: 3px;
+    color: var(--heading);
+}
+
+.delete_icon, .addPhoto_icon
+{
+    fill: var(--primary);
+    width: 25px;
 }
 
 .edit_icon_profile
