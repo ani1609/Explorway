@@ -4,7 +4,7 @@ import "../styles/Navbar.css";
 import "../index.css";
 import Logo from "../images/logof.png";
 import axios from "axios";
-import {ReactComponent as Profile} from '../icons/profile.svg';
+import {ReactComponent as Profile} from '../icons/user.svg';
 
 function Navbar(props)
 {

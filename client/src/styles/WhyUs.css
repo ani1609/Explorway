@@ -9,7 +9,6 @@
     gap: 60px;
     position: relative;
     overflow: hidden;
-    padding-bottom: 50px;
 }
 
 .why_heading
@@ -50,7 +49,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.whytopic_1, .whytopic_2, .whytopic_3, .whytopic_4
+.whytopic
 {
     width: 20%;
     display: flex;
@@ -61,7 +60,7 @@
     gap: 15px;
 }
 
-.whytopic_1 i, .whytopic_2 i, .whytopic_3 i, .whytopic_4 i
+.whytopic i
 {
     color: var(--primary);
     font-size: 20px;
@@ -74,7 +73,7 @@
     border-radius: 50%;
 }
 
-.whytopic_1 h4, .whytopic_2 h4, .whytopic_3 h4, .whytopic_4 h4
+.whytopic h4
 {
     margin: 0;
     margin-top: 5px;
@@ -86,7 +85,7 @@
     text-align: left;
 }
 
-.whytopic_1 p, .whytopic_2 p, .whytopic_3 p, .whytopic_4 p
+.whytopic p
 {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -94,141 +93,6 @@
     color: var(--para);
     letter-spacing: 0.5px;
     font-size: 12.5px;
-}
-
-.whyus_images
-{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 75%;
-    box-sizing: border-box;
-}
-
-.whyus_images>div
-{
-    display: flex;
-    gap: 15px;
-}
-
-.whyimage_1, .whyimage_2, .whyimage_3, .whyimage_4
-{
-    height: 250px;
-    border-radius: 5px;
-    position: relative;
-    overflow: hidden;
-}
-
-.whyimage_1
-{
-    width: 60%;
-}
-
-.whyimage_2
-{
-    width: 40%;
-}
-
-.whyimage_3
-{
-    width: 40%;
-}
-
-.whyimage_4
-{
-    width: 60%;
-}
-
-.whyimage_1 img
-{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
-}
-
-.whyimage_2 img
-{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
-}
-
-.whyimage_3 img
-{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
-}
-
-.whyimage_4 img
-{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
-}
-
-.whyimage_1 div, .whyimage_2 div, .whyimage_3 div, .whyimage_4 div
-{
-    position: absolute;
-    background-color: var(--bg2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 9vw;
-    height: 6vw;
-}
-
-.whyimage_1 div
-{
-    left: 0px;
-    top: 0px;
-    border-bottom-right-radius: 5px;
-}
-
-.whyimage_2 div
-{
-    right: 0px;
-    top: 0px;
-    border-bottom-left-radius: 5px;
-}
-
-
-.whyimage_3 div
-{
-    left: 0px;
-    bottom: 0px;
-    border-top-right-radius: 5px;
-}
-
-.whyimage_4 div
-{
-    right: 0px;
-    bottom: 0px;
-    border-top-left-radius: 5px;
-}
-
-
-.whyimage_1 div h1, .whyimage_2 div h1, .whyimage_3 div h1, .whyimage_4 div h1
-{
-    font-family: 'Roboto', sans-serif;
-    color: var(--heading);
-    margin: 0;
-    letter-spacing: 1px;
-    font-size: 30px;
-}
-
-.whyimage_1 div p, .whyimage_2 div p, .whyimage_3 div p, .whyimage_4 div p
-{
-    font-family: 'Roboto', sans-serif;
-    color: var(--para);
-    margin: 0;
-    letter-spacing: 0.5px;
-    font-size: 14px;
 }
 
 .bg_ele3
@@ -250,27 +114,5 @@
     background-image: url("../images/absbg4.png");
     background-size: cover;
     top: -75px;
-    right: -100px;
-}
-
-.bg_ele5
-{
-    position: absolute;
-    height: 200px;
-    width: 200px;
-    background-image: url("../images/absbg4.png");
-    background-size: cover;
-    bottom: -155px;
-    left: -100px;
-}
-
-.bg_ele6
-{
-    position: absolute;
-    height: 200px;
-    width: 200px;
-    background-image: url("../images/absbg4.png");
-    background-size: cover;
-    bottom: -155px;
     right: -100px;
 }

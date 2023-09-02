@@ -64,13 +64,12 @@
 
 .sub_right p
 {
-    max-width: 400px;
     font-size: 14px;
     font-weight: 400;
     margin: 0;
     color: var(--para);
-    /* font-family: 'Inter', sans-serif; */
     font-family: 'Roboto', sans-serif;
+    text-align: justify;
     letter-spacing: 0.3px;
 }
 
