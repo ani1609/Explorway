@@ -5,8 +5,8 @@
     overflow: hidden;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 5px #F4F3F6;
+    background-color: var(--primary-bg);
     box-sizing: border-box;
-    background-color: white;
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;

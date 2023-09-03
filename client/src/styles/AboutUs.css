@@ -7,27 +7,11 @@
     box-sizing: border-box;
 }
 
-.aboutus_content
-{
-    height: 320px;
-    width: 75%;
-    margin: auto;
-    box-sizing: border-box;
-    display: flex;
-    gap: 30px;
-}
-
-.aboutus_left
-{
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-}
 
 .aboutus_heading
 {
+    width: 75%;
+    margin: auto;
     display: flex;
     align-items: center;
     gap: 9px;
@@ -53,6 +37,25 @@
     font-size: 33px;
 }
 
+.aboutus_content
+{
+    height: 320px;
+    width: 75%;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.aboutus_left
+{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .aboutus_left p
 {
     font-size: 14.5px;
@@ -63,6 +66,51 @@
     letter-spacing: 0.4px;
     word-spacing: 2px;
     text-align: justify;
+}
+
+
+.aboutus_left ul
+{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aboutus_left ul li
+{
+    font-family: 'Roboto', sans-serif;
+    color: var(--para);
+    letter-spacing: 0.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutus_left ul li:nth-child(1)::before,
+.aboutus_left ul li:nth-child(2)::before,
+.aboutus_left ul li:nth-child(3)::before
+{
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--heading);
+}
+
+.aboutus_left ul li:nth-child(1)::before
+{
+    content: "800+";
+}
+
+.aboutus_left ul li:nth-child(2)::before
+{
+    content: "50+";
+}
+
+.aboutus_left ul li:nth-child(3)::before
+{
+    content: "25K+";
 }
 
 .aboutus_right
@@ -85,58 +133,15 @@
     width: 60%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-
-.aboutus_right div ul
-{
-    display: flex;
+    box-sizing: border-box;
     justify-content: space-between;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.aboutus_right div ul li
-{
-    font-family: 'Roboto', sans-serif;
-    color: var(--para);
-    letter-spacing: 0.5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.aboutus_right div ul li:nth-child(1)::before,
-.aboutus_right div ul li:nth-child(2)::before,
-.aboutus_right div ul li:nth-child(3)::before
-{
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--heading);
-}
-
-.aboutus_right div ul li:nth-child(1)::before
-{
-    content: "800+";
-}
-
-.aboutus_right div ul li:nth-child(2)::before
-{
-    content: "50+";
-}
-
-.aboutus_right div ul li:nth-child(3)::before
-{
-    content: "25K+";
 }
 
 .aboutus_right div>img
 {
     width: 100%;
     object-fit: cover;
-    height: calc(100% - 55px);
+    height: calc(50% - 5px);
     border-radius: 5px;
 }
 
