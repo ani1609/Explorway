@@ -5,8 +5,12 @@
 
 body 
 {
+  /* background-color: #ecdee5; */
+  /* --primary-bg: #ecdee5; */
+  /* --primary: #d14568; */
   --primary: #F25278;
   --heading: #484848;
+  /* --heading: #282932; */
   --para:#848484;
   --bg1: #ffecf0;
   --bg2: #ffcdd7;

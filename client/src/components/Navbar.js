@@ -4,7 +4,7 @@ import "../styles/Navbar.css";
 import "../index.css";
 import Logo from "../images/logof.png";
 import axios from "axios";
-import {ReactComponent as Profile} from '../icons/profile.svg';
+import {ReactComponent as Profile} from '../icons/user.svg';
 
 function Navbar(props)
 {
@@ -96,7 +96,7 @@ function Navbar(props)
   return (
     <div className={navbarScrolled?"navbar_parent opaque":"navbar_parent transparent"}>
         <a href="" className="logo_container">
-          <img src={Logo} alt="logo" className="logo"/>
+          {/* <img src={Logo} alt="logo" className="logo"/> */}
           <p className={navbarScrolled ? "color":"color"}>Trekwise</p>
         </a>
         <ul>

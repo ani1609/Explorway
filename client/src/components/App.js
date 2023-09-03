@@ -6,11 +6,11 @@ import Login from './Login';
 import Signup from './Signup';
 import Hero from './Hero';
 import WhyUs from './WhyUs';
+import AboutUs from './AboutUs';
 import Card from './Card';
 import Subscription from './Subscription';
 import Profile from './Profile.js';
 import Footer from './Footer';
-
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -40,6 +40,7 @@ function HomePage()
       <Navbar/>
       <Hero />
       <WhyUs />
+      <AboutUs/>
       <Card />
       <Subscription />
       <Footer />
