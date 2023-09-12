@@ -42,7 +42,8 @@ Before you begin, make sure you have the following software installed on your sy
 ## Screenshots
 <img width="1440" alt="Screenshot 2023-09-12 at 12 21 17 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/60aa0d01-6742-4af8-b9ff-9ca4b35892f9">
 
-<img width="1440" alt="Screenshot 2023-09-12 at 12 25 12 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/49a10cd3-9aff-47d8-8a76-195c8a75c524">
+<img width="1440" alt="Screenshot 2023-09-12 at 1 20 01 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/358750b4-09c3-4186-8c5a-f5245c1824a2">
+
 
 <img width="1440" alt="Screenshot 2023-09-12 at 12 26 43 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/8c0caa1e-3ad1-4629-aa17-6f0a40deeb7f">
 
