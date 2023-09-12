@@ -1,4 +1,4 @@
-# Your Project Name
+# Traveloholic
 
 Welcome to the repository for your project. This repository contains both the client and server components of the project.
 
@@ -38,3 +38,12 @@ Before you begin, make sure you have the following software installed on your sy
    - `npm start`
    - `(Press Enter again to confirm that the client application redirects to localhost:3001.)`
 
+
+## Screenshots
+<img width="1440" alt="Screenshot 2023-09-12 at 12 21 17 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/60aa0d01-6742-4af8-b9ff-9ca4b35892f9">
+
+<img width="1440" alt="Screenshot 2023-09-12 at 12 25 12 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/49a10cd3-9aff-47d8-8a76-195c8a75c524">
+
+<img width="1440" alt="Screenshot 2023-09-12 at 12 26 43 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/8c0caa1e-3ad1-4629-aa17-6f0a40deeb7f">
+
+<img width="1440" alt="Screenshot 2023-09-12 at 12 27 17 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/ba1ca2b3-1bf8-4f9a-8f71-a5988ee29ff7">
