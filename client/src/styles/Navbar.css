@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@1,300;1,400;1,500;1,700&display=swap');
+
 .navbar_parent
 {
     top: 0;
@@ -40,20 +42,22 @@
     text-decoration: none;
 }
 
-.logo_container img
+.navbar_parent a
 {
-    height: 35px;
-    width: 38px;
-    filter: drop-shadow(0px 7px 29px rgba(100, 100, 111, 0.2));
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
-.logo_container p
+.navbar_parent a i
 {
-    font-size: 20px;
+    font-size: 28px;
+    letter-spacing: 0.5px;
     font-weight: 600;
-    margin: 0;
-    padding: 0;
-    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--heading);
 }
 
 .color
@@ -110,6 +114,15 @@
     font-weight: 400;
     font-size: 15px;
     letter-spacing: 0.2px;
+}
+
+.navbar_parent ul li
+{
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .login_signup_container
@@ -190,7 +203,8 @@
     
 }
 
-.login_form_container::before {
+.login_form_container::before 
+{
     content: "";
     position: absolute;
     top: 0;

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "../styles/AboutUs.css";
 import "../index.css";
 import Destinations from "../images/whyus_destinations3.webp";
-import Clients from "../images/whyus_clients.webp";
+import Clients from "../images/whyus_clients3.webp";
 import Teams from "../images/whyus_teams.webp";
 import Hotels from "../images/whyus_hotels.webp";
 
