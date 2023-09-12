@@ -34,8 +34,6 @@ function AboutUs()
                     <img src={Clients}/>
                 </div>
             </div>
-            <div className="bg_ele5"></div>
-            <div className="bg_ele6"></div>
         </div>
     );
 }
