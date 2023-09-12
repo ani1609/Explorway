@@ -54,4 +54,6 @@ Before you begin, make sure you have the following software installed on your sy
 
 <img width="1440" alt="Screenshot 2023-09-12 at 1 14 05 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/516921c9-a115-47af-b063-705ea6d5c871">
 
+<img width="1440" alt="Screenshot 2023-09-12 at 1 14 52 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/3f7fbc9b-7242-4f6a-80c2-62ac24a2e6f0">
+
 <img width="1440" alt="Screenshot 2023-09-12 at 1 14 15 PM" src="https://github.com/ani1609/Traveloholic/assets/89239354/548d3ebf-bc94-4a6e-8c5d-a83517a988cf">
