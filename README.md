@@ -17,25 +17,24 @@ Before you begin, make sure you have the following software installed on your sy
 ### Installing and running the porject
 
 1. Clone this repository to your local machine:
-   git clone https://github.com/ani1609/Traveloholic.git
+   - `git clone https://github.com/ani1609/Traveloholic.git`
 
 2. Navigate to the project directory:
-   cd Traveloholic
+   - `cd Traveloholic`
 
 3. Install server dependencies. Inside the server folder, run:
-   cd server
-   npm install
+   - `cd ../server`
+   - `npm install`
 
 4. Start the server:
-   nodemon server
-
-   The server will start at localhost:3000
+   - `nodemon server`
+   - `The server will start at localhost:3000`
 
 6. Install client dependencies. In the project root directory, navigate to the client folder:
-   cd ../client
-   npm install
+   - `cd ../client`
+   - `npm install`
 
 7. Start the client application:
-   npm start
-   (Press Enter again to confirm that the client application redirects to localhost:3001.)
+   - `npm start`
+   - `(Press Enter again to confirm that the client application redirects to localhost:3001.)`
 
