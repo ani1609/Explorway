@@ -95,9 +95,8 @@ function Navbar(props)
 
   return (
     <div className={navbarScrolled?"navbar_parent opaque":"navbar_parent transparent"}>
-        <a href="" className="logo_container">
-          {/* <img src={Logo} alt="logo" className="logo"/> */}
-          <p className={navbarScrolled ? "color":"color"}>Trekwise</p>
+        <a href="" className="logo">
+          <i>Trekwise</i>
         </a>
         <ul>
           <li className={navbarScrolled ? "color":"white"}>Home</li>
