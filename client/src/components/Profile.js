@@ -38,7 +38,7 @@ function Profile(props)
                 Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.get("http://localhost:3000/api/user", config);
+            const response = await axios.get("https://explorway-server.vercel.app/api/user", config);
             setUser(response.data.user);
             // console.log(response.data.user);
         }
@@ -98,7 +98,7 @@ function Profile(props)
                 <div className='profile_list'>
                     <div className='profile_list_header'>
                         {user?.profilePic ?
-                            <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic" />
+                            <img src={`https://explorway-server.vercel.app/${user.profilePic}`} alt="Profile" className="profile-pic" />
                             :
                             <ProfileIcon className='profile_icon'/>
                         }

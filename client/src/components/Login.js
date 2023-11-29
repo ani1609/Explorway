@@ -26,7 +26,7 @@ function Login()
     //             },
     //         };
       
-    //         const response = await axios.get("http://localhost:3000/api/user", config);
+    //         const response = await axios.get("https://explorway-server.vercel.app/api/user", config);
     //         user.name=response.data.user.name;
     //         user.email=response.data.user.email;
     //         user.profilePic=response.data.user.profilePic;
@@ -44,7 +44,7 @@ function Login()
         e.preventDefault();
         try
         {
-            const response = await axios.post("http://localhost:3000/api/users/login", loginData);
+            const response = await axios.post("https://explorway-server.vercel.app/api/users/login", loginData);
             localStorage.clear();
             localStorage.setItem('token', JSON.stringify(response.data.token));
             // const userToken = JSON.parse(localStorage.getItem('token'));

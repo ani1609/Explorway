@@ -31,7 +31,7 @@ function Signup()
         }
         try
         {
-            const response = await axios.post("http://localhost:3000/api/users/signup", signupData);
+            const response = await axios.post("https://explorway-server.vercel.app/api/users/signup", signupData);
             localStorage.clear();
             localStorage.setItem('token', JSON.stringify(response.data.token));
             // console.log(response.data.token);

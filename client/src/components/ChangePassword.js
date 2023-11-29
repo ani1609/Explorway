@@ -5,7 +5,6 @@ import axios from 'axios';
 import {ReactComponent as Visible} from '../icons/eyeVisible.svg';
 import {ReactComponent as Disabled} from '../icons/eyeDisabled.svg';
 import {ReactComponent as Tick} from '../icons/tick.svg';
-import { set } from 'mongoose';
 
 function ChangePassword() 
 {
@@ -33,7 +32,7 @@ function ChangePassword()
                 Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.get("http://localhost:3000/api/user", config);
+            const response = await axios.get("https://explorway-server.vercel.app/api/user", config);
             setUserData({ ...userData, email: response.data.user.email });
         }
         catch (error)
@@ -63,7 +62,7 @@ function ChangePassword()
         setPasswordDismatch(false);
         try 
         {
-            const response = await axios.post('http://localhost:3000/api/changePassword', userData);
+            const response = await axios.post('https://explorway-server.vercel.app/api/changePassword', userData);
             console.log(response.data.message);
             setSuccessfullyChanged(true);
             const timer = setTimeout(() => {

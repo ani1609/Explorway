@@ -35,7 +35,7 @@ function MyProfileSubComponent()
                   Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.get("http://localhost:3000/api/user", config);
+            const response = await axios.get("https://explorway-server.vercel.app/api/user", config);
             setUser(response.data.user);
         }
         catch (error)
@@ -91,7 +91,7 @@ function MyProfileSubComponent()
                     Authorization: `Bearer ${userToken}`,
                     },
                 };
-                const response = await axios.post("http://localhost:3000/api/editUserInfo", formData, config);
+                const response = await axios.post("https://explorway-server.vercel.app/api/editUserInfo", formData, config);
                 console.log(response.data.user);
                 window.location.reload();
             }
@@ -115,7 +115,7 @@ function MyProfileSubComponent()
                 Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.post('http://localhost:3000/api/uploadProfilePic', formData, config);
+            const response = await axios.post('https://explorway-server.vercel.app/api/uploadProfilePic', formData, config);
             // console.log(response.data.user);
             fetchDataFromProtectedAPI(userToken);
             window.location.reload();
@@ -137,7 +137,7 @@ function MyProfileSubComponent()
                 Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.post('http://localhost:3000/api/deleteProfilePic',config);
+            const response = await axios.post('https://explorway-server.vercel.app/api/deleteProfilePic',config);
             // console.log(response.data.user);
             fetchDataFromProtectedAPI(userToken);
             window.location.reload();
@@ -160,7 +160,7 @@ function MyProfileSubComponent()
                 Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.post('http://localhost:3000/api/addNewProfilePic', formData, config);
+            const response = await axios.post('https://explorway-server.vercel.app/api/addNewProfilePic', formData, config);
             console.log(response.data.user);
             fetchDataFromProtectedAPI(userToken);
             window.location.reload();
@@ -177,7 +177,7 @@ function MyProfileSubComponent()
             {enableEdit && <Cross className='cross_icon_profile' onClick={()=>setEnableEdit(false)}/>}
             {user?.profilePic ?
                 <div className='image_container'>
-                    <img src={`http://localhost:3000/${user.profilePic}`} alt="Profile" className="profile-pic_sub" />
+                    <img src={`https://explorway-server.vercel.app/${user.profilePic}`} alt="Profile" className="profile-pic_sub" />
                     {enableEdit && <div className='image_options'>
                         <div onClick={handleDeletePhoto}><Delete className='delete_icon'/><span>Delete photo</span></div>
                         <div>

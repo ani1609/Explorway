@@ -31,7 +31,7 @@ function Address()
                 Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.get("http://localhost:3000/api/user", config);
+            const response = await axios.get("https://explorway-server.vercel.app/api/user", config);
             setUser(response.data.user);
         }
         catch (error)
@@ -44,7 +44,7 @@ function Address()
     {
         try
         {
-            const response = await axios.get(`http://localhost:3000/api/fetchAddress?email=${email}`);
+            const response = await axios.get(`https://explorway-server.vercel.app/api/fetchAddress?email=${email}`);
             setAddressObject(response.data.address);
         }
         catch (error)
@@ -90,7 +90,7 @@ function Address()
                 Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.post("http://localhost:3000/api/addAddress", address, config);
+            const response = await axios.post("https://explorway-server.vercel.app/api/addAddress", address, config);
             // console.log(response.data);
             window.location.reload();
         }
