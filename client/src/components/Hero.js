@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import 'react-datepicker/dist/react-datepicker.css';
 import "../styles/Hero.css";
 import "../index.css";
+import {ReactComponent as Forward} from '../icons/forward.svg';
+import {ReactComponent as Backward} from '../icons/backward.svg';
 import v1 from "../videos/t2.mp4";
 import v2 from "../videos/t11_c.mp4";
 import v3 from "../videos/t5.mp4";
@@ -142,7 +143,7 @@ const Hero = () => {
               </video>    
               <div className="content">
                 <button onClick={handleClickPrev}>
-                  <FontAwesomeIcon icon={faAngleLeft} />
+                  <Backward />
                 </button>
           
                 {/* <div> */}
@@ -152,7 +153,7 @@ const Hero = () => {
                 {/* </div> */}
 
                 <button onClick={handleClickNext}>
-                  <FontAwesomeIcon icon={faAngleRight} />
+                  <Forward />
                 </button>
               </div>
             </div>
