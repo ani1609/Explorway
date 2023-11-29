@@ -143,17 +143,11 @@ const Hero = () => {
               </video>    
               <div className="content">
                 <button onClick={handleClickPrev}>
-                  <Backward />
+                  <Backward className="backward_icon"/>
                 </button>
-          
-                {/* <div> */}
-                  <h1>{item.name}</h1>
-                  {/* <p>{item.desc}</p> */}
-                  {/* <a href={item.url}>See more</a> */}
-                {/* </div> */}
-
+                <h1>{item.name}</h1>
                 <button onClick={handleClickNext}>
-                  <Forward />
+                  <Forward className="forward_icon"/>
                 </button>
               </div>
             </div>
