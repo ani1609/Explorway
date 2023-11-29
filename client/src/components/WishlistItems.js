@@ -15,7 +15,6 @@ import {
 import {ReactComponent as HeartSolid} from '../icons/heart_solid.svg';
 import {ReactComponent as Location} from '../icons/location2.svg';
 import {ReactComponent as Rupee} from '../icons/rupee.svg';
-import { Cursor } from "mongoose";
 
 
 function WishlistItems(props) 
