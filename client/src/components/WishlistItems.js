@@ -45,7 +45,7 @@ function WishlistItems(props)
                     Authorization: `Bearer ${userToken}`,
                 },
             };
-            const response = await axios.get("http://localhost:3000/api/user", config);
+            const response = await axios.get("https://explorway-server.vercel.app/api/user", config);
             setUser(response.data.user);
         } 
         catch (error) 

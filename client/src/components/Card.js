@@ -11,7 +11,7 @@ function Card()
 
     const fetchDestinations = async () => {
         try {
-          const response = await axios.get('http://localhost:3000/api/getAllDestinations');
+          const response = await axios.get('https://explorway-server.vercel.app/api/getAllDestinations');
           setDestinations(response.data);
         } catch (error) {
           console.error('Error fetching destinations:', error);

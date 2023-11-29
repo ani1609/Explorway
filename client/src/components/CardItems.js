@@ -7,7 +7,7 @@ import {ReactComponent as Heart} from '../icons/heart.svg';
 import {ReactComponent as HeartSolid} from '../icons/heart_solid.svg';
 import { db, userWishlistCollection } from '../firebaseConfig';
 import { collection, addDoc, getDocs, deleteDoc, doc, getDoc, setDoc, onSnapshot} from 'firebase/firestore';
-import { set } from 'mongoose';
+
 
 function CardItems(props)
 {
@@ -34,7 +34,7 @@ function CardItems(props)
               Authorization: `Bearer ${userToken}`,
             },
         };
-        const response = await axios.get("http://localhost:3000/api/user", config);
+        const response = await axios.get("https://explorway-server.vercel.app/api/user", config);
         setUser(response.data.user);
       }
       catch (error)
